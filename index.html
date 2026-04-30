@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="株式会社覚善 — 人財が、未来をつくる。人材派遣・人材紹介・採用コンサルティングのプロフェッショナル集団。" />
+<meta name="description" content="株式会社覚善 — 人財が、未来をつくる。労働者派遣のプロフェッショナル集団。" />
 <title>株式会社覚善｜人財が、未来をつくる。</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,6 +51,8 @@ body {
   letter-spacing: 0.02em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -1179,7 +1181,6 @@ footer {
     <nav class="nav-desktop" aria-label="グローバルナビ">
       <a href="#about">理念</a>
       <a href="#services">サービス</a>
-      <a href="#numbers">実績</a>
       <a href="#company">会社情報</a>
       <a href="#contact" class="cta-mini">お問い合わせ</a>
     </nav>
@@ -1193,9 +1194,8 @@ footer {
   <ul>
     <li><a href="#about"><span>理念</span><span class="num">01</span></a></li>
     <li><a href="#services"><span>サービス</span><span class="num">02</span></a></li>
-    <li><a href="#numbers"><span>実績</span><span class="num">03</span></a></li>
-    <li><a href="#company"><span>会社情報</span><span class="num">04</span></a></li>
-    <li><a href="#contact"><span>お問い合わせ</span><span class="num">05</span></a></li>
+    <li><a href="#company"><span>会社情報</span><span class="num">03</span></a></li>
+    <li><a href="#contact"><span>お問い合わせ</span><span class="num">04</span></a></li>
   </ul>
   <a href="#contact" class="drawer-cta">無料相談を申し込む</a>
   <div class="drawer-foot">
@@ -1284,9 +1284,7 @@ footer {
         <span class="br"><span class="accent">宝</span>です。</span>
       </h1>
       <p class="hero-sub reveal delay-2">
-        人材派遣・人材紹介・採用コンサルティング。<br />
-        私たち覚善は「人＝財」と書く想いで、企業と人をつなぎ、<br />
-        働くすべての人が誇れる未来を、ともに描きます。
+        人材派遣のプロフェッショナルとして、企業と人をつなぐ。私たち覚善は「人＝財」と書く想いで、働くすべての人が誇れる未来を、ともにつくります。
       </p>
       <div class="hero-actions reveal delay-3">
         <a href="#contact" class="btn btn-primary">
@@ -1295,26 +1293,6 @@ footer {
         <a href="#services" class="btn btn-ghost">
           サービスを見る <span class="arrow"></span>
         </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="hero-stats reveal delay-4">
-      <div class="stat">
-        <div class="num"><span class="count" data-target="15">0</span><span class="suffix">年</span></div>
-        <div class="label">EST. 2011</div>
-        <div class="label-ja">創業からの歩み</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="count" data-target="2800">0</span><span class="suffix">+</span></div>
-        <div class="label">CAREERS BUILT</div>
-        <div class="label-ja">支援したキャリア</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span class="count" data-target="450">0</span><span class="suffix">社</span></div>
-        <div class="label">PARTNER COMPANIES</div>
-        <div class="label-ja">取引パートナー企業</div>
       </div>
     </div>
   </div>
@@ -1332,9 +1310,7 @@ footer {
       <span class="eyebrow">01 &mdash; Philosophy</span>
       <h2 class="section-title">「人材」ではなく、「人財」と書く理由。</h2>
       <p class="section-lead">
-        スキルや資格は履歴書に書ける。けれど、<br />
-        その人にしかない景色や情熱は、対話のなかでしか見えてこない。<br />
-        覚善はその一筋を、丁寧に、辛抱強く、見つけ出す会社です。
+        スキルや資格は履歴書に書ける。けれど、その人にしかない景色や情熱は、対話のなかでしか見えてこない。覚善はその一筋を、丁寧に、辛抱強く、見つけ出す会社です。
       </p>
     </div>
 
@@ -1394,12 +1370,11 @@ footer {
       <span class="eyebrow">02 &mdash; Services</span>
       <h2 class="section-title">企業と人、それぞれの「次の一歩」へ。</h2>
       <p class="section-lead">
-        派遣・紹介・採用コンサルティング。<br />
-        ニーズの大小にかかわらず、最適な座組みをご提案します。
+        労働者派遣のプロフェッショナルとして、ニーズの大小にかかわらず、最適なご提案をします。
       </p>
     </div>
 
-    <div class="service-grid">
+    <div class="service-grid" style="grid-template-columns: 1fr; max-width: 560px; margin: 0 auto;">
       <article class="service reveal">
         <div class="num">01</div>
         <div class="pict" aria-hidden="true">
@@ -1421,80 +1396,6 @@ footer {
           <li>IT・専門職派遣</li>
         </ul>
       </article>
-
-      <article class="service reveal delay-1">
-        <div class="num">02</div>
-        <div class="pict" aria-hidden="true">
-          <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
-            <circle cx="20" cy="22" r="9" fill="#E8A020"/>
-            <circle cx="44" cy="22" r="9" fill="#1B5E4F"/>
-            <path d="M8 50 Q8 36 20 36 Q32 36 32 50 Z" fill="#E8A020"/>
-            <path d="M32 50 Q32 36 44 36 Q56 36 56 50 Z" fill="#1B5E4F"/>
-            <path d="M28 22 Q32 14 36 22" stroke="#C77A1B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3>人材紹介</h3>
-        <p class="en">Career Placement</p>
-        <p>
-          経営層・管理職・専門職まで。一社一案件ごとに担当が深く入り込み、企業文化と候補者の哲学が重なる接点を探します。
-        </p>
-        <ul>
-          <li>正社員・契約社員紹介</li>
-          <li>エグゼクティブサーチ</li>
-          <li>専門職スカウト型紹介</li>
-        </ul>
-      </article>
-
-      <article class="service reveal delay-2">
-        <div class="num">03</div>
-        <div class="pict" aria-hidden="true">
-          <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
-            <path d="M10 50 L24 36 L34 44 L54 22" stroke="#1B5E4F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="54" cy="22" r="5" fill="#E8A020"/>
-            <circle cx="34" cy="44" r="4" fill="#1B5E4F"/>
-            <circle cx="24" cy="36" r="4" fill="#1B5E4F"/>
-            <path d="M10 56 L54 56" stroke="#C77A1B" stroke-width="1.5" stroke-dasharray="2 3"/>
-          </svg>
-        </div>
-        <h3>採用コンサルティング</h3>
-        <p class="en">Hiring Strategy</p>
-        <p>
-          採用設計から面接官トレーニング、採用ブランディングまで。「採れない・続かない」の根本原因に踏み込んでご支援します。
-        </p>
-        <ul>
-          <li>採用戦略・要件定義の伴走</li>
-          <li>面接官トレーニング</li>
-          <li>採用広報・ブランディング</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Numbers (deep section) ===== -->
-<section id="numbers" class="section-tight section-deep">
-  <div class="container">
-    <div class="section-head reveal" style="max-width: 900px;">
-      <span class="eyebrow">03 &mdash; Numbers</span>
-      <h2 class="section-title">数字で見る、覚善の歩み。</h2>
-    </div>
-    <div class="numbers-strip reveal delay-1">
-      <div class="item">
-        <div class="num"><span class="count" data-target="15">0</span></div>
-        <div class="label">YEARS &mdash; 創業</div>
-      </div>
-      <div class="item">
-        <div class="num"><span class="count" data-target="2800">0</span>+</div>
-        <div class="label">CAREERS &mdash; 支援数</div>
-      </div>
-      <div class="item">
-        <div class="num"><span class="count" data-target="450">0</span></div>
-        <div class="label">PARTNERS &mdash; 企業数</div>
-      </div>
-      <div class="item">
-        <div class="num"><span class="count" data-target="93">0</span>%</div>
-        <div class="label">RETENTION &mdash; 定着率</div>
-      </div>
     </div>
   </div>
 </section>
@@ -1503,20 +1404,16 @@ footer {
 <section id="company" class="section section-ink">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">04 &mdash; Company</span>
+      <span class="eyebrow">03 &mdash; Company</span>
       <h2 class="section-title">会社情報</h2>
     </div>
 
     <div class="company">
       <table class="company-table reveal">
         <tr><th>商号</th><td>株式会社覚善（KAKUZEN INC.）</td></tr>
-        <tr><th>代表者</th><td>代表取締役　覚善 一誠</td></tr>
+        <tr><th>代表者</th><td>代表取締役　三上修二</td></tr>
         <tr><th>創業</th><td>2011年（平成23年）</td></tr>
-        <tr><th>事業内容</th><td>
-          一般労働者派遣事業<br />
-          有料職業紹介事業<br />
-          採用コンサルティング
-        </td></tr>
+        <tr><th>事業内容</th><td>一般労働者派遣事業</td></tr>
         <tr><th>所在地</th><td>
           〒103-XXXX<br />
           東京都中央区日本橋X-X-X 覚善ビル 5F
@@ -1532,8 +1429,8 @@ footer {
       <aside class="ceo-card reveal delay-1">
         <div class="role">CEO Message</div>
         <div class="name">
-          <span class="ja">覚善 一誠</span>
-          <span class="en">Issei Kakuzen</span>
+          <span class="ja">三上修二</span>
+          <span class="en">Shuji Mikami</span>
         </div>
         <blockquote>
           「人材」を「人財」と書き換えたとき、見える景色がまるで変わりました。<br />
@@ -1549,11 +1446,11 @@ footer {
 <section id="contact" class="section section-cream contact">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">05 &mdash; Contact</span>
+      <span class="eyebrow">04 &mdash; Contact</span>
       <h2 class="section-title">まずは、対話から。</h2>
       <p class="section-lead">
-        採用にお悩みの企業様、キャリアにお悩みの方。<br />
-        どちらのお問い合わせも、同じ窓口で受け付けています。
+        人材派遣についてのご相談はお気軽にどうぞ。<br />
+        担当者が丁寧に対応いたします。
       </p>
     </div>
 
@@ -1615,9 +1512,6 @@ footer {
           <select>
             <option>選択してください</option>
             <option>人材派遣について</option>
-            <option>人材紹介について</option>
-            <option>採用コンサルティングについて</option>
-            <option>キャリア相談について</option>
             <option>その他</option>
           </select>
         </div>
@@ -1655,7 +1549,6 @@ footer {
         <ul>
           <li><a href="#about">理念</a></li>
           <li><a href="#services">サービス</a></li>
-          <li><a href="#numbers">実績</a></li>
           <li><a href="#company">会社情報</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
@@ -1672,7 +1565,7 @@ footer {
     </div>
     <div class="footer-bot">
       <span>&copy; 2026 KAKUZEN INC. All rights reserved.</span>
-      <span>派遣事業許可番号 13-XXXXXX / 紹介事業許可番号 13-ユ-XXXXXX</span>
+      <span>派遣事業許可番号 13-XXXXXX</span>
     </div>
   </div>
 </footer>
