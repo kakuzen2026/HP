@@ -282,6 +282,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   from { opacity: 0; transform: translate(40px, -50%); }
   to   { opacity: 1; transform: translate(0, -50%); }
 }
+@keyframes heroTextIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { animation: heroTextIn 1.0s 0.2s cubic-bezier(.22,.61,.36,1) both; }
+.hero h1      { animation: heroTextIn 1.0s 0.38s cubic-bezier(.22,.61,.36,1) both; }
+.hero .hero-sub     { animation: heroTextIn 1.0s 0.54s cubic-bezier(.22,.61,.36,1) both; }
+.hero .hero-actions { animation: heroTextIn 1.0s 0.68s cubic-bezier(.22,.61,.36,1) both; }
 .hero-inner {
   position: relative;
   z-index: 2;
@@ -1367,15 +1375,15 @@ footer {
 
   <div class="container hero-inner">
     <div class="hero-text">
-      <p class="hero-eyebrow reveal">Career Architects</p>
-      <h1 class="reveal delay-1">
+      <p class="hero-eyebrow">Career Architects</p>
+      <h1>
         一人ひとりが、
         <span class="br"><span class="accent">宝</span>です。</span>
       </h1>
-      <p class="hero-sub reveal delay-2">
+      <p class="hero-sub">
         人材派遣の現場を知り尽くしたプロが、企業と人をつなぐ。私たち覚善は「人＝財」と書く想いで、働くすべての人が誇れる未来を、ともにつくります。
       </p>
-      <div class="hero-actions reveal delay-3">
+      <div class="hero-actions">
         <a href="#for-jobseekers" class="btn btn-primary">
           お仕事を探す方へ <span class="arrow"></span>
         </a>
@@ -1817,3 +1825,4 @@ footer {
 
 </body>
 </html>
+
