@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
@@ -286,10 +286,12 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.hero-eyebrow { animation: heroTextIn 1.0s 0.2s cubic-bezier(.22,.61,.36,1) both; }
-.hero h1      { animation: heroTextIn 1.0s 0.38s cubic-bezier(.22,.61,.36,1) both; }
-.hero .hero-sub     { animation: heroTextIn 1.0s 0.54s cubic-bezier(.22,.61,.36,1) both; }
-.hero .hero-actions { animation: heroTextIn 1.0s 0.68s cubic-bezier(.22,.61,.36,1) both; }
+@media (min-width: 721px) {
+  .hero-eyebrow { animation: heroTextIn 1.0s 0.2s cubic-bezier(.22,.61,.36,1) both; }
+  .hero h1      { animation: heroTextIn 1.0s 0.38s cubic-bezier(.22,.61,.36,1) both; }
+  .hero .hero-sub     { animation: heroTextIn 1.0s 0.54s cubic-bezier(.22,.61,.36,1) both; }
+  .hero .hero-actions { animation: heroTextIn 1.0s 0.68s cubic-bezier(.22,.61,.36,1) both; }
+}
 .hero-inner {
   position: relative;
   z-index: 2;
