@@ -1192,9 +1192,9 @@ footer {
    Responsive
    ============================ */
 @media (max-width: 1024px) {
-  .hero { flex-direction: column; }
-  .hero-inner { grid-template-columns: 1fr; gap: 24px; order: 1; }
-  .hero-svg { position: relative; right: auto; top: auto; transform: none; width: 80%; max-width: 460px; margin: 32px auto 0; opacity: 0.7; order: 2; }
+  .hero { flex-direction: column; align-items: stretch; }
+  .hero-inner { grid-template-columns: 1fr; order: 1; }
+  .hero-svg { position: relative; right: auto; top: auto; transform: none; width: 80%; max-width: 360px; margin: 0 auto; opacity: 0.7; order: 2; align-self: center; display: block; }
   @keyframes heroFigureIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 0.7; transform: translateY(0);} }
   .philosophy-grid { grid-template-columns: 1fr; gap: 56px; }
   .kanji-art { max-width: 380px; margin: 0 auto; }
@@ -1796,4 +1796,3 @@ footer {
 </script>
 
 </body>
-</html>
