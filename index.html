@@ -1,1508 +1,1754 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="株式会社覚善 — 人と企業の可能性をひらく。人材派遣・人材紹介を通じて最適な出会いを創造します。">
-<title>株式会社覚善 | 人と企業の可能性をひらく</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="株式会社覚善 — 人財が、未来をつくる。人材派遣・人材紹介・採用コンサルティングのプロフェッショナル集団。" />
+<title>株式会社覚善｜人財が、未来をつくる。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <style>
-  /* ================================================
-     Reset & Base
-     ================================================ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1a2b4a;
-    background: #fefefe;
-    line-height: 1.8;
-    font-weight: 400;
-    overflow-x: hidden;
-  }
-  img { max-width: 100%; height: auto; display: block; }
-  a { color: inherit; text-decoration: none; transition: color .3s ease, opacity .3s ease; }
-  ul, ol { list-style: none; }
+/* ============================
+   Design tokens — Kakuzen 2026
+   人財コンセプト：温かみと有機性
+   ============================ */
+:root {
+  --teal-900: #0E3D33;
+  --teal-700: #1B5E4F;
+  --teal-500: #2E8170;
+  --teal-200: #B8DBD2;
+  --amber-600: #C77A1B;
+  --amber-500: #E8A020;
+  --amber-200: #F5D699;
+  --sand-100: #F5E6D0;
+  --sand-50:  #FAF1E2;
+  --paper:    #FAF7F4;
+  --paper-2:  #F2EBE2;
+  --ink:      #1F2A28;
+  --ink-2:    #4A5552;
+  --ink-3:    #7B847F;
+  --line:     #E2D8C9;
+  --shadow-sm: 0 4px 14px rgba(27,94,79,.08);
+  --shadow-md: 0 18px 48px rgba(27,94,79,.14);
+  --shadow-lg: 0 32px 80px rgba(14,61,51,.18);
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-pill: 999px;
+  --container: 1200px;
+}
 
-  :root {
-    --navy: #1a2b4a;
-    --navy-deep: #0f1c33;
-    --gold: #c9a84c;
-    --gold-light: #e0c270;
-    --white: #ffffff;
-    --gray-50: #f7f6f2;
-    --gray-100: #ecebe5;
-    --gray-300: #c8c5b9;
-    --gray-600: #6b6a64;
-    --serif: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-    --sans: 'Noto Sans JP', sans-serif;
-  }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ================================================
-     Layout helpers
-     ================================================ */
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-  section { padding: 120px 0; position: relative; }
-  @media (max-width: 768px) { section { padding: 80px 0; } .wrap { padding: 0 22px; } }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
-  .section-label {
-    display: inline-block;
-    font-family: var(--serif);
-    color: var(--gold);
-    letter-spacing: .35em;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: clamp(28px, 4vw, 42px);
-    line-height: 1.4;
-    color: var(--navy);
-    margin-bottom: 24px;
-    letter-spacing: .04em;
-  }
-  .section-title .accent { color: var(--gold); }
-  .section-lead {
-    color: var(--gray-600);
-    font-size: 15px;
-    max-width: 620px;
-    margin-bottom: 60px;
-    line-height: 2;
-  }
-  @media (max-width: 768px) {
-    .section-lead { margin-bottom: 40px; font-size: 14px; }
-  }
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-  /* ================================================
-     Header
-     ================================================ */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    transition: background .4s ease, box-shadow .4s ease, padding .4s ease;
-    padding: 24px 0;
-  }
-  header.scrolled {
-    background: rgba(15, 28, 51, 0.96);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 1px 0 rgba(201, 168, 76, 0.15);
-    padding: 14px 0;
-  }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; }
-  .logo {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: .15em;
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .logo .mark {
-    width: 30px; height: 30px;
-    border: 1.5px solid var(--gold);
-    display: inline-flex; align-items: center; justify-content: center;
-    color: var(--gold);
-    font-family: var(--serif);
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 0;
-  }
-  .logo .name-en { font-size: 11px; letter-spacing: .3em; color: var(--gold); display: block; line-height: 1; margin-top: 4px; font-weight: 500; }
-  .logo .name-jp { display: block; line-height: 1; }
+/* ============================
+   Header
+   ============================ */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
+}
+.site-header.scrolled {
+  background: rgba(250, 247, 244, 0.92);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  box-shadow: 0 1px 0 rgba(30,42,40,.06);
+  padding: 12px 0;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--teal-900);
+}
+.brand-mark {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--amber-500), var(--amber-600) 70%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0;
+  box-shadow: 0 6px 16px rgba(199,122,27,.35);
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.brand-text .ja {
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+}
+.brand-text .en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--teal-500);
+  letter-spacing: 0.18em;
+}
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-desktop a {
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 16px;
+  color: var(--ink-2);
+  transition: color .25s ease;
+}
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  left: 16px; right: 16px; bottom: 4px;
+  height: 1px;
+  background: var(--amber-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+.nav-desktop a:hover { color: var(--teal-900); }
+.nav-desktop a:hover::after { transform: scaleX(1); }
+.cta-mini {
+  margin-left: 12px;
+  padding: 10px 22px;
+  background: var(--teal-700);
+  color: #fff;
+  border-radius: var(--r-pill);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: background .25s ease, transform .25s ease;
+}
+.cta-mini:hover {
+  background: var(--teal-900);
+  transform: translateY(-2px);
+}
 
-  nav.gnav ul { display: flex; gap: 36px; align-items: center; }
-  nav.gnav a {
-    font-size: 13px;
-    color: var(--white);
-    font-weight: 500;
-    letter-spacing: .12em;
-    position: relative;
-    padding: 6px 0;
-  }
-  nav.gnav a::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 0; height: 1px;
-    background: var(--gold);
-    transition: width .3s ease;
-  }
-  nav.gnav a:hover { color: var(--gold-light); }
-  nav.gnav a:hover::after { width: 100%; }
+.hamburger {
+  display: none;
+  width: 44px; height: 44px;
+  position: relative;
+  border-radius: 50%;
+  background: var(--teal-700);
+  z-index: 110;
+}
+.hamburger span {
+  position: absolute;
+  left: 12px; right: 12px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease, top .3s ease;
+}
+.hamburger span:nth-child(1) { top: 16px; }
+.hamburger span:nth-child(2) { top: 21px; }
+.hamburger span:nth-child(3) { top: 26px; }
+.hamburger.open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
 
-  nav.gnav .cta-btn {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 10px 22px;
-    border-radius: 0;
-    font-weight: 700;
-    letter-spacing: .12em;
-    border: 1px solid var(--gold);
-  }
-  nav.gnav .cta-btn::after { display: none; }
-  nav.gnav .cta-btn:hover { background: transparent; color: var(--gold); }
+.drawer {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, var(--teal-900), var(--teal-700));
+  color: #fff;
+  z-index: 105;
+  padding: 96px 28px 40px;
+  transform: translateX(100%);
+  transition: transform .5s cubic-bezier(.22,.61,.36,1);
+  overflow-y: auto;
+}
+.drawer.open { transform: translateX(0); }
+.drawer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+.drawer li {
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.drawer a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 4px;
+  font-size: 17px;
+  font-weight: 400;
+}
+.drawer a .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--amber-200);
+  letter-spacing: 0.2em;
+}
+.drawer .drawer-cta {
+  display: block;
+  margin-top: 24px;
+  padding: 18px;
+  text-align: center;
+  background: var(--amber-500);
+  color: var(--teal-900);
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.drawer .drawer-foot {
+  margin-top: 40px;
+  font-size: 12px;
+  color: rgba(255,255,255,.6);
+  letter-spacing: 0.1em;
+}
 
-  /* Hamburger */
-  .burger {
-    display: none;
-    width: 40px; height: 40px;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    position: relative;
-    z-index: 110;
-  }
-  .burger span {
-    display: block;
-    position: absolute;
-    height: 1px;
-    width: 26px;
-    background: var(--white);
-    left: 7px;
-    transition: all .35s ease;
-  }
-  .burger span:nth-child(1) { top: 14px; }
-  .burger span:nth-child(2) { top: 20px; }
-  .burger span:nth-child(3) { top: 26px; }
-  .burger.open span:nth-child(1) { top: 20px; transform: rotate(45deg); background: var(--gold); }
-  .burger.open span:nth-child(2) { opacity: 0; }
-  .burger.open span:nth-child(3) { top: 20px; transform: rotate(-45deg); background: var(--gold); }
+/* ============================
+   Hero
+   ============================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 0 80px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(232,160,32,.18), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(46,129,112,.15), transparent 50%),
+    linear-gradient(165deg, #FAF1E2 0%, #FAF7F4 45%, #EDE7DC 100%);
+}
+.hero-grain {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(31,42,40,0.08) 1px, transparent 1px);
+  background-size: 4px 4px;
+  mix-blend-mode: multiply;
+}
+.hero-svg {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+  max-width: 720px;
+  pointer-events: none;
+  opacity: 0;
+  animation: heroFigureIn 1.4s .3s cubic-bezier(.22,.61,.36,1) forwards;
+}
+@keyframes heroFigureIn {
+  from { opacity: 0; transform: translate(40px, -50%); }
+  to   { opacity: 1; transform: translate(0, -50%); }
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 48px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--teal-500);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--amber-500);
+}
+.hero h1 {
+  margin: 0 0 28px;
+  font-size: clamp(38px, 6vw, 76px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  color: var(--teal-900);
+}
+.hero h1 .accent {
+  position: relative;
+  color: var(--amber-600);
+  white-space: nowrap;
+}
+.hero h1 .accent::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 4px;
+  height: 12px;
+  background: rgba(232,160,32,.22);
+  z-index: -1;
+  border-radius: 4px;
+}
+.hero h1 .br { display: block; }
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-2);
+  max-width: 480px;
+  margin: 0 0 44px;
+  line-height: 1.95;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border-radius: var(--r-pill);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease, color .3s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--teal-700);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(27,94,79,.32);
+}
+.btn-primary:hover {
+  background: var(--teal-900);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(27,94,79,.38);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--teal-900);
+  border: 1.5px solid var(--teal-700);
+}
+.btn-ghost:hover {
+  background: var(--teal-900);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.btn .arrow {
+  width: 18px; height: 12px;
+  position: relative;
+}
+.btn .arrow::before, .btn .arrow::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+}
+.btn .arrow::before {
+  left: 0; right: 0; top: 5px; height: 1.5px;
+}
+.btn .arrow::after {
+  width: 8px; height: 1.5px;
+  right: 0; top: 1px;
+  transform: rotate(45deg);
+  transform-origin: right;
+}
 
-  @media (max-width: 900px) {
-    nav.gnav {
-      position: fixed;
-      top: 0; right: -100%;
-      width: 78%; max-width: 360px; height: 100vh;
-      background: var(--navy-deep);
-      padding: 110px 36px 40px;
-      transition: right .45s cubic-bezier(.7,.1,.3,1);
-      box-shadow: -10px 0 40px rgba(0,0,0,.3);
-    }
-    nav.gnav.open { right: 0; }
-    nav.gnav ul { flex-direction: column; align-items: flex-start; gap: 28px; }
-    nav.gnav a { font-size: 15px; }
-    nav.gnav .cta-btn { margin-top: 16px; padding: 14px 28px; }
-    .burger { display: block; }
-  }
+/* Hero stats */
+.hero-stats {
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 36px;
+}
+.hero-stats .stat {
+  position: relative;
+  padding: 0 28px;
+}
+.hero-stats .stat + .stat {
+  border-left: 1px solid var(--line);
+}
+.hero-stats .num {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 64px);
+  color: var(--teal-900);
+  line-height: 1;
+}
+.hero-stats .num .suffix {
+  font-size: 0.45em;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  color: var(--amber-600);
+  letter-spacing: 0;
+}
+.hero-stats .label {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+.hero-stats .label-ja {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--ink-2);
+  letter-spacing: 0.06em;
+}
 
-  /* Drawer overlay */
-  .drawer-mask {
-    position: fixed; inset: 0;
-    background: rgba(15, 28, 51, .55);
-    opacity: 0; pointer-events: none;
-    transition: opacity .35s ease;
-    z-index: 99;
-  }
-  .drawer-mask.show { opacity: 1; pointer-events: auto; }
+.scroll-cue {
+  position: absolute;
+  left: 50%; bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--ink-3);
+}
+.scroll-cue .line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--teal-500));
+  position: relative;
+  overflow: hidden;
+}
+.scroll-cue .line::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0; right: 0;
+  height: 50%;
+  background: var(--amber-500);
+  animation: cueDrop 2.4s ease-in-out infinite;
+}
+@keyframes cueDrop {
+  0%   { top: -50%; }
+  60%  { top: 100%; }
+  100% { top: 100%; }
+}
 
-  /* ================================================
-     Hero
-     ================================================ */
-  .hero {
-    min-height: 100vh;
-    background:
-      linear-gradient(135deg, rgba(15,28,51,.92) 0%, rgba(26,43,74,.85) 60%, rgba(15,28,51,.95) 100%),
-      radial-gradient(ellipse at 20% 30%, #2a4570 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, #15263f 0%, transparent 60%),
-      #0f1c33;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-    display: flex;
-    align-items: center;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image:
-      linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(201,168,76,.06) 1px, transparent 1px);
-    background-size: 80px 80px;
-    pointer-events: none;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 60px;
-    position: relative;
-    z-index: 2;
-    padding: 140px 0 100px;
-  }
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 130px 0 80px; }
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 14px;
-    color: var(--gold);
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: .4em;
-    margin-bottom: 32px;
-    text-transform: uppercase;
-  }
-  .hero-tag::before {
-    content: ''; width: 36px; height: 1px; background: var(--gold);
-  }
-  .hero-title {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: clamp(36px, 6vw, 72px);
-    line-height: 1.3;
-    letter-spacing: .03em;
-    margin-bottom: 36px;
-  }
-  .hero-title .line { display: block; overflow: hidden; }
-  .hero-title .line span {
-    display: inline-block;
-    transform: translateY(110%);
-    animation: heroRise 1s cubic-bezier(.2,.7,.2,1) forwards;
-  }
-  .hero-title .line:nth-child(1) span { animation-delay: .1s; }
-  .hero-title .line:nth-child(2) span { animation-delay: .35s; }
-  .hero-title .line:nth-child(3) span { animation-delay: .6s; }
-  .hero-title .gold { color: var(--gold); }
-  @keyframes heroRise {
-    to { transform: translateY(0); }
-  }
-  .hero-subtitle {
-    color: rgba(255,255,255,.78);
-    font-size: 16px;
-    line-height: 2.1;
-    max-width: 520px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp .9s ease .9s forwards;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-cta {
-    display: flex; gap: 18px; flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp .9s ease 1.1s forwards;
-  }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-    padding: 18px 36px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: .15em;
-    border: 1px solid;
-    cursor: pointer;
-    transition: all .3s ease;
-    background: transparent;
-    font-family: var(--sans);
-  }
-  .btn-primary { background: var(--gold); color: var(--navy); border-color: var(--gold); }
-  .btn-primary:hover { background: transparent; color: var(--gold); }
-  .btn-ghost { color: var(--white); border-color: rgba(255,255,255,.4); }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-  .btn .arrow { transition: transform .3s ease; }
-  .btn:hover .arrow { transform: translateX(4px); }
+/* ============================
+   Section base
+   ============================ */
+section { position: relative; }
+.section {
+  padding: 140px 0;
+}
+.section-tight { padding: 110px 0; }
+.section-ink { background: var(--paper); }
+.section-cream {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+}
+.section-deep {
+  background: linear-gradient(165deg, var(--teal-900) 0%, var(--teal-700) 100%);
+  color: #fff;
+}
 
-  .hero-side {
-    text-align: right;
-    align-self: stretch;
-    display: flex; flex-direction: column;
-    justify-content: space-between;
-    border-left: 1px solid rgba(201,168,76,.25);
-    padding-left: 40px;
-    min-height: 360px;
-  }
-  @media (max-width: 900px) {
-    .hero-side { display: none; }
-  }
-  .hero-side .vline {
-    writing-mode: vertical-rl;
-    font-family: var(--serif);
-    color: rgba(255,255,255,.5);
-    font-size: 12px;
-    letter-spacing: .8em;
-  }
-  .hero-stats {
-    text-align: right;
-  }
-  .hero-stats div {
-    margin-bottom: 22px;
-  }
-  .hero-stats .num {
-    font-family: var(--serif);
-    font-size: 36px;
-    color: var(--gold);
-    font-weight: 700;
-    letter-spacing: .02em;
-    line-height: 1;
-  }
-  .hero-stats .lbl {
-    color: rgba(255,255,255,.6);
-    font-size: 11px;
-    letter-spacing: .2em;
-    margin-top: 6px;
-  }
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 72px;
+  max-width: 720px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--amber-600);
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--amber-500);
+}
+.section-deep .eyebrow { color: var(--amber-200); }
+.section-deep .eyebrow::before { background: var(--amber-200); }
+.section-title {
+  margin: 0;
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--teal-900);
+}
+.section-deep .section-title { color: #fff; }
+.section-lead {
+  font-size: 15px;
+  color: var(--ink-2);
+  font-weight: 300;
+  line-height: 1.95;
+  margin: 14px 0 0;
+}
+.section-deep .section-lead { color: rgba(255,255,255,.78); }
 
-  .scroll-hint {
-    position: absolute;
-    left: 50%; bottom: 30px;
-    transform: translateX(-50%);
-    color: rgba(255,255,255,.6);
-    font-size: 10px;
-    letter-spacing: .3em;
-    z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 10px;
-  }
-  .scroll-hint::after {
-    content: '';
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    animation: scrollDot 2s ease infinite;
-  }
-  @keyframes scrollDot {
-    0%, 100% { transform: scaleY(1); transform-origin: top; }
-    50% { transform: scaleY(.3); transform-origin: top; }
-  }
+/* ============================
+   About / Philosophy
+   ============================ */
+.philosophy {
+  position: relative;
+  overflow: hidden;
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 80px;
+  align-items: center;
+}
+.kanji-art {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+.kanji-art .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+}
+.kanji-art .ring.r2 { inset: 14%; border-color: var(--teal-200); }
+.kanji-art .ring.r3 {
+  inset: 28%;
+  border-color: rgba(232,160,32,.4);
+  border-style: dashed;
+  animation: ringSpin 60s linear infinite;
+}
+@keyframes ringSpin {
+  to { transform: rotate(360deg); }
+}
+.kanji-art .center {
+  position: relative;
+  width: 60%; height: 60%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, var(--sand-100) 70%, var(--sand-50));
+  box-shadow: var(--shadow-md);
+}
+.kanji-art .kanji {
+  font-size: clamp(86px, 14vw, 168px);
+  font-weight: 700;
+  color: var(--teal-900);
+  line-height: 1;
+  letter-spacing: 0;
+}
+.kanji-art .kanji-sub {
+  position: absolute;
+  bottom: 22%;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  color: var(--amber-600);
+  text-transform: uppercase;
+}
+.kanji-art .equation {
+  position: absolute;
+  top: 8%;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--ink-3);
+}
+.kanji-art .equation b {
+  color: var(--teal-700);
+  font-weight: 700;
+}
 
-  /* ================================================
-     About / Service Brief (TOP)
-     ================================================ */
-  .intro {
-    background: var(--gray-50);
-    position: relative;
-  }
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: start;
-  }
-  @media (max-width: 900px) {
-    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
-  }
-  .intro-quote {
-    font-family: var(--serif);
-    font-size: clamp(20px, 2.4vw, 28px);
-    line-height: 2;
-    color: var(--navy);
-    font-weight: 500;
-    border-left: 2px solid var(--gold);
-    padding-left: 28px;
-  }
-  .intro-quote em {
-    color: var(--gold);
-    font-style: normal;
-    font-weight: 700;
-  }
-  .intro-text p {
-    margin-bottom: 18px;
-    color: var(--gray-600);
-    line-height: 2;
-    font-size: 15px;
-  }
-  .intro-text p strong { color: var(--navy); }
+.philosophy-body h3 {
+  margin: 28px 0 0;
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--teal-900);
+}
+.philosophy-body h3 .hl {
+  background: linear-gradient(transparent 60%, var(--amber-200) 60%);
+  padding: 0 4px;
+}
+.philosophy-body p {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--ink-2);
+  margin: 24px 0 0;
+}
+.values {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.value {
+  padding: 24px 18px;
+  background: #fff;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.value:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+.value .icon {
+  width: 44px; height: 44px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sand-100);
+  color: var(--teal-700);
+}
+.value h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal-900);
+  letter-spacing: 0.06em;
+}
+.value p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
 
-  /* ================================================
-     Services
-     ================================================ */
-  .services { background: var(--white); }
-  .service-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--gray-100);
-    border-left: 1px solid var(--gray-100);
-  }
-  @media (max-width: 768px) {
-    .service-list { grid-template-columns: 1fr; }
-  }
-  .service-card {
-    padding: 50px 44px;
-    border-right: 1px solid var(--gray-100);
-    border-bottom: 1px solid var(--gray-100);
-    transition: background .35s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .5s ease;
-  }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card:hover { background: var(--gray-50); }
-  @media (max-width: 768px) {
-    .service-card { padding: 40px 28px; }
-  }
-  .service-num {
-    font-family: var(--serif);
-    color: var(--gold);
-    font-size: 13px;
-    letter-spacing: .3em;
-    margin-bottom: 22px;
-  }
-  .service-icon {
-    width: 56px; height: 56px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 28px;
-  }
-  .service-icon svg { width: 26px; height: 26px; }
-  .service-name {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 8px;
-    letter-spacing: .04em;
-  }
-  .service-name-en {
-    font-size: 11px;
-    letter-spacing: .25em;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-  .service-desc {
-    color: var(--gray-600);
-    font-size: 14px;
-    line-height: 2;
-    margin-bottom: 22px;
-  }
-  .service-features {
-    border-top: 1px dashed var(--gray-300);
-    padding-top: 18px;
-  }
-  .service-features li {
-    font-size: 13px;
-    color: var(--navy);
-    padding: 6px 0 6px 22px;
-    position: relative;
-  }
-  .service-features li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 14px;
-    width: 12px; height: 1px;
-    background: var(--gold);
-  }
+/* ============================
+   Services
+   ============================ */
+.services {
+  position: relative;
+  overflow: hidden;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service {
+  position: relative;
+  padding: 44px 32px 36px;
+  background: #fff;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
+}
+.service::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 6px;
+  background: linear-gradient(90deg, var(--teal-700), var(--amber-500));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+.service:hover::before { transform: scaleX(1); }
+.service .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--amber-600);
+  margin-bottom: 22px;
+}
+.service .pict {
+  width: 88px; height: 88px;
+  margin-bottom: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--sand-50), var(--sand-100));
+}
+.service h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--teal-900);
+}
+.service .en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
+.service p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--ink-2);
+  margin: 0 0 22px;
+  font-weight: 300;
+}
+.service ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px dashed var(--line);
+  padding-top: 20px;
+}
+.service li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+.service li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 12px; height: 1px;
+  background: var(--amber-500);
+}
 
-  /* ================================================
-     Company
-     ================================================ */
-  .company {
-    background: var(--navy);
-    color: var(--white);
-    position: relative;
-  }
-  .company .section-title { color: var(--white); }
-  .company-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
-  }
-  @media (max-width: 900px) {
-    .company-grid { grid-template-columns: 1fr; gap: 50px; }
-  }
+/* ============================
+   Numbers strip (deep section)
+   ============================ */
+.numbers-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 64px 0;
+  border-radius: var(--r-lg);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.numbers-strip .item {
+  padding: 0 28px;
+  text-align: center;
+}
+.numbers-strip .item + .item {
+  border-left: 1px solid rgba(255,255,255,.12);
+}
+.numbers-strip .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(44px, 5vw, 72px);
+  color: var(--amber-500);
+  line-height: 1;
+}
+.numbers-strip .label {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,.7);
+  letter-spacing: 0.2em;
+}
 
-  /* Philosophy block */
-  .philosophy h3 {
-    font-family: var(--serif);
-    font-size: 24px;
-    color: var(--gold);
-    margin-bottom: 20px;
-    font-weight: 500;
-    letter-spacing: .08em;
-  }
-  .philosophy-words {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-  .philosophy-words span {
-    font-family: var(--serif);
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--white);
-    padding: 4px 10px;
-    border-bottom: 2px solid var(--gold);
-    letter-spacing: .15em;
-  }
-  .philosophy p {
-    color: rgba(255,255,255,.78);
-    line-height: 2.1;
-    font-size: 15px;
-  }
+/* ============================
+   Company info
+   ============================ */
+.company {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: start;
+}
+.company-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.company-table tr {
+  border-bottom: 1px solid var(--line);
+}
+.company-table th, .company-table td {
+  padding: 22px 8px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--ink-2);
+  vertical-align: top;
+}
+.company-table th {
+  width: 32%;
+  color: var(--teal-700);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  padding-top: 26px;
+}
+.ceo-card {
+  position: sticky;
+  top: 110px;
+  padding: 40px 36px;
+  background: linear-gradient(160deg, #fff, var(--sand-50));
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.ceo-card .role {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--amber-600);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.ceo-card .name {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.ceo-card .name .ja {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--teal-900);
+}
+.ceo-card .name .en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.18em;
+}
+.ceo-card blockquote {
+  margin: 0;
+  padding: 22px 0 0;
+  border-top: 1px dashed var(--line);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--ink-2);
+  font-style: normal;
+  position: relative;
+}
+.ceo-card blockquote::before {
+  content: '\201C';
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  color: var(--amber-500);
+  line-height: 0.4;
+  margin-bottom: 14px;
+}
 
-  /* History timeline */
-  .history h3 {
-    font-family: var(--serif);
-    font-size: 22px;
-    color: var(--gold);
-    margin-bottom: 30px;
-    letter-spacing: .1em;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(201,168,76,.25);
-  }
-  .timeline {
-    border-left: 1px solid rgba(201,168,76,.3);
-    padding-left: 30px;
-    position: relative;
-  }
-  .timeline-item {
-    position: relative;
-    padding-bottom: 28px;
-  }
-  .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -36px; top: 6px;
-    width: 11px; height: 11px;
-    background: var(--navy);
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-  }
-  .timeline-year {
-    font-family: var(--serif);
-    color: var(--gold);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    margin-bottom: 4px;
-  }
-  .timeline-text {
-    color: rgba(255,255,255,.85);
-    font-size: 14px;
-    line-height: 1.9;
-  }
+/* ============================
+   Contact
+   ============================ */
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 56px;
+  align-items: start;
+}
+.contact-info {
+  padding: 8px 0;
+}
+.contact-info h3 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal-900);
+  line-height: 1.5;
+}
+.contact-info p {
+  font-size: 14px;
+  color: var(--ink-2);
+  font-weight: 300;
+  line-height: 1.95;
+  margin: 0 0 36px;
+}
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.contact-list li:last-child { border-bottom: 1px solid var(--line); }
+.contact-list .label {
+  flex-shrink: 0;
+  width: 80px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--amber-600);
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+.contact-list .value-text {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.contact-list .sub {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-3);
+  font-weight: 300;
+  margin-top: 4px;
+}
 
-  /* Message block */
-  .message-block {
-    margin-top: 80px;
-    padding: 50px;
-    background: rgba(255,255,255,.03);
-    border: 1px solid rgba(201,168,76,.2);
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 50px;
-    align-items: center;
-  }
-  @media (max-width: 768px) {
-    .message-block { grid-template-columns: 1fr; padding: 32px 24px; gap: 28px; text-align: center; }
-  }
-  .message-portrait {
-    width: 180px; height: 220px;
-    background: linear-gradient(160deg, #2a4570 0%, #0f1c33 100%);
-    border: 1px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif);
-    color: var(--gold);
-    font-size: 60px;
-    font-weight: 900;
-    letter-spacing: .1em;
-    position: relative;
-  }
-  @media (max-width: 768px) { .message-portrait { margin: 0 auto; } }
-  .message-portrait::before {
-    content: '';
-    position: absolute;
-    top: 8px; left: 8px; right: -8px; bottom: -8px;
-    border: 1px solid rgba(201,168,76,.4);
-    z-index: -1;
-  }
-  .message-body h4 {
-    font-family: var(--serif);
-    font-size: 22px;
-    color: var(--white);
-    margin-bottom: 14px;
-    letter-spacing: .06em;
-  }
-  .message-body .role {
-    font-size: 12px;
-    color: var(--gold);
-    letter-spacing: .25em;
-    margin-bottom: 18px;
-  }
-  .message-body p {
-    color: rgba(255,255,255,.78);
-    line-height: 2;
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-  .message-sign {
-    margin-top: 14px;
-    font-family: var(--serif);
-    color: var(--white);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: .15em;
-  }
+.contact-form {
+  position: relative;
+  padding: 48px 44px;
+  background: #fff;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+}
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 32px; right: 32px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal-700), var(--amber-500));
+  border-radius: 0 0 4px 4px;
+}
+.form-row {
+  margin-bottom: 24px;
+}
+.form-row.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--teal-700);
+  margin-bottom: 10px;
+}
+.form-row label .req {
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--amber-500);
+  color: #fff;
+  border-radius: var(--r-pill);
+  letter-spacing: 0.08em;
+}
+.form-row input, .form-row select, .form-row textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+  outline: none;
+  border-color: var(--teal-500);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(46,129,112,.12);
+}
+.form-row textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+.form-submit {
+  width: 100%;
+  padding: 20px;
+  background: var(--teal-900);
+  color: #fff;
+  border-radius: var(--r-pill);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.form-submit:hover {
+  background: var(--teal-700);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(14,61,51,.3);
+}
 
-  /* Company info table */
-  .info-table {
-    margin-top: 60px;
-    border-top: 1px solid rgba(201,168,76,.25);
-  }
-  .info-row {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    padding: 18px 0;
-  }
-  @media (max-width: 600px) {
-    .info-row { grid-template-columns: 1fr; gap: 4px; }
-  }
-  .info-row dt {
-    color: var(--gold);
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: .2em;
-    font-weight: 500;
-  }
-  .info-row dd {
-    color: rgba(255,255,255,.85);
-    font-size: 14px;
-    line-height: 1.9;
-  }
+/* ============================
+   Footer
+   ============================ */
+footer {
+  background: #0A2A24;
+  color: rgba(255,255,255,.7);
+  padding: 80px 0 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+.footer-brand .brand-text .ja { color: #fff; }
+.footer-brand .brand-text .en { color: var(--amber-200); }
+.footer-brand p {
+  margin: 24px 0 0;
+  font-size: 13px;
+  line-height: 1.95;
+  font-weight: 300;
+}
+.footer-col h4 {
+  margin: 0 0 22px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--amber-200);
+  text-transform: uppercase;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 13px;
+}
+.footer-col a {
+  color: rgba(255,255,255,.7);
+  transition: color .25s ease;
+}
+.footer-col a:hover { color: var(--amber-200); }
+.footer-bot {
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,.5);
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-  /* ================================================
-     Works / Voice
-     ================================================ */
-  .works { background: var(--gray-50); }
-  .works-tabs {
-    display: flex; gap: 0;
-    border-bottom: 1px solid var(--gray-300);
-    margin-bottom: 50px;
-  }
-  .tab-btn {
-    flex: 1;
-    background: transparent;
-    border: 0;
-    padding: 18px 12px;
-    font-family: var(--serif);
-    font-size: 15px;
-    color: var(--gray-600);
-    cursor: pointer;
-    letter-spacing: .15em;
-    transition: color .3s ease;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    font-weight: 500;
-  }
-  .tab-btn.active {
-    color: var(--navy);
-    border-bottom-color: var(--gold);
-  }
-  .tab-btn .num {
-    font-size: 11px;
-    color: var(--gold);
-    margin-left: 8px;
-    letter-spacing: .1em;
-  }
+/* ============================
+   Reveal animations
+   ============================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.delay-1 { transition-delay: .12s; }
+.reveal.delay-2 { transition-delay: .22s; }
+.reveal.delay-3 { transition-delay: .32s; }
+.reveal.delay-4 { transition-delay: .42s; }
 
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; animation: tabIn .5s ease; }
-  @keyframes tabIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+.count[data-target] { font-variant-numeric: tabular-nums; }
 
-  /* Works items */
-  .works-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-  @media (max-width: 900px) { .works-list { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .works-list { grid-template-columns: 1fr; } }
-  .work-card {
-    background: var(--white);
-    padding: 32px;
-    border-top: 3px solid var(--gold);
-    transition: transform .35s ease, box-shadow .35s ease;
-  }
-  .work-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 40px rgba(15,28,51,.08);
-  }
-  .work-tag {
-    display: inline-block;
-    font-size: 11px;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    padding: 3px 10px;
-    letter-spacing: .15em;
-    margin-bottom: 18px;
-    font-weight: 500;
-  }
-  .work-card h4 {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--navy);
-    margin-bottom: 14px;
-    line-height: 1.6;
-    letter-spacing: .04em;
-  }
-  .work-card p {
-    color: var(--gray-600);
-    font-size: 13px;
-    line-height: 1.9;
-    margin-bottom: 18px;
-  }
-  .work-meta {
-    display: flex; justify-content: space-between;
-    border-top: 1px dashed var(--gray-300);
-    padding-top: 14px;
-    font-size: 12px;
-    color: var(--gray-600);
-  }
-  .work-meta strong { color: var(--navy); font-weight: 500; }
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+  .hero-svg { position: relative; right: auto; top: auto; transform: none; width: 80%; max-width: 460px; margin: 32px auto 0; opacity: 0.7; }
+  @keyframes heroFigureIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 0.7; transform: translateY(0);} }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 56px; }
+  .kanji-art { max-width: 380px; margin: 0 auto; }
+  .company { grid-template-columns: 1fr; gap: 40px; }
+  .ceo-card { position: static; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
 
-  /* Voice items */
-  .voice-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  @media (max-width: 768px) { .voice-list { grid-template-columns: 1fr; } }
-  .voice-card {
-    background: var(--white);
-    padding: 40px;
-    position: relative;
-  }
-  .voice-card::before {
-    content: '"';
-    position: absolute;
-    top: 18px; left: 24px;
-    font-family: var(--serif);
-    font-size: 90px;
-    color: var(--gold);
-    opacity: .25;
-    line-height: 1;
-  }
-  .voice-text {
-    font-family: var(--serif);
-    color: var(--navy);
-    font-size: 16px;
-    line-height: 2;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 28px;
-    padding-top: 20px;
-  }
-  .voice-author {
-    display: flex; align-items: center; gap: 16px;
-    border-top: 1px solid var(--gray-100);
-    padding-top: 20px;
-  }
-  .voice-avatar {
-    width: 50px; height: 50px;
-    background: var(--navy);
-    color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif);
-    font-weight: 700;
-    border-radius: 50%;
-    font-size: 18px;
-  }
-  .voice-info .name { font-size: 14px; color: var(--navy); font-weight: 500; }
-  .voice-info .org { font-size: 12px; color: var(--gray-600); }
+@media (max-width: 720px) {
+  .container { padding: 0 20px; }
+  .nav-desktop, .cta-mini { display: none; }
+  .hamburger { display: block; }
+  .section { padding: 88px 0; }
+  .section-tight { padding: 76px 0; }
+  .section-head { margin-bottom: 48px; }
+  .hero { padding: 120px 0 64px; min-height: auto; }
+  .hero h1 { font-size: 38px; }
+  .hero-stats { margin-top: 56px; grid-template-columns: 1fr; gap: 0; padding-top: 0; border-top: 0; }
+  .hero-stats .stat { padding: 22px 0; border-top: 1px solid var(--line); }
+  .hero-stats .stat + .stat { border-left: 0; }
+  .service-grid { grid-template-columns: 1fr; gap: 18px; }
+  .service { padding: 36px 26px 32px; }
+  .values { grid-template-columns: 1fr; }
+  .numbers-strip { grid-template-columns: 1fr 1fr; padding: 28px 0; gap: 28px 0; }
+  .numbers-strip .item + .item { border-left: 0; }
+  .numbers-strip .item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
+  .form-row.split { grid-template-columns: 1fr; }
+  .contact-form { padding: 32px 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bot { flex-direction: column; align-items: flex-start; }
+  .scroll-cue { display: none; }
+}
 
-  /* ================================================
-     Contact
-     ================================================ */
-  .contact {
-    background: var(--white);
-    position: relative;
-    overflow: hidden;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
-  .contact::before {
-    content: 'CONTACT';
-    position: absolute;
-    bottom: -40px; right: -20px;
-    font-family: var(--serif);
-    font-size: clamp(120px, 22vw, 280px);
-    font-weight: 900;
-    color: var(--gray-50);
-    z-index: 0;
-    letter-spacing: -.04em;
-    line-height: 1;
-    pointer-events: none;
-  }
-  .contact .wrap { position: relative; z-index: 1; }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 80px;
-    align-items: start;
-  }
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  }
-  .contact-text p {
-    color: var(--gray-600);
-    line-height: 2;
-    font-size: 15px;
-    margin-bottom: 16px;
-  }
-
-  .contact-card {
-    background: var(--navy);
-    color: var(--white);
-    padding: 50px;
-    position: relative;
-  }
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    top: 12px; left: 12px; right: 12px; bottom: 12px;
-    border: 1px solid rgba(201,168,76,.4);
-    pointer-events: none;
-  }
-  @media (max-width: 768px) { .contact-card { padding: 36px 28px; } }
-  .contact-row {
-    border-bottom: 1px solid rgba(255,255,255,.1);
-    padding: 22px 0;
-  }
-  .contact-row:first-of-type { padding-top: 0; }
-  .contact-row:last-of-type { border-bottom: 0; padding-bottom: 0; }
-  .contact-label {
-    color: var(--gold);
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: .25em;
-    margin-bottom: 10px;
-  }
-  .contact-value {
-    font-family: var(--serif);
-    font-size: clamp(24px, 3.6vw, 34px);
-    font-weight: 700;
-    letter-spacing: .04em;
-    color: var(--white);
-    line-height: 1.3;
-  }
-  .contact-value a { color: var(--white); transition: color .3s ease; }
-  .contact-value a:hover { color: var(--gold); }
-  .contact-note {
-    color: rgba(255,255,255,.55);
-    font-size: 12px;
-    margin-top: 8px;
-    letter-spacing: .05em;
-  }
-
-  /* ================================================
-     Footer
-     ================================================ */
-  footer {
-    background: var(--navy-deep);
-    color: rgba(255,255,255,.6);
-    padding: 60px 0 30px;
-    border-top: 1px solid rgba(201,168,76,.15);
-  }
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 50px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
-  @media (max-width: 768px) {
-    .footer-top { grid-template-columns: 1fr; gap: 30px; }
-  }
-  .footer-brand .logo { color: var(--white); margin-bottom: 18px; }
-  .footer-brand p { font-size: 13px; line-height: 1.9; max-width: 360px; }
-  .footer-col h5 {
-    color: var(--gold);
-    font-family: var(--serif);
-    font-size: 12px;
-    letter-spacing: .25em;
-    margin-bottom: 18px;
-    font-weight: 500;
-  }
-  .footer-col ul li { margin-bottom: 10px; }
-  .footer-col a { font-size: 13px; }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
-    font-size: 11px;
-    letter-spacing: .1em;
-  }
-  .footer-bottom .copy { color: rgba(255,255,255,.4); }
-
-  /* ================================================
-     Reveal animation
-     ================================================ */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-delay-1 { transition-delay: .12s; }
-  .reveal-delay-2 { transition-delay: .24s; }
-  .reveal-delay-3 { transition-delay: .36s; }
-
-  /* ================================================
-     Selection / focus
-     ================================================ */
-  ::selection { background: var(--gold); color: var(--navy); }
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
-  }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: .01ms !important;
-      transition-duration: .01ms !important;
-    }
-    html { scroll-behavior: auto; }
-  }
+}
 </style>
 </head>
 <body>
 
-<!-- ============== HEADER ============== -->
-<header id="siteHeader">
-  <div class="wrap header-inner">
-    <a href="#top" class="logo" aria-label="株式会社覚善 トップへ">
-      <span class="mark">覚</span>
-      <span>
-        <span class="name-jp">株式会社覚善</span>
-        <span class="name-en">KAKUZEN INC.</span>
+<!-- ===== Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="株式会社覚善">
+      <span class="brand-mark" aria-hidden="true">覚</span>
+      <span class="brand-text">
+        <span class="ja">株式会社覚善</span>
+        <span class="en">KAKUZEN INC.</span>
       </span>
     </a>
-    <nav class="gnav" id="gnav" aria-label="メインナビゲーション">
-      <ul>
-        <li><a href="#top">TOP</a></li>
-        <li><a href="#services">SERVICE</a></li>
-        <li><a href="#company">COMPANY</a></li>
-        <li><a href="#works">WORKS</a></li>
-        <li><a href="#contact" class="cta-btn">お問い合わせ</a></li>
-      </ul>
+    <nav class="nav-desktop" aria-label="グローバルナビ">
+      <a href="#about">理念</a>
+      <a href="#services">サービス</a>
+      <a href="#numbers">実績</a>
+      <a href="#company">会社情報</a>
+      <a href="#contact" class="cta-mini">お問い合わせ</a>
     </nav>
-    <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false">
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-<div class="drawer-mask" id="drawerMask"></div>
 
-<!-- ============== HERO ============== -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="#about"><span>理念</span><span class="num">01</span></a></li>
+    <li><a href="#services"><span>サービス</span><span class="num">02</span></a></li>
+    <li><a href="#numbers"><span>実績</span><span class="num">03</span></a></li>
+    <li><a href="#company"><span>会社情報</span><span class="num">04</span></a></li>
+    <li><a href="#contact"><span>お問い合わせ</span><span class="num">05</span></a></li>
+  </ul>
+  <a href="#contact" class="drawer-cta">無料相談を申し込む</a>
+  <div class="drawer-foot">
+    TEL 03-XXXX-XXXX<br />
+    info@kakuzen.co.jp
+  </div>
+</aside>
+
+<!-- ===== Hero ===== -->
 <section id="top" class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-main">
-      <div class="hero-tag">SINCE 2008 / KAKUZEN INC.</div>
-      <h1 class="hero-title">
-        <span class="line"><span>人と企業の</span></span>
-        <span class="line"><span>可能性を、</span></span>
-        <span class="line"><span class="gold">ひらく。</span></span>
+  <div class="hero-grain" aria-hidden="true"></div>
+
+  <svg class="hero-svg" viewBox="0 0 720 640" aria-hidden="true">
+    <defs>
+      <linearGradient id="gradWarm" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#E8A020" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#C77A1B" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="gradTeal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#2E8170"/>
+        <stop offset="100%" stop-color="#0E3D33"/>
+      </linearGradient>
+      <radialGradient id="gradBlob" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#F5D699" stop-opacity="0.65"/>
+        <stop offset="100%" stop-color="#F5D699" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <ellipse cx="380" cy="320" rx="320" ry="280" fill="url(#gradBlob)"/>
+
+    <g stroke="#1B5E4F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.55">
+      <path d="M 130 460 Q 280 280 460 200" stroke-dasharray="4 6"/>
+      <path d="M 130 460 Q 320 480 540 380"/>
+      <path d="M 460 200 Q 540 300 540 380" stroke-dasharray="4 6"/>
+      <path d="M 240 140 Q 360 240 460 200"/>
+      <path d="M 240 140 Q 200 320 130 460" stroke-dasharray="4 6"/>
+      <path d="M 600 530 Q 500 460 540 380"/>
+      <path d="M 600 530 Q 380 540 130 460" stroke-dasharray="4 6"/>
+    </g>
+
+    <g transform="translate(360 320)">
+      <circle r="62" fill="url(#gradTeal)"/>
+      <circle cy="-22" r="26" fill="#FAF7F4"/>
+      <path d="M -42 30 Q -42 -10 0 -10 Q 42 -10 42 30 L 42 62 L -42 62 Z" fill="#FAF7F4"/>
+    </g>
+
+    <g transform="translate(130 460)">
+      <circle r="42" fill="url(#gradWarm)"/>
+      <circle cy="-14" r="17" fill="#FAF7F4"/>
+      <path d="M -28 22 Q -28 -2 0 -2 Q 28 -2 28 22 L 28 42 L -28 42 Z" fill="#FAF7F4"/>
+    </g>
+
+    <g transform="translate(460 200)">
+      <circle r="46" fill="#FAF7F4" stroke="#1B5E4F" stroke-width="2"/>
+      <circle cy="-15" r="18" fill="#1B5E4F"/>
+      <path d="M -32 24 Q -32 -2 0 -2 Q 32 -2 32 24 L 32 46 L -32 46 Z" fill="#1B5E4F"/>
+    </g>
+
+    <g transform="translate(540 380)">
+      <circle r="38" fill="url(#gradWarm)" opacity="0.9"/>
+      <circle cy="-12" r="15" fill="#FAF7F4"/>
+      <path d="M -25 20 Q -25 -2 0 -2 Q 25 -2 25 20 L 25 38 L -25 38 Z" fill="#FAF7F4"/>
+    </g>
+
+    <g transform="translate(240 140)">
+      <circle r="30" fill="#1B5E4F" opacity="0.85"/>
+      <circle cy="-10" r="12" fill="#FAF7F4"/>
+      <path d="M -20 16 Q -20 -2 0 -2 Q 20 -2 20 16 L 20 30 L -20 30 Z" fill="#FAF7F4"/>
+    </g>
+
+    <g transform="translate(600 530)">
+      <circle r="24" fill="#E8A020"/>
+      <circle cy="-8" r="10" fill="#FAF7F4"/>
+      <path d="M -16 14 Q -16 -2 0 -2 Q 16 -2 16 14 L 16 24 L -16 24 Z" fill="#FAF7F4"/>
+    </g>
+
+    <path d="M 80 580 Q 280 480 480 380 T 700 100" fill="none" stroke="url(#gradWarm)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 8"/>
+    <circle cx="700" cy="100" r="6" fill="#E8A020"/>
+  </svg>
+
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow reveal">Since 2011 &mdash; Career Architects</p>
+      <h1 class="reveal delay-1">
+        一人ひとりが、
+        <span class="br"><span class="accent">宝</span>です。</span>
       </h1>
-      <p class="hero-subtitle">
-        最適な人材と、最適な企業の出会いから、新しい未来は生まれる。<br>
-        私たちは、人材派遣・人材紹介を通じて、働く人と企業の可能性を最大化することに、誠実に向き合い続けます。
+      <p class="hero-sub reveal delay-2">
+        人材派遣・人材紹介・採用コンサルティング。<br />
+        私たち覚善は「人＝財」と書く想いで、企業と人をつなぎ、<br />
+        働くすべての人が誇れる未来を、ともに描きます。
       </p>
-      <div class="hero-cta">
-        <a href="#services" class="btn btn-primary">
-          サービスを見る <span class="arrow">→</span>
+      <div class="hero-actions reveal delay-3">
+        <a href="#contact" class="btn btn-primary">
+          ご相談はこちら <span class="arrow"></span>
         </a>
-        <a href="#contact" class="btn btn-ghost">
-          相談する <span class="arrow">→</span>
+        <a href="#services" class="btn btn-ghost">
+          サービスを見る <span class="arrow"></span>
         </a>
       </div>
     </div>
-    <aside class="hero-side">
-      <div class="vline">人と企業をつなぐ、誠実な伴走者</div>
-      <div class="hero-stats">
-        <div>
-          <div class="num">15<span style="font-size:18px;">年</span></div>
-          <div class="lbl">EXPERIENCE</div>
-        </div>
-        <div>
-          <div class="num">2,800<span style="font-size:18px;">+</span></div>
-          <div class="lbl">CAREERS BUILT</div>
-        </div>
-        <div>
-          <div class="num">450<span style="font-size:18px;">社</span></div>
-          <div class="lbl">PARTNER COMPANIES</div>
-        </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-stats reveal delay-4">
+      <div class="stat">
+        <div class="num"><span class="count" data-target="15">0</span><span class="suffix">年</span></div>
+        <div class="label">EST. 2011</div>
+        <div class="label-ja">創業からの歩み</div>
       </div>
-    </aside>
+      <div class="stat">
+        <div class="num"><span class="count" data-target="2800">0</span><span class="suffix">+</span></div>
+        <div class="label">CAREERS BUILT</div>
+        <div class="label-ja">支援したキャリア</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="count" data-target="450">0</span><span class="suffix">社</span></div>
+        <div class="label">PARTNER COMPANIES</div>
+        <div class="label-ja">取引パートナー企業</div>
+      </div>
+    </div>
   </div>
-  <div class="scroll-hint">SCROLL</div>
-</section>
 
-<!-- ============== INTRO ============== -->
-<section class="intro">
-  <div class="wrap intro-grid">
-    <div class="reveal">
-      <div class="section-label">PHILOSOPHY</div>
-      <p class="intro-quote">
-        「働く」は、生き方そのもの。<br>
-        だからこそ私たちは、<br>
-        <em>誰かの人生</em>と、<br>
-        <em>企業の未来</em>に、<br>
-        本気で向き合う。
-      </p>
-    </div>
-    <div class="intro-text reveal reveal-delay-1">
-      <p><strong>株式会社覚善</strong>は、首都圏を拠点に人材派遣・人材紹介を行う総合人材サービス企業です。創業以来15年、私たちが大切にしてきたのは、登録者一人ひとりの人生に寄り添い、企業様の事業成長に伴走する姿勢でした。</p>
-      <p>製造・物流・事務・専門技術職まで、幅広い領域で「最適なマッチング」を実現してきた実績は、業界・職種を越えて信頼の証となっています。</p>
-      <p>変化の激しい時代だからこそ、私たちは「人」を起点に、企業の可能性を、働く人の可能性を、ともにひらいてまいります。</p>
-    </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span>SCROLL</span>
+    <span class="line"></span>
   </div>
 </section>
 
-<!-- ============== SERVICE ============== -->
-<section id="services" class="services">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">SERVICE</div>
-      <h2 class="section-title">3つの専門サービスで、<br><span class="accent">最適な出会い</span>を創造する。</h2>
+<!-- ===== Philosophy / About ===== -->
+<section id="about" class="section section-cream philosophy">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">01 &mdash; Philosophy</span>
+      <h2 class="section-title">「人材」ではなく、「人財」と書く理由。</h2>
       <p class="section-lead">
-        派遣・紹介の枠を越え、企業様と登録者の課題に寄り添う総合人材ソリューションを提供します。<br>
-        現場を知る私たちだからこそ、提案できる選択肢があります。
+        スキルや資格は履歴書に書ける。けれど、<br />
+        その人にしかない景色や情熱は、対話のなかでしか見えてこない。<br />
+        覚善はその一筋を、丁寧に、辛抱強く、見つけ出す会社です。
       </p>
     </div>
 
-    <div class="service-list reveal">
-      <article class="service-card">
-        <div class="service-num">SERVICE 01</div>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M12 2L3 7v6c0 5 4 9 9 11 5-2 9-6 9-11V7l-9-5z"/>
-            <path d="M9 12l2 2 4-4"/>
+    <div class="philosophy-grid">
+      <div class="kanji-art reveal">
+        <span class="ring"></span>
+        <span class="ring r2"></span>
+        <span class="ring r3"></span>
+        <span class="equation">人 <b>+</b> 財 <b>=</b> 唯一無二</span>
+        <div class="center">
+          <span class="kanji">財</span>
+        </div>
+        <span class="kanji-sub">JINZAI &mdash; Treasured People</span>
+      </div>
+
+      <div class="philosophy-body reveal delay-1">
+        <h3>働く一人ひとりが、<br /><span class="hl">替えのきかない財産</span>。</h3>
+        <p>
+          覚善が15年、こだわり続けてきたのは「人を数で見ない」こと。求人票では伝わらない強みや、本人すら気づいていない可能性。それを丁寧に掘り起こし、企業と本人の両方が「この出会いは正解だった」と言える瞬間を設計します。
+        </p>
+        <p>
+          採用の成否は、入社後の3年でわかります。だからこそ私たちは、紹介して終わり、派遣して終わり、ではなく、長く伴走するパートナーであり続けます。
+        </p>
+
+        <div class="values">
+          <div class="value">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h4>対話主義</h4>
+            <p>履歴書の行間を、面談で読む。</p>
+          </div>
+          <div class="value">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3 0 5-2 5-5"/><path d="M21 12c-3 0-5-2-5-5"/><path d="M3 12c3 0 5 2 5 5"/><path d="M21 12c-3 0-5 2-5 5"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h4>長期伴走</h4>
+            <p>入社後の3年まで責任を持つ。</p>
+          </div>
+          <div class="value">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6l3-9 4 18 3-9h4"/></svg>
+            </div>
+            <h4>納得の条件</h4>
+            <p>無理な紹介はしない、断る勇気。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section id="services" class="section services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">02 &mdash; Services</span>
+      <h2 class="section-title">企業と人、それぞれの「次の一歩」へ。</h2>
+      <p class="section-lead">
+        派遣・紹介・採用コンサルティング。<br />
+        ニーズの大小にかかわらず、最適な座組みをご提案します。
+      </p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service reveal">
+        <div class="num">01</div>
+        <div class="pict" aria-hidden="true">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="20" r="10" fill="#1B5E4F"/>
+            <path d="M14 54 Q14 36 32 36 Q50 36 50 54 Z" fill="#1B5E4F"/>
+            <circle cx="48" cy="14" r="6" fill="#E8A020"/>
+            <path d="M40 30 Q40 22 48 22 Q56 22 56 30" stroke="#E8A020" stroke-width="3" fill="none" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 class="service-name">人材派遣サービス</h3>
-        <div class="service-name-en">TEMPORARY STAFFING</div>
-        <p class="service-desc">
-          製造・物流・オフィスワーク・専門職まで、企業様のニーズに合わせて即戦力人材をスピーディに派遣。短期スポットから長期常用型まで柔軟に対応します。
+        <h3>人材派遣</h3>
+        <p class="en">Staffing Solutions</p>
+        <p>
+          短期の繁忙期対応から長期プロジェクトまで。事務・営業・販売・専門職まで、業務の文脈を理解した即戦力をご紹介します。
         </p>
-        <ul class="service-features">
-          <li>製造・物流・倉庫管理</li>
-          <li>事務・受付・コールセンター</li>
-          <li>技術職・専門スキル人材</li>
-          <li>短期/長期/紹介予定派遣</li>
+        <ul>
+          <li>一般事務・経理・営業事務</li>
+          <li>販売・接客スタッフ</li>
+          <li>IT・専門職派遣</li>
         </ul>
       </article>
 
-      <article class="service-card">
-        <div class="service-num">SERVICE 02</div>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="9" cy="8" r="3.5"/>
-            <path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
-            <circle cx="17" cy="6" r="2.5"/>
-            <path d="M22 16c0-2.5-2-4.5-5-4.5"/>
+      <article class="service reveal delay-1">
+        <div class="num">02</div>
+        <div class="pict" aria-hidden="true">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
+            <circle cx="20" cy="22" r="9" fill="#E8A020"/>
+            <circle cx="44" cy="22" r="9" fill="#1B5E4F"/>
+            <path d="M8 50 Q8 36 20 36 Q32 36 32 50 Z" fill="#E8A020"/>
+            <path d="M32 50 Q32 36 44 36 Q56 36 56 50 Z" fill="#1B5E4F"/>
+            <path d="M28 22 Q32 14 36 22" stroke="#C77A1B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 class="service-name">人材紹介サービス</h3>
-        <div class="service-name-en">EXECUTIVE SEARCH</div>
-        <p class="service-desc">
-          キャリアコンサルタントが、求職者のキャリアビジョンと企業様の経営戦略の両軸を理解した上で、双方にとって最良のマッチングをご提案。成功報酬型でリスクを抑えた採用が可能です。
+        <h3>人材紹介</h3>
+        <p class="en">Career Placement</p>
+        <p>
+          経営層・管理職・専門職まで。一社一案件ごとに担当が深く入り込み、企業文化と候補者の哲学が重なる接点を探します。
         </p>
-        <ul class="service-features">
-          <li>正社員/契約社員紹介</li>
-          <li>管理職・幹部候補サーチ</li>
-          <li>面接同行・条件交渉サポート</li>
-          <li>入社後フォロー(6ヶ月)</li>
+        <ul>
+          <li>正社員・契約社員紹介</li>
+          <li>エグゼクティブサーチ</li>
+          <li>専門職スカウト型紹介</li>
         </ul>
       </article>
 
-      <article class="service-card">
-        <div class="service-num">SERVICE 03</div>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <rect x="3" y="5" width="18" height="14" rx="1"/>
-            <path d="M3 9h18"/>
-            <path d="M8 14h4M8 17h7"/>
+      <article class="service reveal delay-2">
+        <div class="num">03</div>
+        <div class="pict" aria-hidden="true">
+          <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
+            <path d="M10 50 L24 36 L34 44 L54 22" stroke="#1B5E4F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="54" cy="22" r="5" fill="#E8A020"/>
+            <circle cx="34" cy="44" r="4" fill="#1B5E4F"/>
+            <circle cx="24" cy="36" r="4" fill="#1B5E4F"/>
+            <path d="M10 56 L54 56" stroke="#C77A1B" stroke-width="1.5" stroke-dasharray="2 3"/>
           </svg>
         </div>
-        <h3 class="service-name">採用代行・コンサル</h3>
-        <div class="service-name-en">RPO &amp; CONSULTING</div>
-        <p class="service-desc">
-          採用設計から母集団形成、面接設計、内定者フォローまで、採用業務をワンストップで代行。人事部門のリソース不足や採用ノウハウ不足に伴走支援でお応えします。
+        <h3>採用コンサルティング</h3>
+        <p class="en">Hiring Strategy</p>
+        <p>
+          採用設計から面接官トレーニング、採用ブランディングまで。「採れない・続かない」の根本原因に踏み込んでご支援します。
         </p>
-        <ul class="service-features">
-          <li>採用戦略立案・設計</li>
-          <li>求人媒体運用・スカウト代行</li>
-          <li>選考プロセス設計</li>
-          <li>定着率向上コンサル</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <div class="service-num">SERVICE 04</div>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/>
-            <path d="M4 19h16"/>
-            <path d="M9 9h6M9 13h6"/>
-          </svg>
-        </div>
-        <h3 class="service-name">研修・キャリア支援</h3>
-        <div class="service-name-en">TRAINING &amp; CAREER</div>
-        <p class="service-desc">
-          登録者向けのスキルアップ研修、企業様向けの組織開発研修まで、人材の成長と組織の進化を支援。実務に直結する内容を、現場経験豊富な講師が提供します。
-        </p>
-        <ul class="service-features">
-          <li>新人研修/管理職研修</li>
-          <li>ビジネスマナー/PCスキル</li>
-          <li>キャリアカウンセリング</li>
-          <li>資格取得サポート</li>
+        <ul>
+          <li>採用戦略・要件定義の伴走</li>
+          <li>面接官トレーニング</li>
+          <li>採用広報・ブランディング</li>
         </ul>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============== COMPANY ============== -->
-<section id="company" class="company">
-  <div class="wrap">
-    <div class="reveal" style="margin-bottom: 70px;">
-      <div class="section-label" style="color: var(--gold);">COMPANY</div>
-      <h2 class="section-title">誠実であること、<br><span class="accent">伴走しつづけること。</span></h2>
+<!-- ===== Numbers (deep section) ===== -->
+<section id="numbers" class="section-tight section-deep">
+  <div class="container">
+    <div class="section-head reveal" style="max-width: 900px;">
+      <span class="eyebrow">03 &mdash; Numbers</span>
+      <h2 class="section-title">数字で見る、覚善の歩み。</h2>
     </div>
-
-    <div class="company-grid">
-      <div class="philosophy reveal">
-        <h3>経営理念</h3>
-        <div class="philosophy-words">
-          <span>誠</span><span>信</span><span>覚</span><span>善</span>
-        </div>
-        <p>
-          「誠実に向き合い、信頼を積み重ね、人の本質を覚り、善き未来をひらく」 —— 社名に込めたこの想いは、創業より変わらず、私たちの判断軸であり続けています。
-        </p>
-        <p style="margin-top: 18px;">
-          短期の数字より、長期の信頼を。<br>
-          単なるマッチングではなく、人生に寄り添うパートナーシップを。<br>
-          それが、覚善の流儀です。
-        </p>
+    <div class="numbers-strip reveal delay-1">
+      <div class="item">
+        <div class="num"><span class="count" data-target="15">0</span></div>
+        <div class="label">YEARS &mdash; 創業</div>
       </div>
-
-      <div class="history reveal reveal-delay-1">
-        <h3>会社沿革</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2008.04</div>
-            <div class="timeline-text">東京都中央区にて株式会社覚善を設立。製造業向け人材派遣事業を開始。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2012.09</div>
-            <div class="timeline-text">有料職業紹介事業の許認可取得。人材紹介サービスを本格スタート。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2016.03</div>
-            <div class="timeline-text">横浜支店・大宮支店を開設。首都圏全域へサービス提供を拡大。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2020.06</div>
-            <div class="timeline-text">採用代行(RPO)サービス開始。コロナ禍の採用課題に伴走支援。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2023.10</div>
-            <div class="timeline-text">研修・キャリア支援部門を新設。総合人材サービスとしての体制を確立。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026.04</div>
-            <div class="timeline-text">創業18年目。累計マッチング数2,800件、取引企業450社を突破。</div>
-          </div>
-        </div>
+      <div class="item">
+        <div class="num"><span class="count" data-target="2800">0</span>+</div>
+        <div class="label">CAREERS &mdash; 支援数</div>
       </div>
-    </div>
-
-    <!-- Message -->
-    <div class="message-block reveal">
-      <div class="message-portrait" aria-hidden="true">覚</div>
-      <div class="message-body">
-        <div class="role">REPRESENTATIVE MESSAGE / 代表挨拶</div>
-        <h4>「人」を起点に、未来をつくる。</h4>
-        <p>
-          創業当初から、私たちは「マッチングの先にある一人ひとりの人生」を見つめ続けてきました。一件の出会いが、誰かの生き方を変え、企業の未来を動かす。その重みを忘れず、誠実に伴走することが私たちの仕事です。
-        </p>
-        <p>
-          働き方も、企業の在り方も、大きく変わるこの時代。だからこそ、変わらない誠意と、変わり続ける柔軟さの両方を磨き、「人」を起点に未来をつくる挑戦を続けてまいります。
-        </p>
-        <div class="message-sign">代表取締役 覚善 一誠</div>
+      <div class="item">
+        <div class="num"><span class="count" data-target="450">0</span></div>
+        <div class="label">PARTNERS &mdash; 企業数</div>
       </div>
-    </div>
-
-    <!-- Info table -->
-    <dl class="info-table reveal">
-      <div class="info-row"><dt>会社名</dt><dd>株式会社覚善 (KAKUZEN INC.)</dd></div>
-      <div class="info-row"><dt>設立</dt><dd>2008年4月</dd></div>
-      <div class="info-row"><dt>代表者</dt><dd>代表取締役 覚善 一誠</dd></div>
-      <div class="info-row"><dt>資本金</dt><dd>3,000万円</dd></div>
-      <div class="info-row"><dt>本社所在地</dt><dd>〒103-XXXX 東京都中央区日本橋X-X-X 覚善ビル 5F</dd></div>
-      <div class="info-row"><dt>事業内容</dt><dd>労働者派遣事業 / 有料職業紹介事業 / 採用代行・人事コンサルティング / 研修事業</dd></div>
-      <div class="info-row"><dt>許可番号</dt><dd>派13-XXXXXX / 13-ユ-XXXXXX</dd></div>
-      <div class="info-row"><dt>取引銀行</dt><dd>三菱UFJ銀行 / 三井住友銀行 / みずほ銀行</dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- ============== WORKS / VOICE ============== -->
-<section id="works" class="works">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">WORKS &amp; VOICE</div>
-      <h2 class="section-title">信頼は、<br><span class="accent">実績と声</span>に宿る。</h2>
-      <p class="section-lead">私たちが大切にしてきた、人と企業の物語。一部をご紹介します。</p>
-    </div>
-
-    <div class="works-tabs reveal" role="tablist">
-      <button class="tab-btn active" data-tab="works" role="tab" aria-selected="true">実績紹介<span class="num">06</span></button>
-      <button class="tab-btn" data-tab="voice" role="tab" aria-selected="false">お客様の声<span class="num">04</span></button>
-    </div>
-
-    <div class="tab-panel active" id="panel-works" role="tabpanel">
-      <div class="works-list">
-        <article class="work-card reveal">
-          <span class="work-tag">製造業</span>
-          <h4>大手食品メーカー様 製造ライン<br>120名規模の派遣体制構築</h4>
-          <p>新工場立ち上げに伴う大規模採用を伴走支援。生産性とES両立を実現する人材配置で稼働1ヶ月で目標達成。</p>
-          <div class="work-meta"><span>業界 / <strong>食品製造</strong></span><span>派遣 / <strong>120名</strong></span></div>
-        </article>
-        <article class="work-card reveal reveal-delay-1">
-          <span class="work-tag">物流</span>
-          <h4>EC物流センター 倉庫管理職<br>定着率92%を実現</h4>
-          <p>離職率の高さに悩む現場へ、ミスマッチを防ぐ綿密な事前面談を導入。1年定着率を業界平均比+38%に改善。</p>
-          <div class="work-meta"><span>業界 / <strong>EC物流</strong></span><span>紹介 / <strong>14名</strong></span></div>
-        </article>
-        <article class="work-card reveal reveal-delay-2">
-          <span class="work-tag">IT・専門</span>
-          <h4>SaaS企業 CTO候補<br>エグゼクティブサーチ成功事例</h4>
-          <p>シリーズB調達直後の経営層強化案件。非公開ネットワークを活用し、3ヶ月で理想の人材を採用へ。</p>
-          <div class="work-meta"><span>業界 / <strong>SaaS</strong></span><span>紹介 / <strong>1名</strong></span></div>
-        </article>
-        <article class="work-card reveal">
-          <span class="work-tag">事務・管理</span>
-          <h4>商社 経理部門<br>RPO導入で採用工数▲70%</h4>
-          <p>母集団形成から一次面接代行までフルアウトソース。人事部の戦略業務シフトを実現した好事例。</p>
-          <div class="work-meta"><span>業界 / <strong>専門商社</strong></span><span>RPO / <strong>6ヶ月</strong></span></div>
-        </article>
-        <article class="work-card reveal reveal-delay-1">
-          <span class="work-tag">医療・介護</span>
-          <h4>有料老人ホーム 介護スタッフ<br>夜勤帯の安定稼働を支援</h4>
-          <p>有資格者を中心とした夜勤専従シフトの構築。利用者満足度・職員満足度ともに前年比改善。</p>
-          <div class="work-meta"><span>業界 / <strong>介護</strong></span><span>派遣 / <strong>32名</strong></span></div>
-        </article>
-        <article class="work-card reveal reveal-delay-2">
-          <span class="work-tag">研修</span>
-          <h4>建設業 中堅マネジメント研修<br>3年継続導入</h4>
-          <p>現場叩き上げのリーダー層に対し、ピープルマネジメントを体系化。チームエンゲージメントスコア+22pt。</p>
-          <div class="work-meta"><span>業界 / <strong>建設</strong></span><span>研修 / <strong>3年継続</strong></span></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="panel-voice" role="tabpanel">
-      <div class="voice-list">
-        <article class="voice-card reveal">
-          <p class="voice-text">私たちの現場をしっかり見てから提案してくれる、稀有なエージェントです。担当の方は契約後も定期的に現場まで足を運んでくれて、本当の意味でのパートナーだと感じています。</p>
-          <div class="voice-author">
-            <div class="voice-avatar">A</div>
-            <div class="voice-info">
-              <div class="name">人事部長 A様</div>
-              <div class="org">食品製造業 / 従業員800名規模</div>
-            </div>
-          </div>
-        </article>
-        <article class="voice-card reveal reveal-delay-1">
-          <p class="voice-text">転職活動が初めてで不安でしたが、私の強みも弱みも、本気で一緒に考えてくれました。条件交渉まで丁寧にサポートいただき、納得できる転職ができました。</p>
-          <div class="voice-author">
-            <div class="voice-avatar">M</div>
-            <div class="voice-info">
-              <div class="name">M様 (32歳)</div>
-              <div class="org">経理職への転職 / 紹介サービス利用</div>
-            </div>
-          </div>
-        </article>
-        <article class="voice-card reveal reveal-delay-2">
-          <p class="voice-text">「数字を追わない営業」という覚善さんの姿勢が、当社の価値観と一致しました。短期で大量採用するのではなく、定着までを見据えた提案が信頼につながっています。</p>
-          <div class="voice-author">
-            <div class="voice-avatar">K</div>
-            <div class="voice-info">
-              <div class="name">代表取締役 K様</div>
-              <div class="org">物流ベンチャー / 創業5年</div>
-            </div>
-          </div>
-        </article>
-        <article class="voice-card reveal reveal-delay-3">
-          <p class="voice-text">RPO導入で採用工数が劇的に減り、人事として本来取り組むべき制度設計に時間を割けるようになりました。覚善さんは "外注先" ではなく "もう一つの人事部" です。</p>
-          <div class="voice-author">
-            <div class="voice-avatar">S</div>
-            <div class="voice-info">
-              <div class="name">人事マネージャー S様</div>
-              <div class="org">専門商社 / 従業員300名規模</div>
-            </div>
-          </div>
-        </article>
+      <div class="item">
+        <div class="num"><span class="count" data-target="93">0</span>%</div>
+        <div class="label">RETENTION &mdash; 定着率</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== CONTACT ============== -->
-<section id="contact" class="contact">
-  <div class="wrap">
+<!-- ===== Company ===== -->
+<section id="company" class="section section-ink">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">04 &mdash; Company</span>
+      <h2 class="section-title">会社情報</h2>
+    </div>
+
+    <div class="company">
+      <table class="company-table reveal">
+        <tr><th>商号</th><td>株式会社覚善（KAKUZEN INC.）</td></tr>
+        <tr><th>代表者</th><td>代表取締役　覚善 一誠</td></tr>
+        <tr><th>創業</th><td>2011年（平成23年）</td></tr>
+        <tr><th>事業内容</th><td>
+          一般労働者派遣事業<br />
+          有料職業紹介事業<br />
+          採用コンサルティング
+        </td></tr>
+        <tr><th>所在地</th><td>
+          〒103-XXXX<br />
+          東京都中央区日本橋X-X-X 覚善ビル 5F
+        </td></tr>
+        <tr><th>連絡先</th><td>
+          TEL: 03-XXXX-XXXX<br />
+          MAIL: info@kakuzen.co.jp
+        </td></tr>
+        <tr><th>資本金</th><td>1,000万円</td></tr>
+        <tr><th>取引銀行</th><td>三菱UFJ銀行・みずほ銀行</td></tr>
+      </table>
+
+      <aside class="ceo-card reveal delay-1">
+        <div class="role">CEO Message</div>
+        <div class="name">
+          <span class="ja">覚善 一誠</span>
+          <span class="en">Issei Kakuzen</span>
+        </div>
+        <blockquote>
+          「人材」を「人財」と書き換えたとき、見える景色がまるで変わりました。<br />
+          人は埋めるべき空席ではなく、組織を未来へ運ぶ財産です。<br />
+          私たちは小さな会社ですが、目の前のお一人と、目の前の一社に、誠実であり続けます。
+        </blockquote>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" class="section section-cream contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">05 &mdash; Contact</span>
+      <h2 class="section-title">まずは、対話から。</h2>
+      <p class="section-lead">
+        採用にお悩みの企業様、キャリアにお悩みの方。<br />
+        どちらのお問い合わせも、同じ窓口で受け付けています。
+      </p>
+    </div>
+
     <div class="contact-grid">
-      <div class="contact-text reveal">
-        <div class="section-label">CONTACT</div>
-        <h2 class="section-title">まずは、<br><span class="accent">お話を聞かせてください。</span></h2>
-        <p>採用課題、登録のご相談、研修導入のご検討 ——<br>どのようなテーマでも、まずはお気軽にご連絡ください。</p>
-        <p>担当者が丁寧にヒアリングし、最適なご提案を設計いたします。<br>無理な営業や契約の押し売りは一切ありません。</p>
-        <p style="margin-top: 30px; padding: 18px 22px; background: var(--gray-50); border-left: 2px solid var(--gold); font-size: 14px;">
-          <strong style="color: var(--navy);">受付時間</strong> 平日 9:00〜18:00<br>
-          <span style="color: var(--gray-600);">土日祝・年末年始は翌営業日にご返信いたします</span>
+      <div class="contact-info reveal">
+        <h3>3営業日以内に、<br />担当者より直接ご連絡します。</h3>
+        <p>
+          自動応答ではなく、人がお返事するためお時間をいただきます。<br />
+          お急ぎの場合はお電話にてご連絡ください。
         </p>
+        <ul class="contact-list">
+          <li>
+            <span class="label">TEL</span>
+            <span class="value-text">
+              03-XXXX-XXXX
+              <span class="sub">平日 9:00 - 18:00（土日祝休み）</span>
+            </span>
+          </li>
+          <li>
+            <span class="label">MAIL</span>
+            <span class="value-text">
+              info@kakuzen.co.jp
+              <span class="sub">24時間受付・3営業日以内に返信</span>
+            </span>
+          </li>
+          <li>
+            <span class="label">VISIT</span>
+            <span class="value-text">
+              東京都中央区日本橋X-X-X
+              <span class="sub">覚善ビル 5F（東京メトロ日本橋駅から徒歩3分）</span>
+            </span>
+          </li>
+        </ul>
       </div>
 
-      <div class="contact-card reveal reveal-delay-1">
-        <div class="contact-row">
-          <div class="contact-label">TEL / お電話</div>
-          <div class="contact-value"><a href="tel:03-0000-0000">03-XXXX-XXXX</a></div>
-          <div class="contact-note">— 営業時間内のお問い合わせはこちらが最速です</div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-label">MAIL / メール</div>
-          <div class="contact-value" style="font-size: clamp(18px, 2.4vw, 24px);"><a href="mailto:info@kakuzen.co.jp">info@kakuzen.co.jp</a></div>
-          <div class="contact-note">— 24時間受付 / 翌営業日までにご返信</div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-label">ADDRESS / 所在地</div>
-          <div class="contact-value" style="font-size: 16px; font-family: var(--sans); font-weight: 500; line-height: 1.8;">
-            〒103-XXXX<br>
-            東京都中央区日本橋X-X-X 覚善ビル 5F
+      <form class="contact-form reveal delay-1" onsubmit="return false;">
+        <div class="form-row split">
+          <div>
+            <label>会社名 <span class="req">必須</span></label>
+            <input type="text" placeholder="株式会社○○" />
           </div>
-          <div class="contact-note">— 東京メトロ「日本橋駅」B1出口より徒歩3分</div>
+          <div>
+            <label>お名前 <span class="req">必須</span></label>
+            <input type="text" placeholder="山田 太郎" />
+          </div>
         </div>
-      </div>
+        <div class="form-row split">
+          <div>
+            <label>メール <span class="req">必須</span></label>
+            <input type="email" placeholder="example@company.co.jp" />
+          </div>
+          <div>
+            <label>電話番号</label>
+            <input type="tel" placeholder="03-0000-0000" />
+          </div>
+        </div>
+        <div class="form-row">
+          <label>ご相談内容 <span class="req">必須</span></label>
+          <select>
+            <option>選択してください</option>
+            <option>人材派遣について</option>
+            <option>人材紹介について</option>
+            <option>採用コンサルティングについて</option>
+            <option>キャリア相談について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>メッセージ</label>
+          <textarea placeholder="現在の課題や、ご相談したい内容をお聞かせください。"></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          送信する <span class="arrow"></span>
+        </button>
+      </form>
     </div>
   </div>
 </section>
 
-<!-- ============== FOOTER ============== -->
+<!-- ===== Footer ===== -->
 <footer>
-  <div class="wrap">
+  <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#top" class="logo">
-          <span class="mark">覚</span>
-          <span>
-            <span class="name-jp">株式会社覚善</span>
-            <span class="name-en">KAKUZEN INC.</span>
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true">覚</span>
+          <span class="brand-text">
+            <span class="ja">株式会社覚善</span>
+            <span class="en">KAKUZEN INC.</span>
           </span>
         </a>
-        <p>「誠・信・覚・善」 —— 人と企業の可能性をひらく、総合人材サービス。誠実に向き合い、長期の信頼を積み重ねます。</p>
+        <p>
+          一人ひとりが、宝です。<br />
+          人と企業の出会いを、もっと丁寧に。
+        </p>
       </div>
       <div class="footer-col">
-        <h5>SERVICE</h5>
+        <h4>Sitemap</h4>
         <ul>
-          <li><a href="#services">人材派遣</a></li>
-          <li><a href="#services">人材紹介</a></li>
-          <li><a href="#services">採用代行・コンサル</a></li>
-          <li><a href="#services">研修・キャリア支援</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>COMPANY</h5>
-        <ul>
-          <li><a href="#company">経営理念</a></li>
-          <li><a href="#company">会社沿革</a></li>
-          <li><a href="#works">実績・お客様の声</a></li>
+          <li><a href="#about">理念</a></li>
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#numbers">実績</a></li>
+          <li><a href="#company">会社情報</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>TEL: 03-XXXX-XXXX</li>
+          <li>MAIL: info@kakuzen.co.jp</li>
+          <li>〒103-XXXX</li>
+          <li>東京都中央区日本橋X-X-X<br />覚善ビル 5F</li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <div class="copy">© 2008–2026 KAKUZEN INC. All Rights Reserved.</div>
-      <div>派遣事業許可番号 派13-XXXXXX / 有料職業紹介 13-ユ-XXXXXX</div>
+    <div class="footer-bot">
+      <span>&copy; 2026 KAKUZEN INC. All rights reserved.</span>
+      <span>派遣事業許可番号 13-XXXXXX / 紹介事業許可番号 13-ユ-XXXXXX</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // ============= Header scroll state =============
+(function () {
   const header = document.getElementById('siteHeader');
   const onScroll = () => {
-    if (window.scrollY > 30) header.classList.add('scrolled');
+    if (window.scrollY > 24) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // ============= Burger menu =============
-  const burger = document.getElementById('burger');
-  const gnav = document.getElementById('gnav');
-  const mask = document.getElementById('drawerMask');
-  const closeNav = () => {
-    burger.classList.remove('open');
-    gnav.classList.remove('open');
-    mask.classList.remove('show');
-    burger.setAttribute('aria-expanded', 'false');
+  const ham = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const closeDrawer = () => {
+    ham.classList.remove('open');
+    drawer.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
-  burger.addEventListener('click', () => {
-    const open = burger.classList.toggle('open');
-    gnav.classList.toggle('open', open);
-    mask.classList.toggle('show', open);
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
+  const openDrawer = () => {
+    ham.classList.add('open');
+    drawer.classList.add('open');
+    ham.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  ham.addEventListener('click', () => {
+    if (drawer.classList.contains('open')) closeDrawer();
+    else openDrawer();
   });
-  mask.addEventListener('click', closeNav);
-  gnav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-
-  // ============= Tabs =============
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.dataset.tab;
-      tabBtns.forEach(b => {
-        const active = b === btn;
-        b.classList.toggle('active', active);
-        b.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-      document.querySelectorAll('.tab-panel').forEach(p => {
-        p.classList.toggle('active', p.id === 'panel-' + tab);
-      });
-    });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
   });
 
-  // ============= Reveal on scroll =============
+  const reveal = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-visible');
-        io.unobserve(e.target);
+    entries.forEach((en) => {
+      if (en.isIntersecting) {
+        en.target.classList.add('is-visible');
+        io.unobserve(en.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+  reveal.forEach((el) => io.observe(el));
+
+  const counters = document.querySelectorAll('.count[data-target]');
+  const animate = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1600;
+    const start = performance.now();
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const v = Math.floor(target * ease(t));
+      el.textContent = v.toLocaleString();
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString();
+    };
+    requestAnimationFrame(step);
+  };
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) {
+        animate(en.target);
+        cio.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach((c) => cio.observe(c));
+})();
 </script>
+
 </body>
 </html>
