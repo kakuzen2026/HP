@@ -286,7 +286,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@media (min-width: 721px) {
+@media (hover: hover) and (min-width: 721px) {
   .hero-eyebrow { animation: heroTextIn 1.0s 0.2s cubic-bezier(.22,.61,.36,1) both; }
   .hero h1      { animation: heroTextIn 1.0s 0.38s cubic-bezier(.22,.61,.36,1) both; }
   .hero .hero-sub     { animation: heroTextIn 1.0s 0.54s cubic-bezier(.22,.61,.36,1) both; }
@@ -1255,6 +1255,8 @@ footer {
     transition: none !important;
   }
   .philosophy, .services, .contact { overflow: visible; }
+  .hero { overflow: visible; }
+  .hero-svg { animation: none !important; opacity: 0.7 !important; transform: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
