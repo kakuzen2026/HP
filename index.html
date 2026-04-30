@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
@@ -1201,7 +1201,9 @@ footer {
   .hero-text { width: 100%; max-width: 100%; }
   .hero-svg { position: relative; right: auto; top: auto; transform: none !important; width: 80%; max-width: 360px; margin: 0 auto; opacity: 0.7 !important; animation: none !important; order: 2; align-self: center; display: block; }
   .philosophy-grid { grid-template-columns: 1fr; gap: 56px; }
-  .kanji-art { max-width: 380px; margin: 0 auto; }
+  .kanji-art { width: 280px; height: 280px; max-width: 280px; margin: 0 auto; }
+  .kanji-art .ring.r3 { animation: none !important; transform: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .company { grid-template-columns: 1fr; gap: 40px; }
   .ceo-card { position: static; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1777,7 +1779,7 @@ footer {
   });
 
   const reveal = document.querySelectorAll('.reveal');
-  if (window.matchMedia('(max-width: 720px)').matches) {
+  if (window.matchMedia('(max-width: 1024px)').matches) {
     reveal.forEach(el => el.classList.add('is-visible'));
   } else {
     const io = new IntersectionObserver((entries) => {
@@ -1789,6 +1791,7 @@ footer {
       });
     }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
     reveal.forEach((el) => io.observe(el));
+    setTimeout(() => reveal.forEach(el => el.classList.add('is-visible')), 2500);
   }
 
   const counters = document.querySelectorAll('.count[data-target]');
