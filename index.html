@@ -997,6 +997,10 @@ section { position: relative; }
   border-radius: var(--r-pill);
   letter-spacing: 0.08em;
 }
+.form-row select {
+  -webkit-appearance: none;
+  appearance: none;
+}
 .form-row input, .form-row select, .form-row textarea {
   width: 100%;
   padding: 14px 16px;
@@ -1195,8 +1199,7 @@ footer {
   .hero { flex-direction: column; align-items: stretch; }
   .hero-inner { grid-template-columns: 1fr; order: 1; width: 100%; }
   .hero-text { width: 100%; max-width: 100%; }
-  .hero-svg { position: relative; right: auto; top: auto; transform: none; width: 80%; max-width: 360px; margin: 0 auto; opacity: 0.7; order: 2; align-self: center; display: block; }
-  @keyframes heroFigureIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 0.7; transform: translateY(0);} }
+  .hero-svg { position: relative; right: auto; top: auto; transform: none !important; width: 80%; max-width: 360px; margin: 0 auto; opacity: 0.7 !important; animation: none !important; order: 2; align-self: center; display: block; }
   .philosophy-grid { grid-template-columns: 1fr; gap: 56px; }
   .kanji-art { max-width: 380px; margin: 0 auto; }
   .company { grid-template-columns: 1fr; gap: 40px; }
