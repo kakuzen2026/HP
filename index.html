@@ -1121,6 +1121,74 @@ footer {
 .count[data-target] { font-variant-numeric: tabular-nums; }
 
 /* ============================
+   Audience Sections
+   ============================ */
+.audience-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.audience-feature {
+  padding: 36px 28px;
+  background: #fff;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.audience-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.audience-feature .icon {
+  width: 52px; height: 52px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sand-100);
+  color: var(--teal-700);
+}
+.audience-feature h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal-900);
+}
+.audience-feature p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-2);
+  font-weight: 300;
+}
+.section-deep .audience-feature {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.14);
+}
+.section-deep .audience-feature h3 { color: #fff; }
+.section-deep .audience-feature p { color: rgba(255,255,255,.75); }
+.section-deep .audience-feature .icon {
+  background: rgba(255,255,255,.12);
+  color: var(--amber-200);
+}
+.audience-cta {
+  text-align: center;
+  margin-top: 16px;
+}
+.btn-amber {
+  background: var(--amber-500);
+  color: var(--teal-900);
+  box-shadow: 0 12px 28px rgba(199,122,27,.4);
+}
+.btn-amber:hover {
+  background: var(--amber-600);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(199,122,27,.48);
+}
+
+/* ============================
    Responsive
    ============================ */
 @media (max-width: 1024px) {
@@ -1151,6 +1219,7 @@ footer {
   .service-grid { grid-template-columns: 1fr; gap: 18px; }
   .service { padding: 36px 26px 32px; }
   .values { grid-template-columns: 1fr; }
+  .audience-features { grid-template-columns: 1fr; }
   .numbers-strip { grid-template-columns: 1fr 1fr; padding: 28px 0; gap: 28px 0; }
   .numbers-strip .item + .item { border-left: 0; }
   .numbers-strip .item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
@@ -1183,7 +1252,8 @@ footer {
     </a>
     <nav class="nav-desktop" aria-label="グローバルナビ">
       <a href="#about">理念</a>
-      <a href="#services">サービス</a>
+      <a href="#for-jobseekers">求職者の方</a>
+      <a href="#for-companies">企業の方</a>
       <a href="#company">会社情報</a>
       <a href="#contact" class="cta-mini">お問い合わせ</a>
     </nav>
@@ -1196,9 +1266,10 @@ footer {
 <aside class="drawer" id="drawer" aria-hidden="true">
   <ul>
     <li><a href="#about"><span>理念</span><span class="num">01</span></a></li>
-    <li><a href="#services"><span>サービス</span><span class="num">02</span></a></li>
-    <li><a href="#company"><span>会社情報</span><span class="num">03</span></a></li>
-    <li><a href="#contact"><span>お問い合わせ</span><span class="num">04</span></a></li>
+    <li><a href="#for-jobseekers"><span>求職者の方</span><span class="num">02</span></a></li>
+    <li><a href="#for-companies"><span>企業の方</span><span class="num">03</span></a></li>
+    <li><a href="#company"><span>会社情報</span><span class="num">04</span></a></li>
+    <li><a href="#contact"><span>お問い合わせ</span><span class="num">05</span></a></li>
   </ul>
   <a href="#contact" class="drawer-cta">無料相談を申し込む</a>
   <div class="drawer-foot">
@@ -1288,11 +1359,11 @@ footer {
         人材派遣の現場を知り尽くしたプロが、企業と人をつなぐ。私たち覚善は「人＝財」と書く想いで、働くすべての人が誇れる未来を、ともにつくります。
       </p>
       <div class="hero-actions reveal delay-3">
-        <a href="#contact" class="btn btn-primary">
-          ご相談はこちら <span class="arrow"></span>
+        <a href="#for-jobseekers" class="btn btn-primary">
+          お仕事を探す方へ <span class="arrow"></span>
         </a>
-        <a href="#services" class="btn btn-ghost">
-          サービスを見る <span class="arrow"></span>
+        <a href="#for-companies" class="btn btn-ghost">
+          採用をお考えの方へ <span class="arrow"></span>
         </a>
       </div>
     </div>
@@ -1401,6 +1472,92 @@ footer {
   </div>
 </section>
 
+<!-- ===== 求職者向け ===== -->
+<section id="for-jobseekers" class="section section-cream">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">求職者の方へ &mdash; For Job Seekers</span>
+      <h2 class="section-title">あなたのペースで、<br />働き方を選べる。</h2>
+      <p class="section-lead">
+        「まず働いてみたい」その気持ちで十分です。覚善は経験・学歴不問で、あなたに合った現場をご紹介。日払い・週払い対応で、すぐに生活を安定させることができます。
+      </p>
+    </div>
+
+    <div class="audience-features">
+      <div class="audience-feature reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.1 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.34a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>未経験・学歴不問</h3>
+        <p>入社前の研修があるので安心。やる気があれば、ものづくりの現場で即スタートできます。</p>
+      </div>
+      <div class="audience-feature reveal delay-1">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>日払い・週払いOK</h3>
+        <p>月末まで待てない時も大丈夫。柔軟な支払いサイクルで、生活をすぐに安定させられます。</p>
+      </div>
+      <div class="audience-feature reveal delay-2">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>専任担当が伴走</h3>
+        <p>担当者が配属後も定期的にフォロー。困ったことがあればいつでも相談できる環境です。</p>
+      </div>
+    </div>
+
+    <div class="audience-cta reveal">
+      <a href="#contact" class="btn btn-primary">
+        お仕事の相談をする <span class="arrow"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 法人向け ===== -->
+<section id="for-companies" class="section section-deep">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">法人・採用担当の方へ &mdash; For Employers</span>
+      <h2 class="section-title">即戦力を、<br />必要な時に。</h2>
+      <p class="section-lead">
+        製造・物流・倉庫業種に特化した15年以上の実績。繁忙期の短期増員から長期安定人材の確保まで、現場の文脈を理解した派遣をご提供します。
+      </p>
+    </div>
+
+    <div class="audience-features">
+      <div class="audience-feature reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>業種特化のマッチング</h3>
+        <p>製造・ライン・倉庫・物流に精通したコーディネーターが、現場に合った人材を厳選してご紹介します。</p>
+      </div>
+      <div class="audience-feature reveal delay-1">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>最短3日でご紹介</h3>
+        <p>お問い合わせから最短3日で人材をご紹介。急な欠員や繁忙期のピンチ対応も得意としています。</p>
+      </div>
+      <div class="audience-feature reveal delay-2">
+        <div class="icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>コスト透明性</h3>
+        <p>マージン・諸費用を明示したわかりやすい料金体系。採用コストの見通しが立てやすく、予算計画がスムーズです。</p>
+      </div>
+    </div>
+
+    <div class="audience-cta reveal">
+      <a href="#contact" class="btn btn-amber">
+        採用相談を申し込む <span class="arrow"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Company ===== -->
 <section id="company" class="section section-ink">
   <div class="container">
@@ -1503,7 +1660,8 @@ footer {
           <label>ご相談内容 <span class="req">必須</span></label>
           <select>
             <option>選択してください</option>
-            <option>人材派遣について</option>
+            <option>仕事を探している（求職者）</option>
+            <option>人材をお探しの企業（採用担当）</option>
             <option>その他</option>
           </select>
         </div>
@@ -1540,7 +1698,8 @@ footer {
         <h4>Sitemap</h4>
         <ul>
           <li><a href="#about">理念</a></li>
-          <li><a href="#services">サービス</a></li>
+          <li><a href="#for-jobseekers">求職者の方</a></li>
+          <li><a href="#for-companies">企業の方</a></li>
           <li><a href="#company">会社情報</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
