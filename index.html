@@ -1238,14 +1238,12 @@ footer {
   .footer-top { grid-template-columns: 1fr; gap: 36px; }
   .footer-bot { flex-direction: column; align-items: flex-start; }
   .scroll-cue { display: none; }
-  /* Disable reveal animation — iOS Safari IntersectionObserver + overflow:hidden clipping fix */
+  /* Disable reveal animation on mobile — no IntersectionObserver needed */
   .reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
-  .philosophy, .services, .contact { overflow: visible; }
-  .hero { overflow: visible; }
   .hero-svg { animation: none !important; opacity: 0.7 !important; transform: none !important; }
 }
 
