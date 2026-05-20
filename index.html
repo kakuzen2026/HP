@@ -3,1825 +3,1084 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="株式会社覚善 — 人財が、未来をつくる。労働者派遣のプロフェッショナル集団。" />
-<title>株式会社覚善｜人財が、未来をつくる。</title>
+<meta name="description" content="株式会社覚善は、人材派遣・現場管理・就業支援を通じて、企業と働く人の安定した関係づくりを支援します。" />
+<title>株式会社覚善｜人材派遣・現場管理支援</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet" />
 <style>
-/* ============================
-   Design tokens — Kakuzen 2026
-   人財コンセプト：温かみと有機性
-   ============================ */
 :root {
-  --teal-900: #0E3D33;
-  --teal-700: #1B5E4F;
-  --teal-500: #2E8170;
-  --teal-200: #B8DBD2;
-  --amber-600: #C77A1B;
-  --amber-500: #E8A020;
-  --amber-200: #F5D699;
-  --sand-100: #F5E6D0;
-  --sand-50:  #FAF1E2;
-  --paper:    #FAF7F4;
-  --paper-2:  #F2EBE2;
-  --ink:      #1F2A28;
-  --ink-2:    #4A5552;
-  --ink-3:    #7B847F;
-  --line:     #E2D8C9;
-  --shadow-sm: 0 4px 14px rgba(27,94,79,.08);
-  --shadow-md: 0 18px 48px rgba(27,94,79,.14);
-  --shadow-lg: 0 32px 80px rgba(14,61,51,.18);
-  --r-sm: 10px;
-  --r-md: 18px;
-  --r-lg: 28px;
-  --r-pill: 999px;
-  --container: 1200px;
+  --navy: #10233f;
+  --navy-2: #18385f;
+  --green: #2f6f66;
+  --gold: #b9822b;
+  --paper: #f7f5ef;
+  --white: #ffffff;
+  --mist: #edf2f4;
+  --ink: #1e2732;
+  --muted: #626d79;
+  --line: #d9dee4;
+  --line-dark: rgba(255,255,255,.22);
+  --shadow: 0 18px 42px rgba(16,35,63,.12);
+  --radius: 8px;
+  --container: 1160px;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', sans-serif;
-  font-weight: 400;
+  margin: 0;
+  font-family: "Noto Sans JP", system-ui, sans-serif;
   color: var(--ink);
   background: var(--paper);
   line-height: 1.75;
-  letter-spacing: 0.02em;
-  overflow-x: clip;
+  letter-spacing: 0;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  word-break: keep-all;
-  overflow-wrap: break-word;
 }
 
-img, svg { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+button, input, select, textarea { font: inherit; letter-spacing: 0; }
+.nowrap { white-space: nowrap; }
 
 .container {
-  width: 100%;
-  max-width: var(--container);
+  width: min(100% - 40px, var(--container));
   margin: 0 auto;
-  padding: 0 24px;
 }
 
-/* ============================
-   Header
-   ============================ */
 .site-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 18px 0;
-  transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
+  inset: 0 0 auto;
+  z-index: 20;
+  background: rgba(255,255,255,.94);
+  border-bottom: 1px solid rgba(16,35,63,.08);
+  backdrop-filter: blur(14px);
 }
-.site-header.scrolled {
-  background: rgba(250, 247, 244, 0.92);
-  backdrop-filter: saturate(140%) blur(12px);
-  -webkit-backdrop-filter: saturate(140%) blur(12px);
-  box-shadow: 0 1px 0 rgba(30,42,40,.06);
-  padding: 12px 0;
-}
+
 .header-inner {
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
+
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--teal-900);
-}
-.brand-mark {
-  width: 38px; height: 38px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--amber-500), var(--amber-600) 70%);
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0;
-  box-shadow: 0 6px 16px rgba(199,122,27,.35);
-}
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-.brand-text .ja {
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.06em;
-}
-.brand-text .en {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 11px;
-  color: var(--teal-500);
-  letter-spacing: 0.18em;
-}
-.nav-desktop {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.nav-desktop a {
-  position: relative;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 10px 16px;
-  color: var(--ink-2);
-  transition: color .25s ease;
-}
-.nav-desktop a::after {
-  content: '';
-  position: absolute;
-  left: 16px; right: 16px; bottom: 4px;
-  height: 1px;
-  background: var(--amber-500);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .35s ease;
-}
-.nav-desktop a:hover { color: var(--teal-900); }
-.nav-desktop a:hover::after { transform: scaleX(1); }
-.nav-desktop a.cta-mini {
-  color: #fff;
-}
-.cta-mini {
-  margin-left: 12px;
-  padding: 10px 22px;
-  background: var(--teal-700);
-  color: #fff;
-  border-radius: var(--r-pill);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  transition: background .25s ease, transform .25s ease;
-}
-.cta-mini:hover {
-  background: var(--teal-900);
-  transform: translateY(-2px);
-}
-
-.hamburger {
-  display: none;
-  width: 44px; height: 44px;
-  position: relative;
-  border-radius: 50%;
-  background: var(--teal-700);
-  z-index: 110;
-}
-.hamburger span {
-  position: absolute;
-  left: 12px; right: 12px;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: transform .3s ease, opacity .3s ease, top .3s ease;
-}
-.hamburger span:nth-child(1) { top: 16px; }
-.hamburger span:nth-child(2) { top: 21px; }
-.hamburger span:nth-child(3) { top: 26px; }
-.hamburger.open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
-
-.drawer {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(160deg, var(--teal-900), var(--teal-700));
-  color: #fff;
-  z-index: 105;
-  padding: 96px 28px 40px;
-  transform: translateX(100%);
-  transition: transform .5s cubic-bezier(.22,.61,.36,1);
-  overflow-y: auto;
-}
-.drawer.open { transform: translateX(0); }
-.drawer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px;
-}
-.drawer li {
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-.drawer a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 4px;
-  font-size: 17px;
-  font-weight: 400;
-}
-.drawer a .num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  color: var(--amber-200);
-  letter-spacing: 0.2em;
-}
-.drawer .drawer-cta {
-  display: block;
-  margin-top: 24px;
-  padding: 18px;
-  text-align: center;
-  background: var(--amber-500);
-  color: var(--teal-900);
-  border-radius: var(--r-pill);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-.drawer .drawer-foot {
-  margin-top: 40px;
-  font-size: 12px;
-  color: rgba(255,255,255,.6);
-  letter-spacing: 0.1em;
-}
-
-/* ============================
-   Hero
-   ============================ */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  padding: 140px 0 80px;
-  display: flex;
-  align-items: center;
-  overflow: clip;
-  background:
-    radial-gradient(ellipse at 85% 15%, rgba(232,160,32,.18), transparent 55%),
-    radial-gradient(ellipse at 10% 90%, rgba(46,129,112,.15), transparent 50%),
-    linear-gradient(165deg, #FAF1E2 0%, #FAF7F4 45%, #EDE7DC 100%);
-}
-.hero-grain {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  opacity: 0.5;
-  background-image: radial-gradient(rgba(31,42,40,0.08) 1px, transparent 1px);
-  background-size: 4px 4px;
-  mix-blend-mode: multiply;
-}
-.hero-svg {
-  position: absolute;
-  right: -5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60%;
-  max-width: 720px;
-  pointer-events: none;
-  opacity: 0;
-  animation: heroFigureIn 1.4s .3s cubic-bezier(.22,.61,.36,1) forwards;
-}
-@keyframes heroFigureIn {
-  from { opacity: 0; transform: translate(40px, -50%); }
-  to   { opacity: 1; transform: translate(0, -50%); }
-}
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
-  gap: 48px;
-  align-items: center;
-}
-.hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 14px;
-  letter-spacing: 0.3em;
-  color: var(--teal-500);
-  margin-bottom: 28px;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 32px; height: 1px;
-  background: var(--amber-500);
-}
-.hero h1 {
-  margin: 0 0 28px;
-  font-size: clamp(38px, 6vw, 76px);
   font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: 0.01em;
-  color: var(--teal-900);
+  color: var(--navy);
 }
-.hero h1 .accent {
-  position: relative;
-  color: var(--amber-600);
-  white-space: nowrap;
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  background: var(--navy);
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  font-family: "Noto Serif JP", serif;
+  font-size: 18px;
 }
-.hero h1 .accent::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: 4px;
-  height: 12px;
-  background: rgba(232,160,32,.22);
-  z-index: -1;
-  border-radius: 4px;
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
 }
-.hero h1 .br { display: block; }
-.hero-sub {
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--ink-2);
-  max-width: 480px;
-  margin: 0 0 44px;
-  line-height: 1.95;
-}
-.hero-actions {
+
+.nav {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
 }
+
+.nav a { padding: 8px 0; }
+.nav a:hover { color: var(--green); }
+
+.header-cta,
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 32px;
-  font-size: 14px;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 6px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  border-radius: var(--r-pill);
-  transition: transform .3s ease, box-shadow .3s ease, background .3s ease, color .3s ease;
-  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
+
+.header-cta,
 .btn-primary {
-  background: var(--teal-700);
-  color: #fff;
-  box-shadow: 0 12px 28px rgba(27,94,79,.32);
-}
-.btn-primary:hover {
-  background: var(--teal-900);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(27,94,79,.38);
-}
-.btn-ghost {
-  background: transparent;
-  color: var(--teal-900);
-  border: 1.5px solid var(--teal-700);
-}
-.btn-ghost:hover {
-  background: var(--teal-900);
-  color: #fff;
-  transform: translateY(-3px);
-}
-.btn .arrow {
-  width: 18px; height: 12px;
-  position: relative;
-}
-.btn .arrow::before, .btn .arrow::after {
-  content: '';
-  position: absolute;
-  background: currentColor;
-}
-.btn .arrow::before {
-  left: 0; right: 0; top: 5px; height: 1.5px;
-}
-.btn .arrow::after {
-  width: 8px; height: 1.5px;
-  right: 0; top: 1px;
-  transform: rotate(45deg);
-  transform-origin: right;
+  background: var(--navy);
+  color: var(--white);
 }
 
-/* Hero stats */
-.hero-stats {
-  position: relative;
-  z-index: 2;
-  margin-top: 80px;
+.btn-secondary {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--line);
+}
+
+.btn:hover,
+.header-cta:hover {
+  transform: translateY(-1px);
+}
+
+.menu-button { display: none; }
+
+.hero {
+  min-height: 92vh;
+  padding: 132px 0 54px;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(16,35,63,.98) 0%, rgba(16,35,63,.92) 54%, rgba(47,111,102,.82) 100%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 42px);
+  display: flex;
+  align-items: end;
+}
+
+.hero-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--line);
-  padding-top: 36px;
-}
-.hero-stats .stat {
-  position: relative;
-  padding: 0 28px;
-}
-.hero-stats .stat + .stat {
-  border-left: 1px solid var(--line);
-}
-.hero-stats .num {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  font-size: clamp(40px, 5vw, 64px);
-  color: var(--teal-900);
-  line-height: 1;
-}
-.hero-stats .num .suffix {
-  font-size: 0.45em;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 700;
-  color: var(--amber-600);
-  letter-spacing: 0;
-}
-.hero-stats .label {
-  margin-top: 10px;
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  color: var(--ink-3);
-  text-transform: uppercase;
-}
-.hero-stats .label-ja {
-  margin-top: 4px;
-  font-size: 13px;
-  color: var(--ink-2);
-  letter-spacing: 0.06em;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 48px;
+  align-items: end;
 }
 
-.scroll-cue {
-  position: absolute;
-  left: 50%; bottom: 20px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  color: var(--ink-3);
-}
-.scroll-cue .line {
-  width: 1px; height: 50px;
-  background: linear-gradient(to bottom, transparent, var(--teal-500));
-  position: relative;
-  overflow: hidden;
-}
-.scroll-cue .line::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: 0; right: 0;
-  height: 50%;
-  background: var(--amber-500);
-  animation: cueDrop 2.4s ease-in-out infinite;
-}
-@keyframes cueDrop {
-  0%   { top: -50%; }
-  60%  { top: 100%; }
-  100% { top: 100%; }
-}
-
-/* ============================
-   Section base
-   ============================ */
-section { position: relative; }
-.section {
-  padding: 140px 0;
-}
-.section-tight { padding: 110px 0; }
-.section-ink { background: var(--paper); }
-.section-cream {
-  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
-}
-.section-deep {
-  background: linear-gradient(165deg, var(--teal-900) 0%, var(--teal-700) 100%);
-  color: #fff;
-}
-
-.section-head {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 72px;
-  max-width: 720px;
-}
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
+  color: #d8b36f;
   font-size: 13px;
-  letter-spacing: 0.3em;
-  color: var(--amber-600);
-  text-transform: uppercase;
-}
-.eyebrow::before {
-  content: '';
-  width: 28px; height: 1px;
-  background: var(--amber-500);
-}
-.section-deep .eyebrow { color: var(--amber-200); }
-.section-deep .eyebrow::before { background: var(--amber-200); }
-.section-title {
-  margin: 0;
-  font-size: clamp(28px, 3.6vw, 46px);
   font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--teal-900);
 }
-.section-deep .section-title { color: #fff; }
-.section-lead {
-  font-size: 15px;
-  color: var(--ink-2);
-  font-weight: 300;
-  line-height: 1.95;
-  margin: 14px 0 0;
-}
-.section-deep .section-lead { color: rgba(255,255,255,.78); }
 
-/* ============================
-   About / Philosophy
-   ============================ */
-.philosophy {
-  position: relative;
-  overflow: clip;
-}
-.philosophy-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-  gap: 80px;
-  align-items: center;
-}
-.kanji-art {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
-}
-.kanji-art .ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-}
-.kanji-art .ring.r2 { inset: 14%; border-color: var(--teal-200); }
-.kanji-art .ring.r3 {
-  inset: 28%;
-  border-color: rgba(232,160,32,.4);
-  border-style: dashed;
-  animation: ringSpin 60s linear infinite;
-}
-@keyframes ringSpin {
-  to { transform: rotate(360deg); }
-}
-.kanji-art .center {
-  position: relative;
-  width: 60%; height: 60%;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff, var(--sand-100) 70%, var(--sand-50));
-  box-shadow: var(--shadow-md);
-}
-.kanji-art .kanji {
-  font-size: clamp(86px, 14vw, 168px);
-  font-weight: 700;
-  color: var(--teal-900);
-  line-height: 1;
+.hero h1,
+.section-title h2,
+.message h2 {
+  font-family: "Noto Serif JP", serif;
+  line-height: 1.28;
   letter-spacing: 0;
 }
-.kanji-art .kanji-sub {
-  position: absolute;
-  bottom: 22%;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.4em;
-  color: var(--amber-600);
-  text-transform: uppercase;
-}
-.kanji-art .equation {
-  position: absolute;
-  top: 8%;
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  color: var(--ink-3);
-}
-.kanji-art .equation b {
-  color: var(--teal-700);
-  font-weight: 700;
+
+.hero h1 {
+  margin: 18px 0 22px;
+  max-width: 780px;
+  font-size: clamp(36px, 6vw, 64px);
 }
 
-.philosophy-body h3 {
-  margin: 28px 0 0;
-  font-size: clamp(22px, 2.6vw, 32px);
-  font-weight: 700;
-  line-height: 1.55;
-  color: var(--teal-900);
-}
-.philosophy-body h3 .hl {
-  background: linear-gradient(transparent 60%, var(--amber-200) 60%);
-  padding: 0 4px;
-}
-.philosophy-body p {
-  font-size: 15px;
-  line-height: 2;
-  color: var(--ink-2);
-  margin: 24px 0 0;
-}
-.values {
-  margin-top: 44px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.value {
-  padding: 24px 18px;
-  background: #fff;
-  border-radius: var(--r-md);
-  border: 1px solid var(--line);
-  text-align: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.value:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-sm);
-}
-.value .icon {
-  width: 44px; height: 44px;
-  margin: 0 auto 12px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--sand-100);
-  color: var(--teal-700);
-}
-.value h4 {
-  margin: 0 0 6px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--teal-900);
-  letter-spacing: 0.06em;
-}
-.value p {
+.hero p {
+  max-width: 720px;
   margin: 0;
-  font-size: 12px;
-  color: var(--ink-3);
-  line-height: 1.7;
-  letter-spacing: 0.04em;
+  color: rgba(255,255,255,.9);
+  font-size: 18px;
 }
 
-/* ============================
-   Services
-   ============================ */
-.services {
-  position: relative;
-  overflow: clip;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
 }
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+
+.hero-actions .btn-secondary {
+  background: rgba(255,255,255,.08);
+  color: var(--white);
+  border-color: var(--line-dark);
 }
-.service {
-  position: relative;
-  padding: 44px 32px 36px;
-  background: #fff;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-sm);
+
+.trust-panel {
+  background: rgba(255,255,255,.94);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  transition: transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
 }
-.service::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 6px;
-  background: linear-gradient(90deg, var(--teal-700), var(--amber-500));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .5s cubic-bezier(.22,.61,.36,1);
-}
-.service:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-md);
-}
-.service:hover::before { transform: scaleX(1); }
-.service .num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  color: var(--amber-600);
-  margin-bottom: 22px;
-}
-.service .pict {
-  width: 88px; height: 88px;
-  margin-bottom: 24px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: linear-gradient(160deg, var(--sand-50), var(--sand-100));
-}
-.service h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--teal-900);
-}
-.service .en {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--ink-3);
-  margin-bottom: 18px;
-}
-.service p {
-  font-size: 14px;
-  line-height: 1.95;
-  color: var(--ink-2);
-  margin: 0 0 22px;
-  font-weight: 300;
-}
-.service ul {
-  list-style: none;
-  padding: 0;
+
+.trust-panel h2 {
   margin: 0;
-  border-top: 1px dashed var(--line);
-  padding-top: 20px;
-}
-.service li {
-  position: relative;
-  padding-left: 22px;
-  font-size: 13px;
-  color: var(--ink-2);
-  margin-bottom: 8px;
-}
-.service li::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 10px;
-  width: 12px; height: 1px;
-  background: var(--amber-500);
+  padding: 22px 24px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 18px;
 }
 
-/* ============================
-   Numbers strip (deep section)
-   ============================ */
-.numbers-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  padding: 64px 0;
-  border-radius: var(--r-lg);
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-}
-.numbers-strip .item {
-  padding: 0 28px;
-  text-align: center;
-}
-.numbers-strip .item + .item {
-  border-left: 1px solid rgba(255,255,255,.12);
-}
-.numbers-strip .num {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  font-size: clamp(44px, 5vw, 72px);
-  color: var(--amber-500);
-  line-height: 1;
-}
-.numbers-strip .label {
-  margin-top: 12px;
-  font-size: 12px;
-  color: rgba(255,255,255,.7);
-  letter-spacing: 0.2em;
+.panel-art {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* ============================
-   Company info
-   ============================ */
-.company {
+.trust-art {
+  padding: 20px 24px 0;
+  background: linear-gradient(180deg, rgba(47,111,102,.1), rgba(255,255,255,0));
+}
+
+.panel-art .paper { fill: #fff; stroke: var(--line); stroke-width: 2; }
+.panel-art .navy { fill: var(--navy); }
+.panel-art .green { fill: var(--green); }
+.panel-art .gold { fill: var(--gold); }
+.panel-art .line { fill: none; stroke: var(--navy); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .72; }
+.panel-art .soft { fill: #edf2f4; }
+.panel-art .muted-line { fill: none; stroke: var(--line); stroke-width: 2; stroke-linecap: round; }
+
+.trust-list {
+  margin: 0;
+  padding: 18px 24px 22px;
+  list-style: none;
+}
+
+.trust-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-list li:last-child { border-bottom: 0; }
+.trust-list strong { display: block; color: var(--navy); }
+.trust-list span { display: block; color: var(--muted); font-size: 14px; }
+
+.notice-band {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.notice-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 56px;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  padding: 18px 0;
+  align-items: center;
+}
+
+.notice-label {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.section {
+  padding: 92px 0;
+}
+
+.section-white { background: var(--white); }
+.section-navy { background: var(--navy); color: var(--white); }
+
+.section-title {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 46px;
+  margin-bottom: 42px;
   align-items: start;
 }
+
+.section-title h2 {
+  margin: 8px 0 0;
+  color: var(--navy);
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+.section-navy .section-title h2 { color: var(--white); }
+.section-title p { margin: 8px 0 0; color: var(--muted); }
+.section-navy .section-title p { color: rgba(255,255,255,.78); }
+
+.service-grid,
+.feature-grid,
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: 0 8px 24px rgba(16,35,63,.06);
+}
+
+.section-navy .card {
+  background: rgba(255,255,255,.06);
+  border-color: var(--line-dark);
+  box-shadow: none;
+}
+
+.card-number {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--mist);
+  color: var(--green);
+  font-weight: 700;
+}
+
+.section-navy .card-number {
+  background: rgba(255,255,255,.12);
+  color: #d8b36f;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.section-navy .card h3 { color: var(--white); }
+.card p { margin: 0; color: var(--muted); }
+.section-navy .card p { color: rgba(255,255,255,.78); }
+
+.image-split {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.visual-panel {
+  min-height: 430px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.92), rgba(237,242,244,.78)),
+    repeating-linear-gradient(0deg, rgba(16,35,63,.045) 0 1px, transparent 1px 28px);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  display: grid;
+  align-content: center;
+  gap: 16px;
+}
+
+.visual-art {
+  padding: 4px 0 2px;
+}
+
+.visual-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.visual-heading strong {
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.seal {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  background: rgba(185,130,43,.08);
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+}
+
+.document-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.document-list li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.document-list span {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.document-list strong {
+  color: var(--navy);
+  font-size: 15px;
+}
+
+.message h2 {
+  margin: 0 0 20px;
+  color: var(--navy);
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.message p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.check-list {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  padding: 14px 16px;
+  border-left: 4px solid var(--green);
+  background: var(--white);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 8px 20px rgba(16,35,63,.05);
+}
+
+.representative {
+  background:
+    linear-gradient(90deg, rgba(16,35,63,.96), rgba(16,35,63,.9)),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 36px);
+  color: var(--white);
+}
+
+.representative-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 46px;
+  align-items: center;
+}
+
+.representative-mark {
+  min-height: 360px;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.06);
+  padding: 30px;
+  display: grid;
+  place-items: center;
+}
+
+.representative-mark-inner {
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  border: 2px solid rgba(216,179,111,.78);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #d8b36f;
+  font-family: "Noto Serif JP", serif;
+  font-size: 86px;
+  font-weight: 700;
+  background: radial-gradient(circle, rgba(216,179,111,.12), rgba(255,255,255,.02) 62%);
+}
+
+.representative-message h2 {
+  margin: 8px 0 18px;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.32;
+}
+
+.representative-message blockquote {
+  margin: 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line-dark);
+  color: rgba(255,255,255,.88);
+  font-size: 18px;
+  line-height: 2;
+}
+
+.representative-name {
+  margin-top: 22px;
+  color: rgba(255,255,255,.82);
+}
+
+.representative-name strong {
+  display: block;
+  color: var(--white);
+  font-size: 20px;
+}
+
 .company-table {
   width: 100%;
   border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
-.company-table tr {
+
+.company-table th,
+.company-table td {
+  padding: 18px 22px;
   border-bottom: 1px solid var(--line);
-}
-.company-table th, .company-table td {
-  padding: 22px 8px;
   text-align: left;
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--ink-2);
   vertical-align: top;
 }
+
+.company-table tr:last-child th,
+.company-table tr:last-child td { border-bottom: 0; }
+
 .company-table th {
-  width: 32%;
-  color: var(--teal-700);
+  width: 220px;
+  background: var(--mist);
+  color: var(--navy);
   font-weight: 700;
-  letter-spacing: 0.08em;
-  font-size: 12px;
-  padding-top: 26px;
-}
-.ceo-card {
-  position: sticky;
-  top: 110px;
-  padding: 40px 36px;
-  background: linear-gradient(160deg, #fff, var(--sand-50));
-  border-radius: var(--r-lg);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-}
-.ceo-card .role {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  color: var(--amber-600);
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.ceo-card .name {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 18px;
-}
-.ceo-card .name .ja {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--teal-900);
-}
-.ceo-card .name .en {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  color: var(--ink-3);
-  letter-spacing: 0.18em;
-}
-.ceo-card blockquote {
-  margin: 0;
-  padding: 22px 0 0;
-  border-top: 1px dashed var(--line);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 2;
-  color: var(--ink-2);
-  font-style: normal;
-  position: relative;
-}
-.ceo-card blockquote::before {
-  content: '\201C';
-  display: block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 64px;
-  color: var(--amber-500);
-  line-height: 0.4;
-  margin-bottom: 14px;
 }
 
-/* ============================
-   Contact
-   ============================ */
-.contact {
-  position: relative;
-  overflow: clip;
-}
-.contact-grid {
+.contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 56px;
-  align-items: start;
-}
-.contact-info {
-  padding: 8px 0;
-}
-.contact-info h3 {
-  margin: 0 0 16px;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--teal-900);
-  line-height: 1.5;
-}
-.contact-info p {
-  font-size: 14px;
-  color: var(--ink-2);
-  font-weight: 300;
-  line-height: 1.95;
-  margin: 0 0 36px;
-}
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.contact-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  padding: 20px 0;
-  border-top: 1px solid var(--line);
-}
-.contact-list li:last-child { border-bottom: 1px solid var(--line); }
-.contact-list .label {
-  flex-shrink: 0;
-  width: 80px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  color: var(--amber-600);
-  text-transform: uppercase;
-  padding-top: 4px;
-}
-.contact-list .value-text {
-  font-size: 15px;
-  color: var(--ink);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-}
-.contact-list .sub {
-  display: block;
-  font-size: 12px;
-  color: var(--ink-3);
-  font-weight: 300;
-  margin-top: 4px;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 40px;
 }
 
-.contact-form {
-  position: relative;
-  padding: 48px 44px;
-  background: #fff;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--line);
+.contact-box {
+  padding: 30px;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.06);
 }
-.contact-form::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 32px; right: 32px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--teal-700), var(--amber-500));
-  border-radius: 0 0 4px 4px;
+
+.contact-box h3 {
+  margin: 0 0 12px;
+  color: var(--white);
+  font-size: 22px;
 }
+
+.contact-box p,
+.contact-box li {
+  color: rgba(255,255,255,.78);
+}
+
+.contact-list {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
 .form-row {
-  margin-bottom: 24px;
-}
-.form-row.split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.form-row label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--teal-700);
-  margin-bottom: 10px;
-}
-.form-row label .req {
-  font-size: 10px;
-  padding: 2px 8px;
-  background: var(--amber-500);
-  color: #fff;
-  border-radius: var(--r-pill);
-  letter-spacing: 0.08em;
-}
-.form-row select {
-  -webkit-appearance: none;
-  appearance: none;
-}
-.form-row input, .form-row select, .form-row textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  background: var(--paper);
-  font-family: inherit;
-  font-size: 14px;
-  color: var(--ink);
-  transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
-}
-.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
-  outline: none;
-  border-color: var(--teal-500);
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(46,129,112,.12);
-}
-.form-row textarea {
-  min-height: 130px;
-  resize: vertical;
-}
-.form-submit {
-  width: 100%;
-  padding: 20px;
-  background: var(--teal-900);
-  color: #fff;
-  border-radius: var(--r-pill);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 14px;
 }
-.form-submit:hover {
-  background: var(--teal-700);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(14,61,51,.3);
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(255,255,255,.86);
+  font-size: 14px;
+  font-weight: 700;
 }
 
-/* ============================
-   Footer
-   ============================ */
-footer {
-  background: #0A2A24;
-  color: rgba(255,255,255,.7);
-  padding: 80px 0 32px;
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: var(--white);
+  background: rgba(255,255,255,.08);
 }
-.footer-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: 56px;
-  padding-bottom: 56px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
+
+.field textarea {
+  min-height: 128px;
+  resize: vertical;
 }
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-}
-.footer-brand .brand-text .ja { color: #fff; }
-.footer-brand .brand-text .en { color: var(--amber-200); }
-.footer-brand p {
-  margin: 24px 0 0;
-  font-size: 13px;
-  line-height: 1.95;
-  font-weight: 300;
-}
-.footer-col h4 {
-  margin: 0 0 22px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  color: var(--amber-200);
-  text-transform: uppercase;
-}
-.footer-col ul {
-  list-style: none;
-  padding: 0;
+
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(255,255,255,.48); }
+
+.form-note {
   margin: 0;
-}
-.footer-col li {
-  padding: 6px 0;
+  color: rgba(255,255,255,.66);
   font-size: 13px;
 }
-.footer-col a {
-  color: rgba(255,255,255,.7);
-  transition: color .25s ease;
+
+.footer {
+  padding: 42px 0;
+  background: #0b192d;
+  color: rgba(255,255,255,.76);
 }
-.footer-col a:hover { color: var(--amber-200); }
-.footer-bot {
-  padding-top: 28px;
+
+.footer-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,.5);
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 24px;
+  align-items: start;
 }
 
-/* ============================
-   Reveal animations
-   ============================ */
+.footer strong {
+  display: block;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1);
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal.delay-1 { transition-delay: .12s; }
-.reveal.delay-2 { transition-delay: .22s; }
-.reveal.delay-3 { transition-delay: .32s; }
-.reveal.delay-4 { transition-delay: .42s; }
-
-.count[data-target] { font-variant-numeric: tabular-nums; }
-
-/* ============================
-   Audience Sections
-   ============================ */
-.audience-features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 56px;
-}
-.audience-feature {
-  padding: 36px 28px;
-  background: #fff;
-  border-radius: var(--r-md);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.audience-feature:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-.audience-feature .icon {
-  width: 52px; height: 52px;
-  margin-bottom: 20px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--sand-100);
-  color: var(--teal-700);
-}
-.audience-feature h3 {
-  margin: 0 0 10px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--teal-900);
-}
-.audience-feature p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--ink-2);
-  font-weight: 300;
-}
-.section-deep .audience-feature {
-  background: rgba(255,255,255,.07);
-  border-color: rgba(255,255,255,.14);
-}
-.section-deep .audience-feature h3 { color: #fff; }
-.section-deep .audience-feature p { color: rgba(255,255,255,.75); }
-.section-deep .audience-feature .icon {
-  background: rgba(255,255,255,.12);
-  color: var(--amber-200);
-}
-.audience-cta {
-  text-align: center;
-  margin-top: 16px;
-}
-.btn-amber {
-  background: var(--amber-500);
-  color: var(--teal-900);
-  box-shadow: 0 12px 28px rgba(199,122,27,.4);
-}
-.btn-amber:hover {
-  background: var(--amber-600);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(199,122,27,.48);
+  transform: translateY(18px);
+  animation: reveal .8s ease forwards;
 }
 
-/* ============================
-   Responsive
-   ============================ */
-@media (max-width: 1024px) {
-  body { overflow-x: hidden; }
-  .hero { flex-direction: column; align-items: stretch; }
-  .hero-inner { grid-template-columns: 1fr; order: 1; width: 100%; }
-  .hero-text { width: 100%; max-width: 100%; min-width: 0; }
-  .hero-svg { position: relative; right: auto; top: auto; transform: none !important; width: 80%; max-width: 360px; margin: 0 auto; opacity: 0.7 !important; animation: none !important; order: 2; align-self: center; display: block; }
-  .philosophy-grid { grid-template-columns: 1fr; gap: 56px; }
-  .philosophy-body { min-width: 0; }
-  .kanji-art { width: 280px; height: 280px; max-width: 280px; margin: 0 auto; }
-  .kanji-art .ring.r3 { animation: none !important; transform: none !important; }
-  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .company { grid-template-columns: 1fr; gap: 40px; }
-  .ceo-card { position: static; }
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .footer-brand { grid-column: 1 / -1; }
-}
+.delay-1 { animation-delay: .08s; }
+.delay-2 { animation-delay: .16s; }
 
-@media (max-width: 720px) {
-  .container { padding: 0 20px; }
-  .nav-desktop, .cta-mini { display: none; }
-  .hamburger { display: block; }
-  .section { padding: 72px 0; }
-  .section-tight { padding: 60px 0; }
-  .section-head { margin-bottom: 40px; }
-  .section-title { font-size: 26px; }
-  .section-lead { font-size: 15px; }
-  .hero { padding: 110px 0 56px; min-height: auto; }
-  .hero-inner { grid-template-columns: 1fr !important; width: 100% !important; }
-  .hero-text { width: 100%; max-width: 100%; }
-  .hero h1 { font-size: 34px; line-height: 1.35; }
-  .hero-sub { max-width: 100%; font-size: 15px; margin-bottom: 32px; }
-  .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .hero-actions .btn { width: 100%; justify-content: center; padding: 16px 24px; }
-  .hero-stats { margin-top: 48px; grid-template-columns: 1fr; gap: 0; padding-top: 0; border-top: 0; }
-  .hero-stats .stat { padding: 22px 0; border-top: 1px solid var(--line); }
-  .hero-stats .stat + .stat { border-left: 0; }
-  .service-grid { grid-template-columns: 1fr; gap: 18px; }
-  .service { padding: 32px 22px 28px; }
-  .values { grid-template-columns: 1fr; }
-  .audience-features { grid-template-columns: 1fr; gap: 16px; }
-  .audience-feature { padding: 28px 20px; min-width: 0; }
-  .numbers-strip { grid-template-columns: 1fr 1fr; padding: 28px 0; gap: 28px 0; }
-  .numbers-strip .item + .item { border-left: 0; }
-  .numbers-strip .item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
-  .form-row.split { grid-template-columns: 1fr; }
-  .contact-form { padding: 28px 20px; }
-  .footer-top { grid-template-columns: 1fr; gap: 36px; }
-  .footer-bot { flex-direction: column; align-items: flex-start; }
-  .scroll-cue { display: none; }
-  /* Disable reveal animation on mobile — no IntersectionObserver needed */
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  .hero-svg { animation: none !important; opacity: 0.7 !important; transform: none !important; }
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
+  * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 920px) {
+  .header-inner { min-height: 66px; }
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+    color: var(--navy);
   }
+
+  .nav {
+    position: fixed;
+    inset: 66px 0 auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 20px 20px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .nav.open { display: flex; }
+  .nav a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .header-cta { margin-top: 12px; }
+
+  .hero {
+    min-height: auto;
+    padding: 110px 0 42px;
+    background:
+      linear-gradient(180deg, rgba(16,35,63,.98) 0%, rgba(47,111,102,.86) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 36px);
+  }
+
+  .hero-grid,
+  .section-title,
+  .image-split,
+  .representative-grid,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid,
+  .feature-grid,
+  .flow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notice-inner { grid-template-columns: 1fr; gap: 6px; }
+  .section { padding: 70px 0; }
+  .visual-panel { min-height: auto; padding: 22px; }
+  .representative-mark { min-height: 240px; }
+  .representative-mark-inner { width: min(100%, 210px); font-size: 60px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+}
+
+@media (max-width: 560px) {
+  .container { width: min(100% - 28px, var(--container)); }
+  .brand small { display: none; }
+  .hero h1 { font-size: 34px; }
+  .hero p { font-size: 16px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .company-table th,
+  .company-table td {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+  }
+  .company-table th { border-bottom: 0; }
 }
 </style>
 </head>
 <body>
-
-<!-- ===== Header ===== -->
-<header class="site-header" id="siteHeader">
+<header class="site-header">
   <div class="container header-inner">
-    <a href="#top" class="brand" aria-label="株式会社覚善">
-      <span class="brand-mark" aria-hidden="true">覚</span>
-      <span class="brand-text">
-        <span class="ja">株式会社覚善</span>
-        <span class="en">KAKUZEN INC.</span>
-      </span>
+    <a class="brand" href="#top" aria-label="株式会社覚善 トップへ">
+      <span class="brand-mark">覚</span>
+      <span>株式会社覚善<small>KAKUZEN INC.</small></span>
     </a>
-    <nav class="nav-desktop" aria-label="グローバルナビ">
-      <a href="#about">理念</a>
-      <a href="#for-jobseekers">求職者の方</a>
-      <a href="#for-companies">企業の方</a>
+    <button class="menu-button" type="button" aria-label="メニューを開閉" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav class="nav" id="site-nav" aria-label="主要ナビゲーション">
+      <a href="#service">事業内容</a>
+      <a href="#jobseekers">求職者の方へ</a>
+      <a href="#employers">企業の方へ</a>
       <a href="#company">会社情報</a>
-      <a href="#contact" class="cta-mini">お問い合わせ</a>
+      <a class="header-cta" href="#contact">お問い合わせ</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
-<aside class="drawer" id="drawer" aria-hidden="true">
-  <ul>
-    <li><a href="#about"><span>理念</span><span class="num">01</span></a></li>
-    <li><a href="#for-jobseekers"><span>求職者の方</span><span class="num">02</span></a></li>
-    <li><a href="#for-companies"><span>企業の方</span><span class="num">03</span></a></li>
-    <li><a href="#company"><span>会社情報</span><span class="num">04</span></a></li>
-    <li><a href="#contact"><span>お問い合わせ</span><span class="num">05</span></a></li>
-  </ul>
-  <a href="#contact" class="drawer-cta">無料相談を申し込む</a>
-  <div class="drawer-foot">
-  </div>
-</aside>
-
-<!-- ===== Hero ===== -->
-<section id="top" class="hero">
-  <div class="hero-grain" aria-hidden="true"></div>
-
-  <svg class="hero-svg" viewBox="0 0 720 640" width="100%" height="auto" aria-hidden="true">
-    <defs>
-      <linearGradient id="gradWarm" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#E8A020" stop-opacity="0.85"/>
-        <stop offset="100%" stop-color="#C77A1B" stop-opacity="1"/>
-      </linearGradient>
-      <linearGradient id="gradTeal" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#2E8170"/>
-        <stop offset="100%" stop-color="#0E3D33"/>
-      </linearGradient>
-      <radialGradient id="gradBlob" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#F5D699" stop-opacity="0.65"/>
-        <stop offset="100%" stop-color="#F5D699" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-
-    <ellipse cx="380" cy="320" rx="320" ry="280" fill="url(#gradBlob)"/>
-
-    <g stroke="#1B5E4F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.55">
-      <path d="M 130 460 Q 280 280 460 200" stroke-dasharray="4 6"/>
-      <path d="M 130 460 Q 320 480 540 380"/>
-      <path d="M 460 200 Q 540 300 540 380" stroke-dasharray="4 6"/>
-      <path d="M 240 140 Q 360 240 460 200"/>
-      <path d="M 240 140 Q 200 320 130 460" stroke-dasharray="4 6"/>
-      <path d="M 600 530 Q 500 460 540 380"/>
-      <path d="M 600 530 Q 380 540 130 460" stroke-dasharray="4 6"/>
-    </g>
-
-    <g transform="translate(360 320)">
-      <circle r="62" fill="url(#gradTeal)"/>
-      <circle cy="-22" r="26" fill="#FAF7F4"/>
-      <path d="M -42 30 Q -42 -10 0 -10 Q 42 -10 42 30 L 42 62 L -42 62 Z" fill="#FAF7F4"/>
-    </g>
-
-    <g transform="translate(130 460)">
-      <circle r="42" fill="url(#gradWarm)"/>
-      <circle cy="-14" r="17" fill="#FAF7F4"/>
-      <path d="M -28 22 Q -28 -2 0 -2 Q 28 -2 28 22 L 28 42 L -28 42 Z" fill="#FAF7F4"/>
-    </g>
-
-    <g transform="translate(460 200)">
-      <circle r="46" fill="#FAF7F4" stroke="#1B5E4F" stroke-width="2"/>
-      <circle cy="-15" r="18" fill="#1B5E4F"/>
-      <path d="M -32 24 Q -32 -2 0 -2 Q 32 -2 32 24 L 32 46 L -32 46 Z" fill="#1B5E4F"/>
-    </g>
-
-    <g transform="translate(540 380)">
-      <circle r="38" fill="url(#gradWarm)" opacity="0.9"/>
-      <circle cy="-12" r="15" fill="#FAF7F4"/>
-      <path d="M -25 20 Q -25 -2 0 -2 Q 25 -2 25 20 L 25 38 L -25 38 Z" fill="#FAF7F4"/>
-    </g>
-
-    <g transform="translate(240 140)">
-      <circle r="30" fill="#1B5E4F" opacity="0.85"/>
-      <circle cy="-10" r="12" fill="#FAF7F4"/>
-      <path d="M -20 16 Q -20 -2 0 -2 Q 20 -2 20 16 L 20 30 L -20 30 Z" fill="#FAF7F4"/>
-    </g>
-
-    <g transform="translate(600 530)">
-      <circle r="24" fill="#E8A020"/>
-      <circle cy="-8" r="10" fill="#FAF7F4"/>
-      <path d="M -16 14 Q -16 -2 0 -2 Q 16 -2 16 14 L 16 24 L -16 24 Z" fill="#FAF7F4"/>
-    </g>
-
-    <path d="M 80 580 Q 280 480 480 380 T 700 100" fill="none" stroke="url(#gradWarm)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 8"/>
-    <circle cx="700" cy="100" r="6" fill="#E8A020"/>
-  </svg>
-
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Career Architects</p>
-      <h1>
-        一人ひとりが、
-        <span class="br"><span class="accent">宝</span>です。</span>
-      </h1>
-      <p class="hero-sub">
-        人材派遣の現場を知り尽くしたプロが、企業と人をつなぐ。私たち覚善は「人＝財」と書く想いで、働くすべての人が誇れる未来を、ともにつくります。
-      </p>
-      <div class="hero-actions">
-        <a href="#for-jobseekers" class="btn btn-primary">
-          お仕事を探す方へ <span class="arrow"></span>
-        </a>
-        <a href="#for-companies" class="btn btn-ghost">
-          採用をお考えの方へ <span class="arrow"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="scroll-cue" aria-hidden="true">
-    <span>SCROLL</span>
-    <span class="line"></span>
-  </div>
-</section>
-
-<!-- ===== Philosophy / About ===== -->
-<section id="about" class="section section-cream philosophy">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">01 &mdash; Philosophy</span>
-      <h2 class="section-title">「人材」ではなく、「人財」と書く理由。</h2>
-      <p class="section-lead">
-        スキルや資格は履歴書に書ける。けれど、その人にしかない景色や情熱は、対話のなかでしか見えてこない。覚善はその一筋を、丁寧に、辛抱強く、見つけ出す会社です。
-      </p>
-    </div>
-
-    <div class="philosophy-grid">
-      <div class="kanji-art reveal">
-        <span class="ring"></span>
-        <span class="ring r2"></span>
-        <span class="ring r3"></span>
-        <span class="equation">人 <b>+</b> 財 <b>=</b> 唯一無二</span>
-        <div class="center">
-          <span class="kanji">財</span>
-        </div>
-        <span class="kanji-sub">JINZAI &mdash; Treasured People</span>
-      </div>
-
-      <div class="philosophy-body reveal delay-1">
-        <h3>働く一人ひとりが、<br /><span class="hl">替えのきかない財産</span>。</h3>
-        <p>
-          覚善がこだわり続けてきたのは「人を数で見ない」こと。求人票では伝わらない強みや、本人すら気づいていない可能性。それを丁寧に掘り起こし、企業と本人の両方が「この出会いは正解だった」と言える瞬間を設計します。
-        </p>
-        <p>
-          だからこそ私たちは、派遣して終わり、ではなく、長く伴走するパートナーであり続けます。
-        </p>
-
-        <div class="values">
-          <div class="value">
-            <div class="icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <h4>対話主義</h4>
-            <p>履歴書の行間を、面談で読む。</p>
-          </div>
-          <div class="value">
-            <div class="icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3 0 5-2 5-5"/><path d="M21 12c-3 0-5-2-5-5"/><path d="M3 12c3 0 5 2 5 5"/><path d="M21 12c-3 0-5 2-5 5"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <h4>長期伴走</h4>
-            <p>入社後の3年まで責任を持つ。</p>
-          </div>
-          <div class="value">
-            <div class="icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6l3-9 4 18 3-9h4"/></svg>
-            </div>
-            <h4>納得の条件</h4>
-            <p>無理な紹介はしない、断る勇気。</p>
-          </div>
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">STAFFING & WORKPLACE SUPPORT</div>
+        <h1><span class="nowrap">人と企業の信頼を、</span><br /><span class="nowrap">現場の毎日から</span><br />積み重ねる。</h1>
+        <p>株式会社覚善は、代表者が長年人材派遣に携わってきた現場経験を土台に、働く人が安心して力を発揮できる環境づくりと、企業の安定した人員体制を支援します。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#employers">人材をお探しの企業様</a>
+          <a class="btn btn-secondary" href="#jobseekers">仕事をお探しの方</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Services ===== -->
-<section id="services" class="section services">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">02 &mdash; Services</span>
-      <h2 class="section-title">企業と人、それぞれの「次の一歩」へ。</h2>
-      <p class="section-lead">
-        労働者派遣のプロフェッショナルとして、ニーズの大小にかかわらず、最適なご提案をします。
-      </p>
-    </div>
-
-    <div class="service-grid" style="grid-template-columns: 1fr; max-width: 560px; margin: 0 auto;">
-      <article class="service reveal">
-        <div class="num">01</div>
-        <div class="pict" aria-hidden="true">
-          <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="20" r="10" fill="#1B5E4F"/>
-            <path d="M14 54 Q14 36 32 36 Q50 36 50 54 Z" fill="#1B5E4F"/>
-            <circle cx="48" cy="14" r="6" fill="#E8A020"/>
-            <path d="M40 30 Q40 22 48 22 Q56 22 56 30" stroke="#E8A020" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <aside class="trust-panel reveal delay-1" aria-label="覚善の運営姿勢">
+        <h2>信頼を支える運営姿勢</h2>
+        <div class="trust-art" aria-hidden="true">
+          <svg class="panel-art" viewBox="0 0 320 168" role="presentation">
+            <rect class="soft" x="18" y="22" width="284" height="122" rx="8" />
+            <path class="paper" d="M54 44h110v82H54z" />
+            <path class="muted-line" d="M76 66h66M76 84h52M76 102h70" />
+            <circle class="gold" cx="142" cy="110" r="13" />
+            <path class="paper" d="M182 54h72v72h-72z" />
+            <path class="line" d="M197 76h42M197 93h34M197 110h25" />
+            <path class="green" d="M86 132h148v10H86z" />
+            <circle class="navy" cx="238" cy="48" r="14" />
+            <path class="line" d="M237 36v24M226 48h24" />
           </svg>
         </div>
-        <h3>人材派遣</h3>
-        <p class="en">Staffing Solutions</p>
-        <p>
-          短期の繁忙期対応から長期プロジェクトまで。製造現場の文脈を理解した即戦力をご紹介します。
-        </p>
-        <ul>
-          <li>製造・ライン作業</li>
-          <li>機械オペレーター</li>
-          <li>倉庫・物流スタッフ</li>
+        <ul class="trust-list">
+          <li><strong>法令順守</strong><span>労働者派遣法・労務管理の基本を重視</span></li>
+          <li><strong>代表者の経験</strong><span>長年の人材派遣実務をもとに現場を理解</span></li>
+          <li><strong>継続フォロー</strong><span>就業開始後の相談・勤怠・定着を支援</span></li>
         </ul>
-      </article>
+      </aside>
+    </div>
+  </section>
+
+  <div class="notice-band">
+    <div class="container notice-inner">
+      <div class="notice-label">OUR STANDARD</div>
+      <div>法令順守、個人情報管理、就業後フォローを大切にし、派遣先企業と働く人の双方に誠実な運営を行います。</div>
     </div>
   </div>
-</section>
 
-<!-- ===== 求職者向け ===== -->
-<section id="for-jobseekers" class="section section-cream">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">求職者の方へ &mdash; For Job Seekers</span>
-      <h2 class="section-title">あなたのペースで、<br />働き方を選べる。</h2>
-      <p class="section-lead">
-        「まず働いてみたい」その気持ちで十分です。覚善は経験・学歴不問で、あなたに合った現場をご紹介。前借り制度（上限あり）も備えているので、生活の安定を図りながら働き始められます。
-      </p>
-    </div>
-
-    <div class="audience-features">
-      <div class="audience-feature reveal">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.1 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.34a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  <section class="section section-white" id="service">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">SERVICE</div>
+          <h2><span class="nowrap">派遣先と働く人の双方に、</span><br />無理のない体制を。</h2>
         </div>
-        <h3>未経験・学歴不問</h3>
-        <p>入社前の研修があるので安心。やる気があれば、ものづくりの現場で即スタートできます。</p>
+        <p>欠員補充だけでなく、現場で働き続けられる条件づくり、契約・勤怠・相談対応まで、実務に根ざした支援を行います。</p>
       </div>
-      <div class="audience-feature reveal delay-1">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3>前借り制度あり（上限あり）</h3>
-        <p>月末を待たずに必要な分だけ前借りが可能。上限の範囲内で、生活の急な出費にも対応できます。</p>
-      </div>
-      <div class="audience-feature reveal delay-2">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>専任担当が伴走</h3>
-        <p>担当者が配属後も定期的にフォロー。困ったことがあればいつでも相談できる環境です。</p>
+      <div class="service-grid">
+        <article class="card">
+          <span class="card-number">01</span>
+          <h3>人材派遣</h3>
+          <p>製造、物流、倉庫などの現場を中心に、必要な業務内容や勤務条件を確認し、適切な人材配置を支援します。</p>
+        </article>
+        <article class="card">
+          <span class="card-number">02</span>
+          <h3>就業支援</h3>
+          <p>求職者の経験、希望、生活状況を丁寧に確認し、就業開始前後の不安や相談に継続して対応します。</p>
+        </article>
+        <article class="card">
+          <span class="card-number">03</span>
+          <h3>現場管理サポート</h3>
+          <p>勤怠確認、契約条件の整理、派遣先との連絡調整など、現場運用が止まらないための管理を支えます。</p>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="audience-cta reveal">
-      <a href="#contact" class="btn btn-primary">
-        お仕事の相談をする <span class="arrow"></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 法人向け ===== -->
-<section id="for-companies" class="section section-deep">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">法人・採用担当の方へ &mdash; For Employers</span>
-      <h2 class="section-title">即戦力を、<br />必要な時に。</h2>
-      <p class="section-lead">
-        製造・物流・倉庫業種に特化した15年以上の実績。繁忙期の短期増員から長期安定人材の確保まで、現場の文脈を理解した派遣をご提供します。
-      </p>
-    </div>
-
-    <div class="audience-features">
-      <div class="audience-feature reveal">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <section class="section" id="jobseekers">
+    <div class="container image-split">
+      <div class="visual-panel" role="img" aria-label="求職者支援の確認項目">
+        <div class="visual-art" aria-hidden="true">
+          <svg class="panel-art" viewBox="0 0 420 180" role="presentation">
+            <rect class="soft" x="22" y="26" width="376" height="126" rx="8" />
+            <path class="paper" d="M70 42h132v98H70z" />
+            <path class="muted-line" d="M92 66h84M92 86h64M92 106h76" />
+            <circle class="green" cx="278" cy="76" r="26" />
+            <path class="paper" d="M246 112c6-24 58-24 64 0v24h-64z" />
+            <path class="line" d="M222 132h112M318 58l26-18M336 68l26-6" />
+            <circle class="gold" cx="334" cy="42" r="8" />
+          </svg>
         </div>
-        <h3>業種特化のマッチング</h3>
-        <p>製造・ライン・倉庫・物流に精通したコーディネーターが、現場に合った人材を厳選してご紹介します。</p>
+        <div class="visual-heading">
+          <strong>就業前確認</strong>
+          <span class="seal">誠実</span>
+        </div>
+        <ul class="document-list">
+          <li><span>条件</span><strong>勤務時間・通勤・給与条件</strong></li>
+          <li><span>相談</span><strong>不安や生活事情の聞き取り</strong></li>
+          <li><span>確認</span><strong>就業開始後のフォロー予定</strong></li>
+        </ul>
       </div>
-      <div class="audience-feature reveal delay-1">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3>最短3日でご紹介</h3>
-        <p>お問い合わせから最短3日で人材をご紹介。急な欠員や繁忙期のピンチ対応も得意としています。</p>
-      </div>
-      <div class="audience-feature reveal delay-2">
-        <div class="icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3>コスト透明性</h3>
-        <p>マージン・諸費用を明示したわかりやすい料金体系。採用コストの見通しが立てやすく、予算計画がスムーズです。</p>
+      <div class="message">
+        <div class="eyebrow">FOR JOB SEEKERS</div>
+        <h2>仕事選びを、急がせず、<br /><span class="nowrap">置き去りにしない。</span></h2>
+        <p>経験や資格だけで判断せず、働ける時間、通勤、生活面の不安、今後の希望まで確認します。紹介して終わりではなく、就業後も相談できる関係を大切にします。</p>
+        <ul class="check-list">
+          <li>未経験から始めやすい現場の相談</li>
+          <li>勤務条件・給与・通勤条件の事前確認</li>
+          <li>就業開始後のフォローと困りごとの相談</li>
+        </ul>
       </div>
     </div>
+  </section>
 
-    <div class="audience-cta reveal">
-      <a href="#contact" class="btn btn-amber">
-        採用相談を申し込む <span class="arrow"></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Company ===== -->
-<section id="company" class="section section-ink">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">03 &mdash; Company</span>
-      <h2 class="section-title">会社情報</h2>
-    </div>
-
-    <div class="company">
-      <table class="company-table reveal">
-        <tr><th>商号</th><td></td></tr>
-        <tr><th>代表者</th><td></td></tr>
-        <tr><th>創業</th><td></td></tr>
-        <tr><th>事業内容</th><td></td></tr>
-        <tr><th>所在地</th><td></td></tr>
-        <tr><th>連絡先</th><td></td></tr>
-        <tr><th>資本金</th><td></td></tr>
-        <tr><th>取引銀行</th><td></td></tr>
-      </table>
-
-      <aside class="ceo-card reveal delay-1">
-        <div class="role">CEO Message</div>
-        <div class="name">
-          <span class="ja">三上修二</span>
-          <span class="en">Shuji Mikami</span>
+  <section class="section section-navy" id="employers">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">FOR EMPLOYERS</div>
+          <h2>採用の不足を、<br /><span class="nowrap">現場運用の安定へ</span><br />つなげる。</h2>
         </div>
+        <p>急な欠員や繁忙期対応だけでなく、業務内容、就業条件、教育体制、入場後フォローまで確認し、ミスマッチを減らすことを重視します。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="card">
+          <span class="card-number">A</span>
+          <h3>業務要件の整理</h3>
+          <p>職種名だけでなく、作業内容、必要な姿勢、勤務環境、教育方法まで確認します。</p>
+        </article>
+        <article class="card">
+          <span class="card-number">B</span>
+          <h3>契約・労務の確認</h3>
+          <p>派遣期間、就業時間、指揮命令系統、苦情申出先などを整理し、運用上の齟齬を防ぎます。</p>
+        </article>
+        <article class="card">
+          <span class="card-number">C</span>
+          <h3>定着フォロー</h3>
+          <p>就業開始後の勤怠、職場適応、相談事項を確認し、早期離職やトラブルを抑える支援を行います。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container image-split">
+      <div class="message">
+        <div class="eyebrow">COMPLIANCE</div>
+        <h2><span class="nowrap">人材派遣だからこそ、</span><br />手続きと記録を丁寧に。</h2>
+        <p>人を扱う事業では、スピードだけでは信頼は生まれません。契約条件、個人情報、勤怠、相談記録を適切に管理し、派遣先と派遣スタッフの双方が安心できる運営を目指します。</p>
+        <ul class="check-list">
+          <li>個人情報の取扱いと閲覧範囲の管理</li>
+          <li>派遣契約・就業条件・管理台帳の整備</li>
+          <li>苦情相談・安全配慮・就業状況の継続確認</li>
+        </ul>
+      </div>
+      <div class="visual-panel" role="img" aria-label="派遣運営の管理項目">
+        <div class="visual-art" aria-hidden="true">
+          <svg class="panel-art" viewBox="0 0 420 180" role="presentation">
+            <rect class="soft" x="20" y="24" width="380" height="128" rx="8" />
+            <path class="paper" d="M62 48h122v92H62z" />
+            <path class="paper" d="M204 38h118v102H204z" />
+            <path class="muted-line" d="M84 70h74M84 90h56M84 110h70M226 64h70M226 84h52M226 104h62" />
+            <circle class="gold" cx="324" cy="118" r="17" />
+            <path class="line" d="M112 140h166M160 48l18-18M278 38l18-18" />
+            <path class="green" d="M92 128h50v8H92zM232 122h48v8h-48z" />
+          </svg>
+        </div>
+        <div class="visual-heading">
+          <strong>派遣運営管理</strong>
+          <span class="seal">信頼</span>
+        </div>
+        <ul class="document-list">
+          <li><span>契約</span><strong>派遣契約・就業条件の整理</strong></li>
+          <li><span>記録</span><strong>勤怠・相談・対応履歴の管理</strong></li>
+          <li><span>連携</span><strong>派遣先との定期的な情報共有</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="flow">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">PROCESS</div>
+          <h2>ご相談から<br /><span class="nowrap">就業後フォローまで。</span></h2>
+        </div>
+        <p>派遣先企業、求職者のどちらのご相談も、初回確認から条件整理、就業後のフォローまで一貫して対応します。</p>
+      </div>
+      <div class="flow-grid">
+        <article class="card">
+          <span class="card-number">1</span>
+          <h3>ご相談</h3>
+          <p>人員課題、希望職種、勤務条件、開始時期などを確認します。</p>
+        </article>
+        <article class="card">
+          <span class="card-number">2</span>
+          <h3>条件確認</h3>
+          <p>業務内容、労働条件、必要書類、就業前の注意点を整理します。</p>
+        </article>
+        <article class="card">
+          <span class="card-number">3</span>
+          <h3>就業後フォロー</h3>
+          <p>勤怠、相談、契約更新、職場適応を確認し、安定稼働を支援します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section representative" id="message">
+    <div class="container representative-grid">
+      <div class="representative-mark" aria-hidden="true">
+        <div class="representative-mark-inner">人財</div>
+      </div>
+      <div class="representative-message">
+        <div class="eyebrow">CEO MESSAGE</div>
+        <h2><span class="nowrap">目の前のお一人と、</span><br /><span class="nowrap">目の前の一社に、</span><br />誠実であり続けます。</h2>
         <blockquote>
           「人材」を「人財」と書き換えたとき、見える景色がまるで変わりました。<br />
           人は埋めるべき空席ではなく、組織を未来へ運ぶ財産です。<br />
+          長年、人材派遣の現場に携わるなかで、条件だけではなく、働く人の不安や企業の事情に丁寧に向き合うことの大切さを学んできました。<br />
           私たちは小さな会社ですが、目の前のお一人と、目の前の一社に、誠実であり続けます。
         </blockquote>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Contact ===== -->
-<section id="contact" class="section section-cream contact">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">04 &mdash; Contact</span>
-      <h2 class="section-title">まずは、対話から。</h2>
-      <p class="section-lead">
-        人材派遣についてのご相談はお気軽にどうぞ。<br />
-        担当者が丁寧に対応いたします。
-      </p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <h3>3営業日以内に、<br />担当者より直接ご連絡します。</h3>
-        <p>
-          自動応答ではなく、人がお返事するためお時間をいただきます。<br />
-          お急ぎの場合はお電話にてご連絡ください。
+        <p class="representative-name">
+          代表者
+          <strong>三上 修二</strong>
+          Shuji Mikami
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="company">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">COMPANY</div>
+          <h2>会社情報</h2>
+        </div>
+        <p>人材派遣と現場管理支援を通じて、企業と働く人の安定した関係づくりを支援します。</p>
+      </div>
+      <table class="company-table">
+        <tbody>
+          <tr><th>商号</th><td>株式会社覚善</td></tr>
+          <tr><th>代表者</th><td>三上 修二</td></tr>
+          <tr><th>事業内容</th><td>人材派遣、現場管理支援、就業支援</td></tr>
+          <tr><th>所在地</th><td>正式所在地を確認のうえ掲載</td></tr>
+          <tr><th>連絡先</th><td>お問い合わせフォームよりご連絡ください</td></tr>
+          <tr><th>許可番号</th><td>労働者派遣事業許可番号を確認のうえ掲載</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section section-navy" id="contact">
+    <div class="container contact-layout">
+      <div class="contact-box">
+        <div class="eyebrow">CONTACT</div>
+        <h3>人材派遣に関するご相談</h3>
+        <p>企業の人員体制、仕事を探している方の就業相談など、まずは現在の状況をお聞かせください。</p>
         <ul class="contact-list">
-          <li>
-            <span class="label">TEL</span>
-            <span class="value-text">
-              <span class="sub"></span>
-            </span>
-          </li>
-          <li>
-            <span class="label">MAIL</span>
-            <span class="value-text">
-              <span class="sub"></span>
-            </span>
-          </li>
-          <li>
-            <span class="label">VISIT</span>
-            <span class="value-text">
-              <span class="sub"></span>
-            </span>
-          </li>
+          <li><strong>TEL</strong><br />正式番号を確認のうえ掲載</li>
+          <li><strong>MAIL</strong><br />お問い合わせフォームより受付</li>
+          <li><strong>受付</strong><br />平日営業時間内に順次対応</li>
         </ul>
       </div>
-
-      <form class="contact-form reveal delay-1" onsubmit="return false;">
-        <div class="form-row split">
-          <div>
-            <label>会社名 <span class="req">必須</span></label>
-            <input type="text" placeholder="株式会社○○" />
+      <form class="form" id="contact-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="company">会社名</label>
+            <input id="company" name="company" autocomplete="organization" placeholder="企業の方のみ" />
           </div>
-          <div>
-            <label>お名前 <span class="req">必須</span></label>
-            <input type="text" placeholder="山田 太郎" />
-          </div>
-        </div>
-        <div class="form-row split">
-          <div>
-            <label>メール <span class="req">必須</span></label>
-            <input type="email" placeholder="example@company.co.jp" />
-          </div>
-          <div>
-            <label>電話番号</label>
-            <input type="tel" placeholder="03-0000-0000" />
+          <div class="field">
+            <label for="name">お名前</label>
+            <input id="name" name="name" autocomplete="name" required />
           </div>
         </div>
         <div class="form-row">
-          <label>ご相談内容 <span class="req">必須</span></label>
-          <select>
-            <option>選択してください</option>
-            <option>仕事を探している（求職者）</option>
-            <option>人材をお探しの企業（採用担当）</option>
+          <div class="field">
+            <label for="email">メールアドレス</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">電話番号</label>
+            <input id="phone" name="phone" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="type">ご相談内容</label>
+          <select id="type" name="type" required>
+            <option value="">選択してください</option>
+            <option>人材を探している</option>
+            <option>仕事を探している</option>
             <option>その他</option>
           </select>
         </div>
-        <div class="form-row">
-          <label>メッセージ</label>
-          <textarea placeholder="現在の課題や、ご相談したい内容をお聞かせください。"></textarea>
+        <div class="field">
+          <label for="message">メッセージ</label>
+          <textarea id="message" name="message" required placeholder="相談したい内容をご記入ください"></textarea>
         </div>
-        <button type="submit" class="form-submit">
-          送信する <span class="arrow"></span>
-        </button>
+        <button class="btn btn-primary" type="submit">送信内容を確認</button>
+        <p class="form-note" id="form-note">正式な送信先メールアドレス設定後、送信機能を有効化してください。</p>
       </form>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- ===== Footer ===== -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#top" class="brand">
-          <span class="brand-mark" aria-hidden="true">覚</span>
-          <span class="brand-text">
-            <span class="ja">株式会社覚善</span>
-            <span class="en">KAKUZEN INC.</span>
-          </span>
-        </a>
-        <p>
-          一人ひとりが、宝です。<br />
-          人と企業の出会いを、もっと丁寧に。
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4>Sitemap</h4>
-        <ul>
-          <li><a href="#about">理念</a></li>
-          <li><a href="#for-jobseekers">求職者の方</a></li>
-          <li><a href="#for-companies">企業の方</a></li>
-          <li><a href="#company">会社情報</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li>TEL: </li>
-          <li>MAIL: </li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>株式会社覚善</strong>
+      <span>人材派遣・現場管理支援</span>
     </div>
-    <div class="footer-bot">
-      <span>&copy; 2026 KAKUZEN INC. All rights reserved.</span>
-      <span>派遣事業許可番号 13-XXXXXX</span>
-    </div>
+    <div>© 2026 KAKUZEN INC. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-(function () {
-  const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    if (window.scrollY > 24) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+const menuButton = document.querySelector(".menu-button");
+const nav = document.querySelector("#site-nav");
 
-  const ham = document.getElementById('hamburger');
-  const drawer = document.getElementById('drawer');
-  const closeDrawer = () => {
-    ham.classList.remove('open');
-    drawer.classList.remove('open');
-    ham.setAttribute('aria-expanded', 'false');
-    drawer.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-  const openDrawer = () => {
-    ham.classList.add('open');
-    drawer.classList.add('open');
-    ham.setAttribute('aria-expanded', 'true');
-    drawer.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-  ham.addEventListener('click', () => {
-    if (drawer.classList.contains('open')) closeDrawer();
-    else openDrawer();
+menuButton.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+});
+
+nav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
   });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDrawer();
-  });
+});
 
-  const reveal = document.querySelectorAll('.reveal');
-  if (window.matchMedia('(max-width: 1024px)').matches) {
-    reveal.forEach(el => el.classList.add('is-visible'));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) {
-          en.target.classList.add('is-visible');
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
-    reveal.forEach((el) => io.observe(el));
-    setTimeout(() => reveal.forEach(el => el.classList.add('is-visible')), 2500);
-  }
-
-  const counters = document.querySelectorAll('.count[data-target]');
-  const animate = (el) => {
-    const target = parseInt(el.dataset.target, 10);
-    const duration = 1600;
-    const start = performance.now();
-    const ease = (t) => 1 - Math.pow(1 - t, 3);
-    const step = (now) => {
-      const t = Math.min(1, (now - start) / duration);
-      const v = Math.floor(target * ease(t));
-      el.textContent = v.toLocaleString();
-      if (t < 1) requestAnimationFrame(step);
-      else el.textContent = target.toLocaleString();
-    };
-    requestAnimationFrame(step);
-  };
-  const cio = new IntersectionObserver((entries) => {
-    entries.forEach((en) => {
-      if (en.isIntersecting) {
-        animate(en.target);
-        cio.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach((c) => cio.observe(c));
-})();
+document.querySelector("#contact-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  document.querySelector("#form-note").textContent = "内容を確認しました。公開時は正式な送信先メールアドレスを設定してください。";
+});
 </script>
-
 </body>
 </html>
