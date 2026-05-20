@@ -3,184 +3,161 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="株式会社覚善は、人材派遣・現場管理・就業支援を通じて、企業と働く人の安定した関係づくりを支援します。" />
+<meta name="description" content="株式会社覚善は、人材派遣・現場管理・就業支援を通じて、派遣先企業と働く人の安定した関係づくりを支援します。" />
 <title>株式会社覚善｜人材派遣・現場管理支援</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet" />
 <style>
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 */
 :root {
-  --navy: #10233f;
-  --navy-2: #18385f;
-  --green: #2f6f66;
-  --gold: #b9822b;
-  --paper: #f7f5ef;
-  --white: #ffffff;
-  --mist: #edf2f4;
-  --ink: #1e2732;
-  --muted: #626d79;
-  --line: #d9dee4;
-  --line-dark: rgba(255,255,255,.22);
-  --shadow: 0 18px 42px rgba(16,35,63,.12);
+  --color-ink: #172033;
+  --color-muted: #596576;
+  --color-paper: #f4f1ea;
+  --color-surface: #fbfaf6;
+  --color-surface-soft: #ece8df;
+  --color-navy: #10233f;
+  --color-navy-soft: #1d314f;
+  --color-green: #2f6f66;
+  --color-green-soft: #d9e7e2;
+  --color-gold: #b9822b;
+  --color-gold-soft: #efe2ca;
+  --color-line: #d7d4cc;
+  --color-line-dark: rgba(251,250,246,.22);
+  --color-on-dark: #f8f4ea;
+  --shadow-panel: 0 16px 32px rgba(16,35,63,.10);
+  --font-body: "Noto Sans JP", system-ui, sans-serif;
+  --font-display: "Noto Serif JP", serif;
   --radius: 8px;
   --container: 1160px;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 body {
   margin: 0;
-  font-family: "Noto Sans JP", system-ui, sans-serif;
-  color: var(--ink);
-  background: var(--paper);
-  line-height: 1.75;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-family: var(--font-body);
+  line-height: 1.78;
   letter-spacing: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
-img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; letter-spacing: 0; }
-.nowrap { white-space: nowrap; }
+.container { width: min(100% - 40px, var(--container)); margin: 0 auto; }
+.u-wrap { overflow-wrap: anywhere; min-width: 0; }
 
-.container {
-  width: min(100% - 40px, var(--container));
-  margin: 0 auto;
+.masthead {
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
 }
 
-.site-header {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 20;
-  background: rgba(255,255,255,.94);
-  border-bottom: 1px solid rgba(16,35,63,.08);
-  backdrop-filter: blur(14px);
-}
-
-.header-inner {
-  min-height: 72px;
-  display: flex;
+.masthead-main {
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  color: var(--navy);
+  gap: 14px;
+  min-width: 0;
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
-  color: var(--white);
-  background: var(--navy);
-  border: 3px solid var(--gold);
+  flex: 0 0 auto;
+  border: 2px solid var(--color-gold);
   border-radius: 50%;
-  font-family: "Noto Serif JP", serif;
-  font-size: 18px;
+  color: var(--color-on-dark);
+  background: var(--color-navy);
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
-.brand small {
-  display: block;
-  color: var(--muted);
+.brand-name {
+  display: grid;
+  gap: 2px;
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.brand-name small {
+  color: var(--color-muted);
   font-size: 12px;
   font-weight: 500;
 }
 
-.nav {
-  display: flex;
+.masthead-note {
+  max-width: 390px;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.page-index {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--color-line);
+}
+
+.page-index a {
+  padding: 12px 10px;
+  border-left: 1px solid var(--color-line);
+  color: var(--color-navy);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.page-index a:first-child { border-left: 0; }
+.page-index a:focus-visible,
+.page-index a:hover { background: var(--color-gold-soft); outline: 0; }
+
+.hero {
+  color: var(--color-on-dark);
+  background: var(--color-navy);
+}
+
+.hero-layout {
+  min-height: clamp(560px, 72vh, 760px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr);
+  gap: 54px;
   align-items: center;
-  gap: 24px;
-  color: var(--navy);
+  padding: 74px 0 54px;
+}
+
+.hero-kicker {
+  color: var(--color-gold-soft);
   font-size: 14px;
   font-weight: 700;
 }
 
-.nav a { padding: 8px 0; }
-.nav a:hover { color: var(--green); }
-
-.header-cta,
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-weight: 700;
-  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-}
-
-.header-cta,
-.btn-primary {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.btn-secondary {
-  background: var(--white);
-  color: var(--navy);
-  border-color: var(--line);
-}
-
-.btn:hover,
-.header-cta:hover {
-  transform: translateY(-1px);
-}
-
-.menu-button { display: none; }
-
-.hero {
-  min-height: 92vh;
-  padding: 132px 0 54px;
-  color: var(--white);
-  background:
-    linear-gradient(90deg, rgba(16,35,63,.98) 0%, rgba(16,35,63,.92) 54%, rgba(47,111,102,.82) 100%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 42px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 42px);
-  display: flex;
-  align-items: end;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 48px;
-  align-items: end;
-}
-
-.eyebrow {
-  color: #d8b36f;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.hero h1,
-.section-title h2,
-.message h2 {
-  font-family: "Noto Serif JP", serif;
-  line-height: 1.28;
-  letter-spacing: 0;
-}
-
 .hero h1 {
+  max-width: 790px;
   margin: 18px 0 22px;
-  max-width: 780px;
-  font-size: clamp(36px, 6vw, 64px);
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1.22;
 }
 
 .hero p {
   max-width: 720px;
   margin: 0;
-  color: rgba(255,255,255,.9);
+  color: var(--color-on-dark);
   font-size: 18px;
 }
 
@@ -191,248 +168,383 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   margin-top: 34px;
 }
 
-.hero-actions .btn-secondary {
-  background: rgba(255,255,255,.08);
-  color: var(--white);
-  border-color: var(--line-dark);
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--color-line-dark);
+  border-radius: 6px;
+  color: var(--color-on-dark);
+  background: var(--color-navy-soft);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.trust-panel {
-  background: rgba(255,255,255,.94);
-  color: var(--ink);
+.btn-secondary { background: transparent; }
+.btn:focus-visible,
+.btn:hover { border-color: var(--color-gold-soft); outline: 2px solid var(--color-gold); outline-offset: 3px; }
+
+.proof-panel {
+  align-self: stretch;
+  display: grid;
+  align-content: center;
+  padding: 34px;
+  border: 1px solid var(--color-line-dark);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+  background: var(--color-navy-soft);
 }
 
-.trust-panel h2 {
+.proof-title {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.35;
+}
+
+.proof-list {
+  display: grid;
+  gap: 0;
   margin: 0;
-  padding: 22px 24px;
-  background: var(--green);
-  color: var(--white);
-  font-size: 18px;
-}
-
-.panel-art {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.trust-art {
-  padding: 20px 24px 0;
-  background: linear-gradient(180deg, rgba(47,111,102,.1), rgba(255,255,255,0));
-}
-
-.panel-art .paper { fill: #fff; stroke: var(--line); stroke-width: 2; }
-.panel-art .navy { fill: var(--navy); }
-.panel-art .green { fill: var(--green); }
-.panel-art .gold { fill: var(--gold); }
-.panel-art .line { fill: none; stroke: var(--navy); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .72; }
-.panel-art .soft { fill: #edf2f4; }
-.panel-art .muted-line { fill: none; stroke: var(--line); stroke-width: 2; stroke-linecap: round; }
-
-.trust-list {
-  margin: 0;
-  padding: 18px 24px 22px;
+  padding: 0;
   list-style: none;
 }
 
-.trust-list li {
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
+.proof-list li {
+  padding: 16px 0;
+  border-top: 1px solid var(--color-line-dark);
 }
 
-.trust-list li:last-child { border-bottom: 0; }
-.trust-list strong { display: block; color: var(--navy); }
-.trust-list span { display: block; color: var(--muted); font-size: 14px; }
-
-.notice-band {
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
+.proof-list strong {
+  display: block;
+  color: var(--color-gold-soft);
 }
 
-.notice-inner {
+.proof-list span {
+  display: block;
+  color: var(--color-on-dark);
+  font-size: 14px;
+}
+
+.statement-band {
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.statement-inner {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 28px;
-  padding: 18px 0;
-  align-items: center;
+  grid-template-columns: minmax(170px, .28fr) minmax(0, 1fr);
+  gap: 30px;
+  padding: 20px 0;
 }
 
-.notice-label {
-  color: var(--green);
+.statement-inner strong {
+  color: var(--color-green);
+  font-size: 14px;
+}
+
+.section { padding: 86px 0; }
+.section-surface { background: var(--color-surface); }
+.section-dark { color: var(--color-on-dark); background: var(--color-navy); }
+
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 44px;
+  align-items: end;
+  margin-bottom: 42px;
+}
+
+.section-label {
+  margin: 0 0 10px;
+  color: var(--color-green);
   font-weight: 700;
 }
 
-.section {
-  padding: 92px 0;
+.section-dark .section-label { color: var(--color-gold-soft); }
+
+.section-head h2,
+.split-copy h2,
+.message h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(29px, 4vw, 46px);
+  line-height: 1.34;
 }
 
-.section-white { background: var(--white); }
-.section-navy { background: var(--navy); color: var(--white); }
+.section-head p {
+  margin: 0;
+  color: var(--color-muted);
+}
 
-.section-title {
+.section-dark .section-head p { color: var(--color-on-dark); }
+
+.service-ledger {
   display: grid;
-  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-  gap: 46px;
-  margin-bottom: 42px;
+  border-top: 1px solid var(--color-line);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 140px minmax(0, .7fr) minmax(0, 1.3fr);
+  gap: 26px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-line);
   align-items: start;
 }
 
-.section-title h2 {
-  margin: 8px 0 0;
-  color: var(--navy);
-  font-size: clamp(28px, 4vw, 42px);
-}
-
-.section-navy .section-title h2 { color: var(--white); }
-.section-title p { margin: 8px 0 0; color: var(--muted); }
-.section-navy .section-title p { color: rgba(255,255,255,.78); }
-
-.service-grid,
-.feature-grid,
-.flow-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 26px;
-  box-shadow: 0 8px 24px rgba(16,35,63,.06);
-}
-
-.section-navy .card {
-  background: rgba(255,255,255,.06);
-  border-color: var(--line-dark);
-  box-shadow: none;
-}
-
-.card-number {
-  display: inline-grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  margin-bottom: 16px;
-  border-radius: 50%;
-  background: var(--mist);
-  color: var(--green);
+.service-row code {
+  color: var(--color-green);
+  font-family: var(--font-body);
   font-weight: 700;
 }
 
-.section-navy .card-number {
-  background: rgba(255,255,255,.12);
-  color: #d8b36f;
+.service-row h3 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 22px;
 }
 
-.card h3 {
-  margin: 0 0 10px;
-  color: var(--navy);
-  font-size: 20px;
-}
+.service-row p { margin: 0; color: var(--color-muted); }
 
-.section-navy .card h3 { color: var(--white); }
-.card p { margin: 0; color: var(--muted); }
-.section-navy .card p { color: rgba(255,255,255,.78); }
-
-.image-split {
+.split {
   display: grid;
   grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
   gap: 48px;
   align-items: center;
 }
 
-.visual-panel {
-  min-height: 430px;
-  border: 1px solid var(--line);
+.audit-panel {
+  padding: 28px;
+  border: 1px solid var(--color-line);
   border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.92), rgba(237,242,244,.78)),
-    repeating-linear-gradient(0deg, rgba(16,35,63,.045) 0 1px, transparent 1px 28px);
-  box-shadow: var(--shadow);
-  padding: 30px;
-  display: grid;
-  align-content: center;
-  gap: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-panel);
 }
 
-.visual-art {
-  padding: 4px 0 2px;
-}
-
-.visual-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-}
-
-.visual-heading strong {
-  color: var(--navy);
+.audit-panel h3 {
+  margin: 0 0 18px;
+  color: var(--color-navy);
   font-size: 20px;
 }
 
-.seal {
-  width: 76px;
-  height: 76px;
+.audit-lines {
   display: grid;
-  place-items: center;
-  border: 2px solid var(--gold);
-  border-radius: 50%;
-  color: var(--gold);
-  background: rgba(185,130,43,.08);
-  font-family: "Noto Serif JP", serif;
-  font-weight: 700;
-}
-
-.document-list {
-  display: grid;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.document-list li {
+.audit-lines li {
   display: grid;
-  grid-template-columns: 92px 1fr;
+  grid-template-columns: 86px minmax(0, 1fr);
   gap: 12px;
-  align-items: center;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
+  padding: 14px;
+  border: 1px solid var(--color-line);
   border-radius: 6px;
-  background: var(--white);
+  background: var(--color-paper);
 }
 
-.document-list span {
-  color: var(--green);
+.audit-lines span {
+  color: var(--color-green);
   font-size: 13px;
   font-weight: 700;
 }
 
-.document-list strong {
-  color: var(--navy);
-  font-size: 15px;
+.audit-lines strong {
+  color: var(--color-navy);
 }
 
-.message h2 {
-  margin: 0 0 20px;
-  color: var(--navy);
-  font-size: clamp(28px, 4vw, 40px);
-}
-
-.message p {
-  margin: 0 0 18px;
-  color: var(--muted);
+.message p,
+.split-copy p {
+  margin: 18px 0 0;
+  color: var(--color-muted);
 }
 
 .check-list {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.dark-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 44px;
+}
+
+.employer-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.employer-list li {
+  padding: 18px 0;
+  border-top: 1px solid var(--color-line-dark);
+}
+
+.employer-list strong {
+  display: block;
+  color: var(--color-gold-soft);
+  font-size: 19px;
+}
+
+.employer-list span { color: var(--color-on-dark); }
+
+.process {
+  display: grid;
+  gap: 0;
+  counter-reset: process;
+}
+
+.process-step {
+  counter-increment: process;
+  display: grid;
+  grid-template-columns: 120px minmax(0, .65fr) minmax(0, 1.35fr);
+  gap: 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.process-step::before {
+  content: counter(process, decimal-leading-zero);
+  color: var(--color-green);
+  font-family: var(--font-display);
+  font-size: 38px;
+  line-height: 1;
+}
+
+.process-step h3 { margin: 0; color: var(--color-navy); }
+.process-step p { margin: 0; color: var(--color-muted); }
+
+.representative {
+  color: var(--color-on-dark);
+  background: var(--color-navy);
+}
+
+.representative-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.representative-aside {
+  padding-top: 8px;
+  color: var(--color-gold-soft);
+}
+
+.representative-aside strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.35;
+}
+
+.representative-aside span {
+  display: block;
+  margin-top: 14px;
+  color: var(--color-on-dark);
+}
+
+.quote h2 {
+  margin: 0 0 22px;
+  font-family: var(--font-display);
+  font-size: clamp(29px, 4vw, 44px);
+  line-height: 1.34;
+}
+
+.quote blockquote {
+  margin: 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--color-line-dark);
+  color: var(--color-on-dark);
+  font-size: 18px;
+}
+
+.representative-name {
+  margin: 20px 0 0;
+  color: var(--color-on-dark);
+}
+
+.representative-name strong { display: block; font-size: 20px; }
+
+.company-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.company-table th,
+.company-table td {
+  padding: 17px 20px;
+  border-bottom: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.company-table th {
+  width: 220px;
+  color: var(--color-navy);
+  background: var(--color-surface-soft);
+}
+
+.company-table tr:last-child th,
+.company-table tr:last-child td { border-bottom: 0; }
+
+.status-pending {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: var(--color-navy);
+  background: var(--color-gold-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.contact {
+  color: var(--color-on-dark);
+  background: var(--color-navy);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  gap: 44px;
+}
+
+.contact-copy {
+  padding: 28px;
+  border: 1px solid var(--color-line-dark);
+  border-radius: var(--radius);
+  background: var(--color-navy-soft);
+}
+
+.contact-copy h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.34;
+}
+
+.contact-copy p { margin: 18px 0 0; }
+
+.contact-list {
   display: grid;
   gap: 12px;
   margin: 24px 0 0;
@@ -440,136 +552,9 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   list-style: none;
 }
 
-.check-list li {
-  padding: 14px 16px;
-  border-left: 4px solid var(--green);
-  background: var(--white);
-  border-radius: 0 6px 6px 0;
-  box-shadow: 0 8px 20px rgba(16,35,63,.05);
-}
-
-.representative {
-  background:
-    linear-gradient(90deg, rgba(16,35,63,.96), rgba(16,35,63,.9)),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 36px);
-  color: var(--white);
-}
-
-.representative-grid {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  gap: 46px;
-  align-items: center;
-}
-
-.representative-mark {
-  min-height: 360px;
-  border: 1px solid var(--line-dark);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.06);
-  padding: 30px;
-  display: grid;
-  place-items: center;
-}
-
-.representative-mark-inner {
-  width: min(100%, 300px);
-  aspect-ratio: 1;
-  border: 2px solid rgba(216,179,111,.78);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #d8b36f;
-  font-family: "Noto Serif JP", serif;
-  font-size: 86px;
-  font-weight: 700;
-  background: radial-gradient(circle, rgba(216,179,111,.12), rgba(255,255,255,.02) 62%);
-}
-
-.representative-message h2 {
-  margin: 8px 0 18px;
-  font-family: "Noto Serif JP", serif;
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.32;
-}
-
-.representative-message blockquote {
-  margin: 0;
-  padding: 24px 0 0;
-  border-top: 1px solid var(--line-dark);
-  color: rgba(255,255,255,.88);
-  font-size: 18px;
-  line-height: 2;
-}
-
-.representative-name {
-  margin-top: 22px;
-  color: rgba(255,255,255,.82);
-}
-
-.representative-name strong {
-  display: block;
-  color: var(--white);
-  font-size: 20px;
-}
-
-.company-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.company-table th,
-.company-table td {
-  padding: 18px 22px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-  vertical-align: top;
-}
-
-.company-table tr:last-child th,
-.company-table tr:last-child td { border-bottom: 0; }
-
-.company-table th {
-  width: 220px;
-  background: var(--mist);
-  color: var(--navy);
-  font-weight: 700;
-}
-
-.contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  gap: 40px;
-}
-
-.contact-box {
-  padding: 30px;
-  border: 1px solid var(--line-dark);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.06);
-}
-
-.contact-box h3 {
-  margin: 0 0 12px;
-  color: var(--white);
-  font-size: 22px;
-}
-
-.contact-box p,
-.contact-box li {
-  color: rgba(255,255,255,.78);
-}
-
-.contact-list {
-  display: grid;
-  gap: 12px;
-  margin: 20px 0 0;
-  padding: 0;
-  list-style: none;
+.contact-list li {
+  padding: 13px 0;
+  border-top: 1px solid var(--color-line-dark);
 }
 
 .form {
@@ -579,14 +564,14 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
 }
 
 .field label {
   display: block;
   margin-bottom: 6px;
-  color: rgba(255,255,255,.86);
+  color: var(--color-on-dark);
   font-size: 14px;
   font-weight: 700;
 }
@@ -595,132 +580,88 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 .field select,
 .field textarea {
   width: 100%;
-  border: 1px solid var(--line-dark);
+  border: 1px solid var(--color-line-dark);
   border-radius: 6px;
   padding: 12px 14px;
-  color: var(--white);
-  background: rgba(255,255,255,.08);
+  color: var(--color-on-dark);
+  background: var(--color-navy-soft);
 }
 
-.field textarea {
-  min-height: 128px;
-  resize: vertical;
-}
-
+.field textarea { min-height: 128px; resize: vertical; }
 .field input::placeholder,
-.field textarea::placeholder { color: rgba(255,255,255,.48); }
+.field textarea::placeholder { color: var(--color-surface-soft); }
 
 .form-note {
   margin: 0;
-  color: rgba(255,255,255,.66);
+  color: var(--color-surface-soft);
   font-size: 13px;
 }
 
 .footer {
-  padding: 42px 0;
-  background: #0b192d;
-  color: rgba(255,255,255,.76);
+  padding: 34px 0;
+  color: var(--color-on-dark);
+  background: var(--color-navy-soft);
 }
 
 .footer-inner {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 24px;
-  align-items: start;
+  align-items: center;
 }
 
-.footer strong {
-  display: block;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  animation: reveal .8s ease forwards;
-}
-
-.delay-1 { animation-delay: .08s; }
-.delay-2 { animation-delay: .16s; }
-
-@keyframes reveal {
-  to { opacity: 1; transform: translateY(0); }
-}
+.footer strong { display: block; }
 
 @media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+  * { scroll-behavior: auto !important; }
 }
 
 @media (max-width: 920px) {
-  .header-inner { min-height: 66px; }
-  .menu-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--white);
-    color: var(--navy);
-  }
-
-  .nav {
-    position: fixed;
-    inset: 66px 0 auto;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 12px 20px 20px;
-    background: var(--white);
-    border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow);
-  }
-
-  .nav.open { display: flex; }
-  .nav a { padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .header-cta { margin-top: 12px; }
-
-  .hero {
-    min-height: auto;
-    padding: 110px 0 42px;
-    background:
-      linear-gradient(180deg, rgba(16,35,63,.98) 0%, rgba(47,111,102,.86) 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 36px);
-  }
-
-  .hero-grid,
-  .section-title,
-  .image-split,
-  .representative-grid,
+  .masthead-main,
+  .hero-layout,
+  .section-head,
+  .split,
+  .dark-grid,
+  .representative-layout,
   .contact-layout {
     grid-template-columns: 1fr;
   }
 
-  .service-grid,
-  .feature-grid,
-  .flow-grid {
-    grid-template-columns: 1fr;
+  .masthead-note { display: none; }
+  .page-index {
+    grid-template-columns: repeat(5, auto);
+    overflow-x: auto;
   }
 
-  .notice-inner { grid-template-columns: 1fr; gap: 6px; }
-  .section { padding: 70px 0; }
-  .visual-panel { min-height: auto; padding: 22px; }
-  .representative-mark { min-height: 240px; }
-  .representative-mark-inner { width: min(100%, 210px); font-size: 60px; }
+  .hero-layout {
+    min-height: auto;
+    padding: 60px 0 48px;
+  }
+
+  .service-row,
+  .process-step {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .section { padding: 68px 0; }
+  .proof-panel { padding: 24px; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; }
+  .footer-inner { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
   .container { width: min(100% - 28px, var(--container)); }
-  .brand small { display: none; }
+  .masthead-main { min-height: 74px; }
+  .brand-name small { display: none; }
+  .page-index { display: none; }
+  .proof-panel { display: none; }
+  .statement-inner { grid-template-columns: 1fr; gap: 6px; }
   .hero h1 { font-size: 34px; }
   .hero p { font-size: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
+  .proof-title { font-size: 24px; }
+  .audit-lines li { grid-template-columns: 1fr; }
   .company-table th,
   .company-table td {
     display: block;
@@ -732,88 +673,75 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
+<header class="masthead">
+  <div class="container masthead-main">
     <a class="brand" href="#top" aria-label="株式会社覚善 トップへ">
       <span class="brand-mark">覚</span>
-      <span>株式会社覚善<small>KAKUZEN INC.</small></span>
+      <span class="brand-name">株式会社覚善<small>KAKUZEN INC.</small></span>
     </a>
-    <button class="menu-button" type="button" aria-label="メニューを開閉" aria-expanded="false" aria-controls="site-nav">☰</button>
-    <nav class="nav" id="site-nav" aria-label="主要ナビゲーション">
-      <a href="#service">事業内容</a>
-      <a href="#jobseekers">求職者の方へ</a>
-      <a href="#employers">企業の方へ</a>
-      <a href="#company">会社情報</a>
-      <a class="header-cta" href="#contact">お問い合わせ</a>
-    </nav>
+    <div class="masthead-note">人材派遣、就業支援、現場管理を一体で見て、派遣先企業と働く人の関係を整えます。</div>
   </div>
+  <nav class="container page-index" aria-label="ページ内メニュー">
+    <a href="#service">事業内容</a>
+    <a href="#jobseekers">求職者</a>
+    <a href="#employers">企業</a>
+    <a href="#company">会社情報</a>
+    <a href="#contact">相談</a>
+  </nav>
 </header>
 
 <main id="top">
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="reveal">
-        <div class="eyebrow">STAFFING & WORKPLACE SUPPORT</div>
-        <h1><span class="nowrap">人と企業の信頼を、</span><br /><span class="nowrap">現場の毎日から</span><br />積み重ねる。</h1>
-        <p>株式会社覚善は、代表者が長年人材派遣に携わってきた現場経験を土台に、働く人が安心して力を発揮できる環境づくりと、企業の安定した人員体制を支援します。</p>
+    <div class="container hero-layout">
+      <div>
+        <div class="hero-kicker">人材派遣・現場管理支援</div>
+        <h1 class="u-wrap">人と企業の信頼を、現場の毎日から積み重ねる。</h1>
+        <p>株式会社覚善は、代表者が長年人材派遣に携わってきた経験を土台に、働く人が安心して力を発揮できる環境づくりと、企業の安定した人員体制を支援します。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#employers">人材をお探しの企業様</a>
+          <a class="btn" href="#employers">人材をお探しの企業様</a>
           <a class="btn btn-secondary" href="#jobseekers">仕事をお探しの方</a>
         </div>
       </div>
-      <aside class="trust-panel reveal delay-1" aria-label="覚善の運営姿勢">
-        <h2>信頼を支える運営姿勢</h2>
-        <div class="trust-art" aria-hidden="true">
-          <svg class="panel-art" viewBox="0 0 320 168" role="presentation">
-            <rect class="soft" x="18" y="22" width="284" height="122" rx="8" />
-            <path class="paper" d="M54 44h110v82H54z" />
-            <path class="muted-line" d="M76 66h66M76 84h52M76 102h70" />
-            <circle class="gold" cx="142" cy="110" r="13" />
-            <path class="paper" d="M182 54h72v72h-72z" />
-            <path class="line" d="M197 76h42M197 93h34M197 110h25" />
-            <path class="green" d="M86 132h148v10H86z" />
-            <circle class="navy" cx="238" cy="48" r="14" />
-            <path class="line" d="M237 36v24M226 48h24" />
-          </svg>
-        </div>
-        <ul class="trust-list">
-          <li><strong>法令順守</strong><span>労働者派遣法・労務管理の基本を重視</span></li>
-          <li><strong>代表者の経験</strong><span>長年の人材派遣実務をもとに現場を理解</span></li>
-          <li><strong>継続フォロー</strong><span>就業開始後の相談・勤怠・定着を支援</span></li>
+      <aside class="proof-panel" aria-label="覚善の運営姿勢">
+        <p class="proof-title">派遣して終わりではなく、就業後の状態まで見る。</p>
+        <ul class="proof-list">
+          <li><strong>法令順守</strong><span>労働者派遣法、契約条件、個人情報管理の基本を重視します。</span></li>
+          <li><strong>現場理解</strong><span>業務内容、勤務環境、教育体制を確認してから紹介します。</span></li>
+          <li><strong>継続フォロー</strong><span>就業開始後の相談、勤怠、定着状況まで確認します。</span></li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <div class="notice-band">
-    <div class="container notice-inner">
-      <div class="notice-label">OUR STANDARD</div>
+  <div class="statement-band">
+    <div class="container statement-inner">
+      <strong>覚善の基準</strong>
       <div>法令順守、個人情報管理、就業後フォローを大切にし、派遣先企業と働く人の双方に誠実な運営を行います。</div>
     </div>
   </div>
 
-  <section class="section section-white" id="service">
+  <section class="section section-surface" id="service">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
         <div>
-          <div class="eyebrow">SERVICE</div>
-          <h2><span class="nowrap">派遣先と働く人の双方に、</span><br />無理のない体制を。</h2>
+          <p class="section-label">事業内容</p>
+          <h2 class="u-wrap">派遣先と働く人の双方に、無理のない体制を。</h2>
         </div>
         <p>欠員補充だけでなく、現場で働き続けられる条件づくり、契約・勤怠・相談対応まで、実務に根ざした支援を行います。</p>
       </div>
-      <div class="service-grid">
-        <article class="card">
-          <span class="card-number">01</span>
+      <div class="service-ledger">
+        <article class="service-row">
+          <code>01</code>
           <h3>人材派遣</h3>
           <p>製造、物流、倉庫などの現場を中心に、必要な業務内容や勤務条件を確認し、適切な人材配置を支援します。</p>
         </article>
-        <article class="card">
-          <span class="card-number">02</span>
+        <article class="service-row">
+          <code>02</code>
           <h3>就業支援</h3>
           <p>求職者の経験、希望、生活状況を丁寧に確認し、就業開始前後の不安や相談に継続して対応します。</p>
         </article>
-        <article class="card">
-          <span class="card-number">03</span>
+        <article class="service-row">
+          <code>03</code>
           <h3>現場管理サポート</h3>
           <p>勤怠確認、契約条件の整理、派遣先との連絡調整など、現場運用が止まらないための管理を支えます。</p>
         </article>
@@ -822,32 +750,18 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   </section>
 
   <section class="section" id="jobseekers">
-    <div class="container image-split">
-      <div class="visual-panel" role="img" aria-label="求職者支援の確認項目">
-        <div class="visual-art" aria-hidden="true">
-          <svg class="panel-art" viewBox="0 0 420 180" role="presentation">
-            <rect class="soft" x="22" y="26" width="376" height="126" rx="8" />
-            <path class="paper" d="M70 42h132v98H70z" />
-            <path class="muted-line" d="M92 66h84M92 86h64M92 106h76" />
-            <circle class="green" cx="278" cy="76" r="26" />
-            <path class="paper" d="M246 112c6-24 58-24 64 0v24h-64z" />
-            <path class="line" d="M222 132h112M318 58l26-18M336 68l26-6" />
-            <circle class="gold" cx="334" cy="42" r="8" />
-          </svg>
-        </div>
-        <div class="visual-heading">
-          <strong>就業前確認</strong>
-          <span class="seal">誠実</span>
-        </div>
-        <ul class="document-list">
-          <li><span>条件</span><strong>勤務時間・通勤・給与条件</strong></li>
+    <div class="container split">
+      <div class="audit-panel">
+        <h3>就業前に確認すること</h3>
+        <ul class="audit-lines">
+          <li><span>条件</span><strong>勤務時間、通勤、給与条件</strong></li>
           <li><span>相談</span><strong>不安や生活事情の聞き取り</strong></li>
-          <li><span>確認</span><strong>就業開始後のフォロー予定</strong></li>
+          <li><span>継続</span><strong>就業開始後のフォロー予定</strong></li>
         </ul>
       </div>
       <div class="message">
-        <div class="eyebrow">FOR JOB SEEKERS</div>
-        <h2>仕事選びを、急がせず、<br /><span class="nowrap">置き去りにしない。</span></h2>
+        <p class="section-label">求職者の方へ</p>
+        <h2 class="u-wrap">仕事選びを、急がせず、置き去りにしない。</h2>
         <p>経験や資格だけで判断せず、働ける時間、通勤、生活面の不安、今後の希望まで確認します。紹介して終わりではなく、就業後も相談できる関係を大切にします。</p>
         <ul class="check-list">
           <li>未経験から始めやすい現場の相談</li>
@@ -858,64 +772,30 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
     </div>
   </section>
 
-  <section class="section section-navy" id="employers">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <div class="eyebrow">FOR EMPLOYERS</div>
-          <h2>採用の不足を、<br /><span class="nowrap">現場運用の安定へ</span><br />つなげる。</h2>
-        </div>
-        <p>急な欠員や繁忙期対応だけでなく、業務内容、就業条件、教育体制、入場後フォローまで確認し、ミスマッチを減らすことを重視します。</p>
+  <section class="section section-dark" id="employers">
+    <div class="container dark-grid">
+      <div>
+        <p class="section-label">企業・採用担当の方へ</p>
+        <h2 class="u-wrap">採用の不足を、現場運用の安定へつなげる。</h2>
       </div>
-      <div class="feature-grid">
-        <article class="card">
-          <span class="card-number">A</span>
-          <h3>業務要件の整理</h3>
-          <p>職種名だけでなく、作業内容、必要な姿勢、勤務環境、教育方法まで確認します。</p>
-        </article>
-        <article class="card">
-          <span class="card-number">B</span>
-          <h3>契約・労務の確認</h3>
-          <p>派遣期間、就業時間、指揮命令系統、苦情申出先などを整理し、運用上の齟齬を防ぎます。</p>
-        </article>
-        <article class="card">
-          <span class="card-number">C</span>
-          <h3>定着フォロー</h3>
-          <p>就業開始後の勤怠、職場適応、相談事項を確認し、早期離職やトラブルを抑える支援を行います。</p>
-        </article>
-      </div>
+      <ul class="employer-list">
+        <li><strong>業務要件の整理</strong><span>職種名だけでなく、作業内容、必要な姿勢、勤務環境、教育方法まで確認します。</span></li>
+        <li><strong>契約・労務の確認</strong><span>派遣期間、就業時間、指揮命令系統、苦情申出先などを整理し、運用上の齟齬を防ぎます。</span></li>
+        <li><strong>定着フォロー</strong><span>就業開始後の勤怠、職場適応、相談事項を確認し、早期離職やトラブルを抑える支援を行います。</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="section section-white">
-    <div class="container image-split">
-      <div class="message">
-        <div class="eyebrow">COMPLIANCE</div>
-        <h2><span class="nowrap">人材派遣だからこそ、</span><br />手続きと記録を丁寧に。</h2>
+  <section class="section">
+    <div class="container split">
+      <div class="split-copy">
+        <p class="section-label">派遣運営の姿勢</p>
+        <h2 class="u-wrap">人材派遣だからこそ、手続きと記録を丁寧に。</h2>
         <p>人を扱う事業では、スピードだけでは信頼は生まれません。契約条件、個人情報、勤怠、相談記録を適切に管理し、派遣先と派遣スタッフの双方が安心できる運営を目指します。</p>
-        <ul class="check-list">
-          <li>個人情報の取扱いと閲覧範囲の管理</li>
-          <li>派遣契約・就業条件・管理台帳の整備</li>
-          <li>苦情相談・安全配慮・就業状況の継続確認</li>
-        </ul>
       </div>
-      <div class="visual-panel" role="img" aria-label="派遣運営の管理項目">
-        <div class="visual-art" aria-hidden="true">
-          <svg class="panel-art" viewBox="0 0 420 180" role="presentation">
-            <rect class="soft" x="20" y="24" width="380" height="128" rx="8" />
-            <path class="paper" d="M62 48h122v92H62z" />
-            <path class="paper" d="M204 38h118v102H204z" />
-            <path class="muted-line" d="M84 70h74M84 90h56M84 110h70M226 64h70M226 84h52M226 104h62" />
-            <circle class="gold" cx="324" cy="118" r="17" />
-            <path class="line" d="M112 140h166M160 48l18-18M278 38l18-18" />
-            <path class="green" d="M92 128h50v8H92zM232 122h48v8h-48z" />
-          </svg>
-        </div>
-        <div class="visual-heading">
-          <strong>派遣運営管理</strong>
-          <span class="seal">信頼</span>
-        </div>
-        <ul class="document-list">
+      <div class="audit-panel">
+        <h3>管理する項目</h3>
+        <ul class="audit-lines">
           <li><span>契約</span><strong>派遣契約・就業条件の整理</strong></li>
           <li><span>記録</span><strong>勤怠・相談・対応履歴の管理</strong></li>
           <li><span>連携</span><strong>派遣先との定期的な情報共有</strong></li>
@@ -924,28 +804,25 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
     </div>
   </section>
 
-  <section class="section" id="flow">
+  <section class="section section-surface" id="flow">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
         <div>
-          <div class="eyebrow">PROCESS</div>
-          <h2>ご相談から<br /><span class="nowrap">就業後フォローまで。</span></h2>
+          <p class="section-label">対応の流れ</p>
+          <h2 class="u-wrap">ご相談から就業後フォローまで。</h2>
         </div>
         <p>派遣先企業、求職者のどちらのご相談も、初回確認から条件整理、就業後のフォローまで一貫して対応します。</p>
       </div>
-      <div class="flow-grid">
-        <article class="card">
-          <span class="card-number">1</span>
+      <div class="process">
+        <article class="process-step">
           <h3>ご相談</h3>
           <p>人員課題、希望職種、勤務条件、開始時期などを確認します。</p>
         </article>
-        <article class="card">
-          <span class="card-number">2</span>
+        <article class="process-step">
           <h3>条件確認</h3>
           <p>業務内容、労働条件、必要書類、就業前の注意点を整理します。</p>
         </article>
-        <article class="card">
-          <span class="card-number">3</span>
+        <article class="process-step">
           <h3>就業後フォロー</h3>
           <p>勤怠、相談、契約更新、職場適応を確認し、安定稼働を支援します。</p>
         </article>
@@ -954,34 +831,27 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   </section>
 
   <section class="section representative" id="message">
-    <div class="container representative-grid">
-      <div class="representative-mark" aria-hidden="true">
-        <div class="representative-mark-inner">人財</div>
+    <div class="container representative-layout">
+      <div class="representative-aside">
+        <strong>代表者あいさつ</strong>
+        <span>現場で向き合ってきた経験を、派遣先企業と働く人の支援に活かします。</span>
       </div>
-      <div class="representative-message">
-        <div class="eyebrow">CEO MESSAGE</div>
-        <h2><span class="nowrap">目の前のお一人と、</span><br /><span class="nowrap">目の前の一社に、</span><br />誠実であり続けます。</h2>
+      <div class="quote">
+        <h2 class="u-wrap">目の前のお一人と、目の前の一社に、誠実であり続けます。</h2>
         <blockquote>
-          「人材」を「人財」と書き換えたとき、見える景色がまるで変わりました。<br />
-          人は埋めるべき空席ではなく、組織を未来へ運ぶ財産です。<br />
-          長年、人材派遣の現場に携わるなかで、条件だけではなく、働く人の不安や企業の事情に丁寧に向き合うことの大切さを学んできました。<br />
-          私たちは小さな会社ですが、目の前のお一人と、目の前の一社に、誠実であり続けます。
+          「人材」を「人財」と書き換えたとき、見える景色がまるで変わりました。人は埋めるべき空席ではなく、組織を未来へ運ぶ財産です。長年、人材派遣の現場に携わるなかで、条件だけではなく、働く人の不安や企業の事情に丁寧に向き合うことの大切さを学んできました。
         </blockquote>
-        <p class="representative-name">
-          代表者
-          <strong>三上 修二</strong>
-          Shuji Mikami
-        </p>
+        <p class="representative-name">代表者<strong>三上 修二</strong>Shuji Mikami</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-white" id="company">
+  <section class="section section-surface" id="company">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
         <div>
-          <div class="eyebrow">COMPANY</div>
-          <h2>会社情報</h2>
+          <p class="section-label">会社情報</p>
+          <h2>株式会社覚善</h2>
         </div>
         <p>人材派遣と現場管理支援を通じて、企業と働く人の安定した関係づくりを支援します。</p>
       </div>
@@ -990,22 +860,21 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
           <tr><th>商号</th><td>株式会社覚善</td></tr>
           <tr><th>代表者</th><td>三上 修二</td></tr>
           <tr><th>事業内容</th><td>人材派遣、現場管理支援、就業支援</td></tr>
-          <tr><th>所在地</th><td>正式所在地を確認のうえ掲載</td></tr>
-          <tr><th>連絡先</th><td>お問い合わせフォームよりご連絡ください</td></tr>
-          <tr><th>許可番号</th><td>労働者派遣事業許可番号を確認のうえ掲載</td></tr>
+          <tr><th>所在地</th><td><span class="status-pending">確認後に掲載</span></td></tr>
+          <tr><th>連絡先</th><td><span class="status-pending">正式番号確認後に掲載</span></td></tr>
+          <tr><th>許可番号</th><td><span class="status-pending">労働者派遣事業許可番号確認後に掲載</span></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <section class="section section-navy" id="contact">
+  <section class="section contact" id="contact">
     <div class="container contact-layout">
-      <div class="contact-box">
-        <div class="eyebrow">CONTACT</div>
-        <h3>人材派遣に関するご相談</h3>
+      <div class="contact-copy">
+        <h2>人材派遣に関するご相談</h2>
         <p>企業の人員体制、仕事を探している方の就業相談など、まずは現在の状況をお聞かせください。</p>
         <ul class="contact-list">
-          <li><strong>TEL</strong><br />正式番号を確認のうえ掲載</li>
+          <li><strong>TEL</strong><br />正式番号確認後に掲載</li>
           <li><strong>MAIL</strong><br />お問い合わせフォームより受付</li>
           <li><strong>受付</strong><br />平日営業時間内に順次対応</li>
         </ul>
@@ -1041,11 +910,11 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
           </select>
         </div>
         <div class="field">
-          <label for="message">メッセージ</label>
-          <textarea id="message" name="message" required placeholder="相談したい内容をご記入ください"></textarea>
+          <label for="contact-message">メッセージ</label>
+          <textarea id="contact-message" name="message" required placeholder="相談したい内容をご記入ください"></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">送信内容を確認</button>
-        <p class="form-note" id="form-note">正式な送信先メールアドレス設定後、送信機能を有効化してください。</p>
+        <button class="btn" type="submit">送信内容を確認</button>
+        <p class="form-note" id="form-note">プレビュー版です。公開時は正式な送信先メールアドレスを設定してください。</p>
       </form>
     </div>
   </section>
@@ -1053,30 +922,12 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 
 <footer class="footer">
   <div class="container footer-inner">
-    <div>
-      <strong>株式会社覚善</strong>
-      <span>人材派遣・現場管理支援</span>
-    </div>
-    <div>© 2026 KAKUZEN INC. All rights reserved.</div>
+    <div><strong>株式会社覚善</strong><span>人材派遣・現場管理支援</span></div>
+    <div>© 2026 KAKUZEN INC.</div>
   </div>
 </footer>
 
 <script>
-const menuButton = document.querySelector(".menu-button");
-const nav = document.querySelector("#site-nav");
-
-menuButton.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", String(isOpen));
-});
-
-nav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-  });
-});
-
 document.querySelector("#contact-form").addEventListener("submit", (event) => {
   event.preventDefault();
   document.querySelector("#form-note").textContent = "内容を確認しました。公開時は正式な送信先メールアドレスを設定してください。";
