@@ -152,6 +152,11 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   font-family: var(--font-display);
   font-size: clamp(38px, 5.5vw, 72px);
   line-height: 1.22;
+  text-wrap: balance;
+}
+
+.hero-title-line {
+  display: block;
 }
 
 .hero p {
@@ -657,7 +662,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   .page-index { display: none; }
   .proof-panel { display: none; }
   .statement-inner { grid-template-columns: 1fr; gap: 6px; }
-  .hero h1 { font-size: 34px; }
+  .hero h1 { font-size: 32px; }
   .hero p { font-size: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .proof-title { font-size: 24px; }
@@ -695,7 +700,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
     <div class="container hero-layout">
       <div>
         <div class="hero-kicker">人材派遣・現場管理支援</div>
-        <h1 class="u-wrap">人と企業の信頼を、現場の毎日から積み重ねる。</h1>
+        <h1 class="u-wrap"><span class="hero-title-line">人と企業の信頼を、</span><span class="hero-title-line">現場の毎日から</span><span class="hero-title-line">積み重ねる。</span></h1>
         <p>株式会社覚善は、代表者が長年人材派遣に携わってきた経験を土台に、働く人が安心して力を発揮できる環境づくりと、企業の安定した人員体制を支援します。</p>
         <div class="hero-actions">
           <a class="btn" href="#employers">人材をお探しの企業様</a>
