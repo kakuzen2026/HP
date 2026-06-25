@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2310233f'/%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='%23b9822b' stroke-width='4'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='26' font-family='serif' font-weight='700' fill='%23f8f4ea'%3E%E8%A6%9A%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 */
 :root {
@@ -28,8 +28,9 @@
   --color-line-dark: rgba(251,250,246,.22);
   --color-on-dark: #f8f4ea;
   --shadow-panel: 0 16px 32px rgba(16,35,63,.10);
-  --font-body: "Noto Sans JP", system-ui, sans-serif;
-  --font-display: "Noto Serif JP", serif;
+  --font-body: "BIZ UDPGothic", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --font-display: "BIZ UDPGothic", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --font-mark: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   --radius: 8px;
   --container: 1160px;
 }
@@ -82,6 +83,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   background: var(--color-green);
   font-size: 13px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .masthead-main {
@@ -109,7 +111,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   border-radius: 50%;
   color: var(--color-on-dark);
   background: var(--color-navy);
-  font-family: var(--font-display);
+  font-family: var(--font-mark);
   font-weight: 700;
 }
 
@@ -152,6 +154,25 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 .page-index a:focus-visible,
 .page-index a:hover { background: var(--color-gold-soft); outline: 0; }
 
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 20;
+  transform: translateY(-140%);
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: var(--color-on-dark);
+  background: var(--color-navy);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
 .hero {
   color: var(--color-on-dark);
   background: var(--color-navy);
@@ -177,7 +198,8 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   margin: 18px 0 22px;
   font-family: var(--font-display);
   font-size: clamp(38px, 3.8vw, 44px);
-  line-height: 1.22;
+  line-height: 1.28;
+  font-weight: 700;
   text-wrap: balance;
 }
 
@@ -231,7 +253,8 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   margin: 0 0 24px;
   font-family: var(--font-display);
   font-size: 28px;
-  line-height: 1.35;
+  line-height: 1.45;
+  font-weight: 700;
 }
 
 .proof-list {
@@ -287,6 +310,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   color: var(--color-navy);
   background: var(--color-gold-soft);
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .section-head {
@@ -311,7 +335,8 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(29px, 4vw, 46px);
-  line-height: 1.34;
+  line-height: 1.4;
+  font-weight: 700;
 }
 
 .section-head p {
@@ -491,7 +516,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   display: block;
   font-family: var(--font-display);
   font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .representative-aside span {
@@ -504,7 +529,8 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
   margin: 0 0 22px;
   font-family: var(--font-display);
   font-size: clamp(29px, 4vw, 44px);
-  line-height: 1.34;
+  line-height: 1.4;
+  font-weight: 700;
 }
 
 .quote blockquote {
@@ -736,13 +762,35 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 }
 
 @media (max-width: 560px) {
+  body {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
   .container { width: min(100% - 28px, var(--container)); }
   .masthead-main { min-height: 74px; }
   .brand-name small { display: none; }
-  .page-index { display: none; }
+  .page-index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+  }
+  .page-index a {
+    border-top: 1px solid var(--color-line);
+    font-size: 12px;
+    white-space: normal;
+  }
   .proof-panel { display: none; }
   .statement-inner { grid-template-columns: 1fr; gap: 6px; }
   .hero h1 { font-size: 32px; }
+  .hero-title-line {
+    content: "";
+    display: block;
+  }
+  .u-wrap,
+  .contact-copy h2 {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
   .hero p { font-size: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .proof-title { font-size: 24px; }
@@ -758,9 +806,10 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#service">本文へ移動</a>
 <header class="masthead">
   <div class="site-alert">
-    <div class="container">公開前確認中: 許可番号・所在地・連絡先・法定開示情報の確認が完了するまで、検索エンジンには登録しない設定にしています。</div>
+    <div class="container">公開準備中: 許可番号・所在地・連絡先・法定開示情報の確認完了まで、検索エンジンに登録しない設定です。</div>
   </div>
   <div class="container masthead-main">
     <a class="brand" href="#top" aria-label="株式会社覚善 トップへ">
@@ -783,15 +832,15 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
     <div class="container hero-layout">
       <div>
         <div class="hero-kicker">人材派遣・現場管理支援</div>
-        <h1 class="u-wrap"><span class="hero-title-line">派遣して終わらない人材会社。</span><span class="hero-title-line">働き続ける安心まで。</span></h1>
-        <p>株式会社覚善は、代表者が長年人材派遣に携わってきた経験を土台に、働く人が安心して力を発揮できる環境づくりと、企業の安定した人員体制を支援します。</p>
+        <h1 class="u-wrap"><span class="hero-title-line">現場に入る前の確認から、</span><span class="hero-title-line">勤務後の相談まで。</span></h1>
+        <p>株式会社覚善は、代表者が長年人材派遣に携わってきた経験を土台に、勤務条件、通勤、現場環境、就業後の困りごとまで見ながら、企業と働く人の安定した関係づくりを支援します。</p>
         <div class="hero-actions">
           <a class="btn" href="#employers">人材をお探しの企業様</a>
           <a class="btn btn-secondary" href="#jobseekers">仕事をお探しの方</a>
         </div>
       </div>
       <aside class="proof-panel" aria-label="覚善の運営姿勢">
-        <p class="proof-title">就業開始がゴールではない。働き続けられる状態まで関わります。</p>
+        <p class="proof-title">条件を聞き、現場を見て、勤務後も相談を受ける運営を大切にします。</p>
         <ul class="proof-list">
           <li><strong>法令順守</strong><span>労働者派遣法、契約条件、個人情報管理の基本を重視します。</span></li>
           <li><strong>現場理解</strong><span>業務内容、勤務環境、教育体制を把握してから紹介します。</span></li>
@@ -810,7 +859,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
 
   <section class="section section-surface" id="service">
     <div class="container">
-      <p class="prelaunch-note">このページは公開前確認中です。労働者派遣事業許可番号、所在地、連絡先、派遣事業に関する情報提供ページの確認が完了するまで、正式公開しません。</p>
+      <p class="prelaunch-note">このページは公開準備中です。労働者派遣事業許可番号、所在地、連絡先、法定開示情報の確認後に正式公開します。</p>
       <div class="section-head">
         <div>
           <p class="section-label">事業内容</p>
@@ -879,8 +928,8 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
     <div class="container split">
       <div class="split-copy">
         <p class="section-label">派遣運営の姿勢</p>
-        <h2 class="u-wrap"><span class="phrase">契約と記録を、</span><span class="phrase">当たり前に。</span><span class="phrase">当たり前を、</span><span class="phrase">当たり前以上に。</span></h2>
-        <p>人を扱う事業では、スピードだけでは信頼は生まれません。契約条件、個人情報、勤怠、相談記録を適切に管理し、派遣先と派遣スタッフの双方が安心できる運営を目指します。</p>
+        <h2 class="u-wrap"><span class="phrase">勤務条件、勤怠、相談履歴を、</span><span class="phrase">見える形で残す。</span></h2>
+        <p>人を扱う事業では、紹介の速さだけでは信頼は続きません。契約条件、個人情報、勤怠、相談記録を適切に管理し、派遣先と派遣スタッフの双方が安心できる運営を目指します。</p>
       </div>
       <div class="audit-panel">
         <h3>管理する項目</h3>
@@ -926,7 +975,7 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
         <span>現場で向き合ってきた経験を、派遣先企業と働く人の支援に活かします。</span>
       </div>
       <div class="quote">
-        <h2 class="u-wrap"><span class="phrase">目の前のひとりに、</span><span class="phrase">目の前のひと社に、</span><span class="phrase">誠実であり続けます。</span></h2>
+        <h2 class="u-wrap"><span class="phrase">条件だけで決めず、</span><span class="phrase">続けられるかまで確認します。</span></h2>
         <blockquote>
           長年、人材派遣の現場に携わるなかで、条件だけでは人も企業も続かないことを学んできました。働く方には生活や将来の不安があり、企業には日々の現場を止められない事情があります。だからこそ、最初の聞き取りから勤務開始後の相談まで、相手の状況に丁寧に向き合う会社でありたいと考えています。
         </blockquote>
@@ -949,9 +998,9 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
           <tr><th>商号</th><td>株式会社覚善</td></tr>
           <tr><th>代表者</th><td>三上 修二</td></tr>
           <tr><th>事業内容</th><td>人材派遣、現場管理支援、就業支援</td></tr>
-          <tr><th>所在地</th><td><span class="status-pending">公開前確認中</span></td></tr>
-          <tr><th>連絡先</th><td><span class="status-pending">公開前確認中</span></td></tr>
-          <tr><th>許可番号</th><td><span class="status-pending">労働者派遣事業許可番号を公開前確認中</span></td></tr>
+          <tr><th>所在地</th><td><span class="status-pending">確認中</span></td></tr>
+          <tr><th>連絡先</th><td><span class="status-pending">確認中</span></td></tr>
+          <tr><th>許可番号</th><td><span class="status-pending">労働者派遣事業許可番号を確認中</span></td></tr>
           <tr><th>法定開示</th><td><span class="status-pending">派遣事業に関する情報提供ページを公開前準備中</span></td></tr>
           <tr><th>個人情報保護</th><td><span class="status-pending">プライバシーポリシーを公開前準備中</span></td></tr>
         </tbody>
@@ -963,10 +1012,10 @@ button, input, select, textarea { font: inherit; letter-spacing: 0; }
     <div class="container contact-layout">
       <div class="contact-copy">
         <h2><span class="phrase">人材派遣に関する</span><span class="phrase">ご相談</span></h2>
-        <p>現在、このページは公開前確認中です。正式な連絡先と送信先の確認が完了するまで、フォームから個人情報は送信できません。</p>
+        <p>現在、このページは公開準備中です。正式な連絡先と送信先の確認が完了するまで、フォームから個人情報は送信できません。</p>
         <ul class="contact-list">
-          <li><strong>TEL</strong><br />公開前確認中</li>
-          <li><strong>MAIL</strong><br />公開前確認中</li>
+          <li><strong>TEL</strong><br />正式公開時に掲載します</li>
+          <li><strong>MAIL</strong><br />正式公開時に掲載します</li>
           <li><strong>受付</strong><br />正式公開時に受付方法を掲載します</li>
         </ul>
       </div>
